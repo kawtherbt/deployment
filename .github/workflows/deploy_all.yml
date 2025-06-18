@@ -10,9 +10,11 @@ env:
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
   ECR_REGISTRY:   ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
   FRONTEND_REPO:  meryembraham/planit-frontend1
+  
 
 jobs:
   build-and-push:
+    
     name: 🐳 Build & Push Docker Images
     runs-on: ubuntu-latest
     strategy:
@@ -49,7 +51,7 @@ jobs:
           IMAGE: ${{ env.ECR_REGISTRY }}/${{ matrix.service.name }}:latest
         run: |
           CONTEXT=${{ matrix.service.path }}
-          if [ "${{ matrix.service.is_frontend }}" = "true" ]; then
+          if [ if: ${{ matrix.service.is_frontend }} ]; then
             docker build \
               --build-arg VITE_API_URL="https://${{ secrets.ALB_DNS }}/api" \
               -t $IMAGE $CONTEXT
