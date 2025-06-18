@@ -151,20 +151,12 @@ jobs:
     steps:
       - uses: aws-actions/configure-aws-credentials@v3
         with:
-<<<<<<< HEAD
           aws-region:            ${{ secrets.AWS_REGION }}
-=======
-          aws-region:            eu-west-3
->>>>>>> 6e581d7acff182945177e262c4b5add13a5c3357
           aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Update kubeconfig
-<<<<<<< HEAD
         run: aws eks update-kubeconfig --name ${{ needs.terraform.outputs.cluster_name }} --region ${{ secrets.AWS_REGION }}
-=======
-        run: aws eks update-kubeconfig --name ${{ needs.terraform.outputs.cluster_name }} --region eu-west-3
->>>>>>> 6e581d7acff182945177e262c4b5add13a5c3357
 
       - name: Deploy all services
         run: |
