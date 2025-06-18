@@ -38,7 +38,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
-          aws-region:            ${{ env.AWS_REGION }}
+          aws-region:            ${{ secrets.AWS_REGION }}
           aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
@@ -46,20 +46,17 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build & Push ${{ matrix.service.name }}
-        env:
-          BACKEND_ECR_REGISTRY: ${{ env.BACKEND_ECR_REGISTRY }}
-          FRONTEND_ECR_REGISTRY: ${{ env.FRONTEND_ECR_REGISTRY }}
         run: |
           CONTEXT=${{ matrix.service.path }}
 
           if [ "${{ matrix.service.is_frontend }}" = "true" ]; then
-            IMAGE=$FRONTEND_ECR_REGISTRY:latest
+            IMAGE=${{ env.FRONTEND_ECR_REGISTRY }}:latest
             docker build \
               --build-arg VITE_API_URL="https://${{ secrets.ALB_DNS }}/api" \
               -t $IMAGE $CONTEXT
             docker push $IMAGE
           else
-            IMAGE=$BACKEND_ECR_REGISTRY:${{ matrix.service.name }}-latest
+            IMAGE=${{ env.BACKEND_ECR_REGISTRY }}:${{ matrix.service.name }}-latest
             docker build \
               --build-arg DB_HOST="${{ secrets.AURORA_ENDPOINT }}" \
               --build-arg DB_NAME="${{ secrets.AURORA_DB_NAME }}" \
@@ -79,13 +76,13 @@ jobs:
       - name: Configure AWS CLI
         uses: aws-actions/configure-aws-credentials@v3
         with:
-          aws-region:        ${{ env.AWS_REGION }}
+          aws-region:        ${{ secrets.AWS_REGION }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Ensure GitHub OIDC provider exists
         run: |
-          PROVIDER_ARN="arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:oidc-provider/token.actions.githubusercontent.com"
+          PROVIDER_ARN="arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:oidc-provider/token.actions.githubusercontent.com"
           if ! aws iam get-open-id-connect-provider --open-id-connect-provider-arn $PROVIDER_ARN; then
             aws iam create-open-id-connect-provider \
               --url https://token.actions.githubusercontent.com \
@@ -104,7 +101,7 @@ jobs:
                   {
                     "Effect": "Allow",
                     "Principal": {
-                      "Federated": "arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:oidc-provider/token.actions.githubusercontent.com"
+                      "Federated": "arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:oidc-provider/token.actions.githubusercontent.com"
                     },
                     "Action": "sts:AssumeRoleWithWebIdentity",
                     "Condition": {
@@ -133,7 +130,7 @@ jobs:
                           --role-name $ROLE_NAME \
                           --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
 
-                        echo "::set-output name=deploy-role-arn::arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/$ROLE_NAME"
+                        echo "deploy-role-arn=arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/$ROLE_NAME" >> $GITHUB_OUTPUT
 
   deploy:
     name: 🚀 Deploy to EKS
@@ -141,20 +138,18 @@ jobs:
     needs:
       - build-and-push
       - bootstrap-iam
-    env:
-      AWS_REGION:      ${{ env.AWS_REGION }}
     steps:
       - name: Assume deploy role
         uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: ${{ needs.bootstrap-iam.outputs.deploy-role-arn }}
-          aws-region:     ${{ env.AWS_REGION }}
+          aws-region:     ${{ secrets.AWS_REGION }}
 
       - name: Update kubeconfig
         run: |
           aws eks update-kubeconfig \
             --name ${{ secrets.EKS_CLUSTER_NAME }} \
-            --region ${{ env.AWS_REGION }}
+            --region ${{ secrets.AWS_REGION }}
 
       - name: Deploy all services
         run: |
