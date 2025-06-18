@@ -88,10 +88,10 @@ jobs:
 
       - name: Deploy all services
         run: |
-          kubectl apply -f deployment/declarative/manifests/base/auth-service
-          kubectl apply -f deployment/declarative/manifests/base/staff-service
-          kubectl apply -f deployment/declarative/manifests/base/event-service
-          kubectl apply -f deployment/declarative/manifests/base/frontend-service
+          kubectl apply -f ./deployment/declarative/manifests/base/auth-service
+          kubectl apply -f ./deployment/declarative/manifests/base/staff-service
+          kubectl apply -f ./deployment/declarative/manifests/base/event-service
+          kubectl apply -f ./deployment/declarative/manifests/base/frontend-service
 
       - name: Wait for LoadBalancers
         run: |
