@@ -26,6 +26,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          path: .
 
       - name: Checkout frontend (if needed)
         if: matrix.service.is_frontend == 'true'
@@ -35,28 +37,29 @@ jobs:
           token:      ${{ secrets.GITHUB_TOKEN }}
           path:       frontend
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v3
+      - uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-region:            ${{ secrets.AWS_REGION }}
           aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      - name: Login to Amazon ECR
-        uses: aws-actions/amazon-ecr-login@v2
+      - uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build & Push ${{ matrix.service.name }}
+        env:
+          BACKEND_ECR_REGISTRY: ${{ env.BACKEND_ECR_REGISTRY }}
+          FRONTEND_ECR_REGISTRY: ${{ env.FRONTEND_ECR_REGISTRY }}
         run: |
           CONTEXT=${{ matrix.service.path }}
 
           if [ "${{ matrix.service.is_frontend }}" = "true" ]; then
-            IMAGE=${{ env.FRONTEND_ECR_REGISTRY }}:latest
+            IMAGE=$FRONTEND_ECR_REGISTRY:latest
             docker build \
               --build-arg VITE_API_URL="https://${{ secrets.ALB_DNS }}/api" \
               -t $IMAGE $CONTEXT
             docker push $IMAGE
           else
-            IMAGE=${{ env.BACKEND_ECR_REGISTRY }}:${{ matrix.service.name }}-latest
+            IMAGE=$BACKEND_ECR_REGISTRY:${{ matrix.service.name }}-latest
             docker build \
               --build-arg DB_HOST="${{ secrets.AURORA_ENDPOINT }}" \
               --build-arg DB_NAME="${{ secrets.AURORA_DB_NAME }}" \
@@ -66,84 +69,37 @@ jobs:
             docker push $IMAGE
           fi
 
-  bootstrap-iam:
-    name: ☁️ Bootstrap IAM Role
-    runs-on: ubuntu-latest
-    needs: build-and-push
-    outputs:
-      deploy-role-arn: ${{ steps.set-role-arn.outputs.deploy-role-arn }}
-    steps:
-      - name: Configure AWS CLI
-        uses: aws-actions/configure-aws-credentials@v3
-        with:
-          aws-region:        ${{ secrets.AWS_REGION }}
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      - name: Ensure GitHub OIDC provider exists
-        run: |
-          PROVIDER_ARN="arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:oidc-provider/token.actions.githubusercontent.com"
-          if ! aws iam get-open-id-connect-provider --open-id-connect-provider-arn $PROVIDER_ARN; then
-            aws iam create-open-id-connect-provider \
-              --url https://token.actions.githubusercontent.com \
-              --client-id-list sts.amazonaws.com \
-              --thumbprint-list 6938fd4d98bab03faadb97b34396831e3780aea1
-          fi
-
-      - name: Create or update deploy role
-        id: set-role-arn
-        run: |
-          ROLE_NAME=GitHubDeployRole
-          TRUST_POLICY=$(cat <<EOF
-              {
-                "Version": "2012-10-17",
-                "Statement": [
-                  {
-                    "Effect": "Allow",
-                    "Principal": {
-                      "Federated": "arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:oidc-provider/token.actions.githubusercontent.com"
-                    },
-                    "Action": "sts:AssumeRoleWithWebIdentity",
-                    "Condition": {
-                      "StringLike": {
-                        "token.actions.githubusercontent.com:sub": "repo:${{ github.repository }}:*"
-                      }
-                    }
-                  }
-                ]
-              }
-              EOF
-              )
-                        echo "$TRUST_POLICY" > trust-policy.json
-
-                        if ! aws iam get-role --role-name $ROLE_NAME; then
-                          aws iam create-role \
-                            --role-name $ROLE_NAME \
-                            --assume-role-policy-document file://trust-policy.json
-                        else
-                          aws iam update-assume-role-policy \
-                            --role-name $ROLE_NAME \
-                            --policy-document file://trust-policy.json
-                        fi
-
-                        aws iam attach-role-policy \
-                          --role-name $ROLE_NAME \
-                          --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
-
-                        echo "deploy-role-arn=arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/$ROLE_NAME" >> $GITHUB_OUTPUT
-
   deploy:
     name: 🚀 Deploy to EKS
+    needs: build-and-push
     runs-on: ubuntu-latest
-    needs:
-      - build-and-push
-      - bootstrap-iam
     steps:
-      - name: Assume deploy role
+      - uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-region:            ${{ secrets.AWS_REGION }}
+          aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Update kubeconfig
+        run: |
+          aws eks update-kubeconfig \
+            --name ${{ secrets.EKS_CLUSTER_NAME }} \
+            --region ${{ secrets.AWS_REGION }}
+
+
+      # - name: Deploy overlay/dev
+      #   run: |
+      #     kubectl apply -k deployment/declarative/manifests/overlays/dev
+      
+      # - name: List current directory
+      #   run: pwd && ls -R deployment/declarative/manifests/base
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Configure AWS Credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v3
         with:
-          role-to-assume: ${{ needs.bootstrap-iam.outputs.deploy-role-arn }}
-          aws-region:     ${{ secrets.AWS_REGION }}
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GitHubDeployRole
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Update kubeconfig
         run: |
@@ -158,7 +114,7 @@ jobs:
           kubectl apply -f deployment/declarative/manifests/base/event-service
           kubectl apply -f deployment/declarative/manifests/base/frontend-service
 
-      - name: Wait for LoadBalancers to be ready
+      - name: Wait for LoadBalancers
         run: |
           for svc in auth-service staff-service event-service frontend-service; do
             kubectl wait --for=condition=ready --timeout=10m svc/$svc
