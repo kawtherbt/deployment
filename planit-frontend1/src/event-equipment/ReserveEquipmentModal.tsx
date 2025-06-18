@@ -55,8 +55,8 @@ function ReserveEquipmentModal({ isOpen, onClose, equipmentId, eventId, onSucces
     });
     
     try {
-      console.log('Sending reservation request to:', `${URLS.ServerIpAddress}/api/reserveEquipment`);
-      const response = await fetch(`${URLS.ServerIpAddress}/api/reserveEquipment`, {
+      console.log('Sending reservation request to:', `${URLS.ServerIpAddress}/reserveEquipment`);
+      const response = await fetch(`${URLS.ServerIpAddress}/reserveEquipment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

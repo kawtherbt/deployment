@@ -13,7 +13,7 @@ function Add_new_client_interface(props:any){
         try {
             setStatus(FETCH_STATUS.LOADING);
             const submitData = {...data,num_tel:Number(data.num_tel)}
-            const reponse = await fetch(`${URLS.ServerIpAddress}/api/addClient`,{
+            const reponse = await fetch(`${URLS.ServerIpAddress}/addClient`,{
                 method:"POST",
                 headers:{"Content-type":"application/json"},
                 body: JSON.stringify(submitData),

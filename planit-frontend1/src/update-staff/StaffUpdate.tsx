@@ -29,7 +29,7 @@ export default function StaffUpdate() {
     e.preventDefault();
     
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/api/updateStaff`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/updateStaff`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json',},
         credentials:'include',

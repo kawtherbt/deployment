@@ -13,7 +13,7 @@ function ClientDepartments(props:any){
         try {
             //alert("trying to get client department");
             //alert(JSON.stringify({user_id:props.clientID}));
-            const reponse = await fetch(`${URLS.ServerIpAddress}/api/getClientDepartments/${props.clientID}`,{
+            const reponse = await fetch(`${URLS.ServerIpAddress}/getClientDepartments/${props.clientID}`,{
                 method:'GET',
                 headers:{"Content-Type":"application/json"},
                 //body:JSON.stringify({client_id:props.clientID}),

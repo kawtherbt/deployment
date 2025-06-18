@@ -135,7 +135,7 @@ const HistoryDetailPage = () => {
   const getEventInfo = async () => {
     try {
         setStatus(FETCH_STATUS.LOADING);
-        const response = await fetch(`${URLS.ServerIpAddress}/api/getRestOfEventsHistoryData/${eventId}`,
+        const response = await fetch(`${URLS.ServerIpAddress}/getRestOfEventsHistoryData/${eventId}`,
             {
                 method: "GET",
                 headers: {
@@ -161,7 +161,7 @@ const HistoryDetailPage = () => {
   const getEventEquipment = async () => {
     try {
         setStatus(FETCH_STATUS.LOADING);
-        const response = await fetch(`${URLS.ServerIpAddress}/api/getEventEquipment/${eventId}`,
+        const response = await fetch(`${URLS.ServerIpAddress}/getEventEquipment/${eventId}`,
             {
                 method: "GET",
                 headers: {
@@ -186,7 +186,7 @@ const HistoryDetailPage = () => {
   const getEventStaff = async () => {
     try {
         setStatus(FETCH_STATUS.LOADING);
-        const response = await fetch(`${URLS.ServerIpAddress}/api/getEventStaff/${eventId}`,
+        const response = await fetch(`${URLS.ServerIpAddress}/getEventStaff/${eventId}`,
             {
                 method: "GET",
                 headers: {
@@ -212,7 +212,7 @@ const HistoryDetailPage = () => {
   const getEventSoirees = async () => {
     try {
         setStatus(FETCH_STATUS.LOADING);
-        const response = await fetch(`${URLS.ServerIpAddress}/api/getEventSoiree/${eventId}`,
+        const response = await fetch(`${URLS.ServerIpAddress}/getEventSoiree/${eventId}`,
             {
                 method: "GET",
                 headers: {
@@ -240,7 +240,7 @@ const HistoryDetailPage = () => {
   const getEventTransports = async () => {
     try {
         setStatus(FETCH_STATUS.LOADING);
-        const response = await fetch(`${URLS.ServerIpAddress}/api/getEventtransport/${eventId}`,
+        const response = await fetch(`${URLS.ServerIpAddress}/getEventtransport/${eventId}`,
             {
                 method: "GET",
                 headers: {
@@ -268,7 +268,7 @@ const HistoryDetailPage = () => {
   const getEventWorkshops = async () => {
     try {
         setStatus(FETCH_STATUS.LOADING);
-        const response = await fetch(`${URLS.ServerIpAddress}/api/getEventWorkshops/${eventId}`,
+        const response = await fetch(`${URLS.ServerIpAddress}/getEventWorkshops/${eventId}`,
             {
                 method: "GET",
                 headers: {
@@ -296,7 +296,7 @@ const HistoryDetailPage = () => {
   const getEventAccommodations = async () => {
     try {
         setStatus(FETCH_STATUS.LOADING);
-        const response = await fetch(`${URLS.ServerIpAddress}/api/getEventAccomodation/${eventId}`,
+        const response = await fetch(`${URLS.ServerIpAddress}/getEventAccomodation/${eventId}`,
             {
                 method: "GET",
                 headers: {

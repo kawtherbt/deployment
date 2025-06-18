@@ -69,7 +69,7 @@ function Equipment_table(props:any){
             //const SubmitData = {timestamp:String(current_time)}
             //console.log(JSON.stringify(SubmitData));
             setStatus(FETCH_STATUS.LOADING);
-            const reponse = await fetch(`${URLS.ServerIpAddress}/api/getAllEquipment/${current_time}`,{
+            const reponse = await fetch(`${URLS.ServerIpAddress}/getAllEquipment/${current_time}`,{
                 method:"GET",
                 headers:{'Content-Type':'application/json'},
                 credentials:'include',

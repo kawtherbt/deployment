@@ -34,7 +34,7 @@ const AddTeamModal: React.FC<AddTeamModalProps> = ({ isOpen, onClose, getTeams }
     
     try {
       setStatus(FETCH_STATUS.LOADING);      
-      const response = await fetch(`${URLS.ServerIpAddress}/api/addTeam`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/addTeam`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(formData),

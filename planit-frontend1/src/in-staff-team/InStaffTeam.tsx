@@ -38,7 +38,7 @@ function InStaffTeam() {
   const [selectedItems, setSelectedItems] = useState<SelectedItems>({});
   const [currentPage, setCurrentPage] = useState(1);
   const itemPerPage = 7;
-export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
+const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
 
   const IndexOfLastItem = itemPerPage * currentPage;
   const IndexOfFirstItem = IndexOfLastItem - itemPerPage;
@@ -89,7 +89,7 @@ export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost
   const getTeams = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${API}/getAllTeams`, {
+      const response = await fetch(`${ServerIpAddress}/getAllTeams`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -112,7 +112,7 @@ export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost
   const getStaffForTeams = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${API}/api/getAllStaffForTeams` , {
+      const response = await fetch(`${ServerIpAddress}/getAllStaffForTeams` , {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

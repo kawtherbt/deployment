@@ -8,12 +8,12 @@ import { toast } from 'react-toastify';
 
 function StaffElement(props:any){
     const navigate = useNavigate();
-    export const ServerIpAddress =import.meta.env.VITE_API_URL ?? "http://localhost:5000";
+    const ServerIpAddress =import.meta.env.VITE_API_URL ?? "http://localhost:5000";
 
     const deleteStaff = async ()=>{
         try {
           
-            const reponse = await fetch(`${API}/api/deleteStaff`,{
+            const reponse = await fetch(`${ServerIpAddress}/deleteStaff`,{
                 method:"DELETE",
                 headers:{'Content-Type':'application/json'},
                 credentials:'include',

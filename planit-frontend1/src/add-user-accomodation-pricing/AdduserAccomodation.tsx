@@ -46,7 +46,7 @@ export default function AdduserAccomodation() {
     try {
       setStatus(FETCH_STATUS.LOADING);
       const submitData = {...formData,evenement_id:evenement_id.current,number:Number(formData.number),prix:Number(formData.prix)}
-      const response = await fetch(`${URLS.ServerIpAddress}/api/addAccomodation`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/addAccomodation`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

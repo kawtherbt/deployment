@@ -14,7 +14,7 @@ import arrowForward from '../assets/arrow_forward_black.svg';
 import AddPrestataireModal from '../add-prestataire/AddPrestataireModal';
 import UpdatePrestataireModal from '../update-prestataire/UpdatePrestataireModal';
 import deleteGreyImg from '../assets/delete_24dp_grey.svg';
-import { URLS } from '../../URLS'; // Assuming URLS.ServerIpAddress is defined here
+import { URLS,ServerIpAddress } from '../../URLS'; // Assuming URLS.ServerIpAddress is defined here
 
 interface Prestataire {
     ID: number;
@@ -43,7 +43,7 @@ function Prestataires_page() {
     const getAllPrestataires = useCallback(async () => {
         try {
             setStatus(FETCH_STATUS.LOADING);
-            const response = await fetch(`${URLS.ServerIpAddress}/api/getPrestataires`, {
+            const response = await fetch(`${ServerIpAddress}/getPrestataires`, {
                 method: 'GET',
                 headers: { 'content-type': 'application/json' },
                 credentials: 'include',
@@ -73,7 +73,7 @@ function Prestataires_page() {
             return;
         }
         try {
-            const response = await fetch(`${URLS.ServerIpAddress}/api/deletePrestataire`, {
+            const response = await fetch(`${ServerIpAddress}/deletePrestataire`, {
                 method: "DELETE",
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',

@@ -12,7 +12,7 @@ function Department(props:any){
             data = {...data,"client_id":props.clientID,num_tel:Number(data.num_tel)};
             
             
-            const reponse = await fetch(`${URLS.ServerIpAddress}/api/addDepartment`,{
+            const reponse = await fetch(`${URLS.ServerIpAddress}/addDepartment`,{
                 method:"POST",
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify(data),

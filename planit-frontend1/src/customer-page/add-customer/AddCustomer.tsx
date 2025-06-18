@@ -10,7 +10,7 @@ function AddCustomer(props:any){
     const Onsubmit =async (data:any)=>{
         try {
             const submitData = {...data,num_tel:Number(data.num_tel)}
-            const reponse = await fetch(`${URLS.ServerIpAddress}/api/addClient`,{
+            const reponse = await fetch(`${URLS.ServerIpAddress}/addClient`,{
                 method:"POST",
                 headers:{"Content-type":"application/json"},
                 body: JSON.stringify(submitData),

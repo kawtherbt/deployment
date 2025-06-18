@@ -90,7 +90,7 @@ function content(props:any){
                 return;
             }
 
-            const response = await fetch(`${URLS.ServerIpAddress}/api/deleteClient`,{
+            const response = await fetch(`${URLS.ServerIpAddress}/deleteClient`,{
                 method:'DELETE',
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify({IDs:ids}),

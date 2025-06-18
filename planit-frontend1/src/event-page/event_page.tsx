@@ -14,7 +14,7 @@ function Event_page(){
     const getUpcomingEvents = async ()=>{
         try {
             setStatus(FETCH_STATUS.LOADING);
-            const reponse = await fetch(`${API}/getUPcomingEvents`,{
+            const reponse = await fetch(`${ServerIpAddress}/getUPcomingEvents`,{
                 method:"GET",
                 headers:{'Content-Type':'application/json'},
                 credentials:'include',

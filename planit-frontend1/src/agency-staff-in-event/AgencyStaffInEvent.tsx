@@ -69,7 +69,7 @@ function AgencyStaffInEvent() {
         throw new Error('Invalid Event ID');
       }
 
-      const response = await fetch(`${URLS.ServerIpAddress}/api/getStaffWithAgencyByEvent`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/getStaffWithAgencyByEvent`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -206,7 +206,7 @@ function AgencyStaffInEvent() {
 
   const handleDeleteSingle = async (id: number) => {
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/api/staff/deleteStaffAndAssignments`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/staff/deleteStaffAndAssignments`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

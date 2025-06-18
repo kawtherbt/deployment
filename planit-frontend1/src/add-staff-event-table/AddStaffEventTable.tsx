@@ -83,7 +83,7 @@ function AddStaffEventTable() {
   const fetchStaff = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${API}/getAllStaff`, {
+      const response = await fetch(`${ServerIpAddress}/getAllStaff`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

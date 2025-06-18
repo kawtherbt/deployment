@@ -29,7 +29,7 @@ const CategoryModal: React.FC<CategoryModalProps> = ({ isOpen, onClose, onCatego
     setIsSubmitting(true);
     
     try {
-        const response = await fetch(`${URLS.ServerIpAddress}/api/addCategory`, {
+        const response = await fetch(`${URLS.ServerIpAddress}/addCategory`, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',

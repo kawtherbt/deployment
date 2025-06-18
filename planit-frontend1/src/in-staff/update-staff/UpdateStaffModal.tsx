@@ -55,7 +55,7 @@ const UpdateStaffModal: React.FC<UpdateStaffModalProps> = ({ isOpen, onClose, ge
     try {
       setIsLoading(true);
       
-      const response = await fetch(`${API}/updateStaff/${item.ID}`, {
+      const response = await fetch(`${ServerIpAddress}/updateStaff/${item.ID}`, {
         method: "PUT",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

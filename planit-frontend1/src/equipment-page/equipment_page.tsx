@@ -25,7 +25,7 @@ function Equipment_page(){
               }).replace(",", "");
             //console.log(JSON.stringify(SubmitData));
             setStatus(FETCH_STATUS.LOADING);
-            const reponse = await fetch(`${URLS.ServerIpAddress}/api/getEquipmentUse/${current_time}`,{
+            const reponse = await fetch(`${URLS.ServerIpAddress}/getEquipmentUse/${current_time}`,{
                 method:"GET",
                 headers:{'Content-Type':'application/json'},
                 credentials:'include',
@@ -58,7 +58,7 @@ function Equipment_page(){
               }).replace(",", "");
             //console.log(JSON.stringify(SubmitData));
             setStatus(FETCH_STATUS.LOADING);
-            const reponse = await fetch(`${URLS.ServerIpAddress}/api/getCategoryUse/${current_time}`,{
+            const reponse = await fetch(`${URLS.ServerIpAddress}/getCategoryUse/${current_time}`,{
                 method:"GET",
                 headers:{'Content-Type':'application/json'},
                 credentials:'include',

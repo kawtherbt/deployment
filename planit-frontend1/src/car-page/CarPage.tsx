@@ -81,7 +81,7 @@ function CarPage() {
   const getCars = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${URLS.ServerIpAddress}/api/getAllCars`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/getAllCars`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -104,7 +104,7 @@ function CarPage() {
   const deleteCars = async (ids: number[]) => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${URLS.ServerIpAddress}/api/deleteCar`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/deleteCar`, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

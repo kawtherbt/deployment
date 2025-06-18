@@ -134,7 +134,7 @@ export default function AddAccomodation() {
 
       console.log('Submitting accommodation data:', submitData);
 
-      const response = await fetch(`${URLS.ServerIpAddress}/api/addAccomodation`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/addAccomodation`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

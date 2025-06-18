@@ -60,7 +60,7 @@ function StaffPage(){
     const getAllStaff = async ()=>{
       try {
         setStatus(FETCH_STATUS.LOADING);
-        const reponse = await fetch(`${API}/api/getAllStaff`,{
+        const reponse = await fetch(`${ServerIpAddress}/getAllStaff`,{
             method:"GET",
             headers:{'Content-Type':'application/json'},
             credentials:'include',
@@ -83,7 +83,7 @@ function StaffPage(){
     const getParticipation = async ()=>{
       try {
         setStatus(FETCH_STATUS.LOADING);
-        const reponse = await fetch(`${API}/api/getParticipation`,{
+        const reponse = await fetch(`${ServerIpAddress}/getParticipation`,{
             method:"GET",
             headers:{'Content-Type':'application/json'},
             credentials:'include',

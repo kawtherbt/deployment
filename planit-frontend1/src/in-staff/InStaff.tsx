@@ -93,7 +93,7 @@ function InStaff() {
   const getStaff = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${API}/getAllStaff`, {
+      const response = await fetch(`${ServerIpAddress}/getAllStaff`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -123,7 +123,7 @@ function InStaff() {
   const deleteStaff = async (ids: number[]) => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${API}/deleteStaff`, {
+      const response = await fetch(`${ServerIpAddress}/deleteStaff`, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

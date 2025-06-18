@@ -163,7 +163,7 @@ function AddEquipmentModal({ isOpen, onClose, onSuccess, eventId }: AddEquipment
         agence_id: formData.agence_id ? Number(formData.agence_id) : undefined
       };
 
-      const response = await fetch(`${URLS.ServerIpAddress}/api/addEquipment`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/addEquipment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -221,7 +221,7 @@ function AddEquipmentModal({ isOpen, onClose, onSuccess, eventId }: AddEquipment
 
   const getCategoriesAndSubCategories = async () => {
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/api/getCategory`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/getCategory`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -267,7 +267,7 @@ function AddEquipmentModal({ isOpen, onClose, onSuccess, eventId }: AddEquipment
 
   const getAgencies = async () => {
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/api/getAvailableAgencyEquipment`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/getAvailableAgencyEquipment`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

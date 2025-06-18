@@ -124,7 +124,7 @@ export default function UpdateEquipment() {
 
       console.log("formData", JSON.stringify(formData));
       console.log("submitData", JSON.stringify(submitData));
-      const response = await fetch(`${URLS.ServerIpAddress}/api/updateEquipment`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/updateEquipment`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(submitData),
@@ -157,7 +157,7 @@ export default function UpdateEquipment() {
 
   const getCategoriesAndSubCategories = async () => {
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/api/getCategory`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/getCategory`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -213,7 +213,7 @@ export default function UpdateEquipment() {
 
   const getPrestataireById = async (id: string) => {
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/api/getAllPrestataires`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/getAllPrestataires`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

@@ -58,7 +58,7 @@ const UpdatePrestataireModal: React.FC<UpdatePrestataireModalProps> = ({ isOpen,
     try {
       const submitData = {...formData, ID: item.ID};
       setStatus(FETCH_STATUS.LOADING);      
-      const response = await fetch(`${URLS.ServerIpAddress}/api/updatePrestataire`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/updatePrestataire`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(submitData),

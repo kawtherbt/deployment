@@ -4,6 +4,7 @@ import axios from 'axios';
 import './AddStaffInEvent.css';
 import { toast } from 'react-toastify';
 import { URLS } from '../URLS';
+import { ServerIpAddress } from '../URLS';
 
 interface Staff {
   ID: number;
@@ -83,7 +84,7 @@ function AddStaffInEvent() {
 
   const getStaff = async () => {
     try {
-      const response = await axios.get<{ success: boolean; data: Staff[] }>('${URLS.ServerIpAddress}/api/staff');
+      const response = await axios.get<{ success: boolean; data: Staff[] }>('${ServerIpAddress}/staff');
       if (response.data.success) {
         setStaff(response.data.data);
       }
@@ -94,7 +95,7 @@ function AddStaffInEvent() {
 
   const getEvents = async () => {
     try {
-      const response = await axios.get<{ success: boolean; data: Event[] }>('${URLS.ServerIpAddress}/api/events');
+      const response = await axios.get<{ success: boolean; data: Event[] }>('${ServerIpAddress}/events');
       if (response.data.success) {
         setEvents(response.data.data);
       }
@@ -105,7 +106,7 @@ function AddStaffInEvent() {
 
   const getAgencies = async () => {
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/api/getAllAgencies`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/getAllAgencies`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

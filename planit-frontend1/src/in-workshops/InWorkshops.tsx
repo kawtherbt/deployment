@@ -5,7 +5,7 @@ import Sidebar from '../sidebar/Sidebar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { URLS } from '../URLS';
-
+import { ServerIpAddress } from '../URLS';
 interface Workshop {
   workshop_id: number;
   workshop_name: string;
@@ -81,7 +81,7 @@ const InWorkshops = () => {
       console.log('ID type:', typeof id);
 
       // Using the correct endpoint with ID in URL parameter
-      const url = `${URLS.ServerIpAddress}/api/getEventWorkshops/${id}`;
+      const url = `${ServerIpAddress}/getEventWorkshops/${id}`;
       console.log('Request URL:', url);
 
       const headers = getAuthHeaders();
@@ -160,7 +160,7 @@ const InWorkshops = () => {
       try {
         console.log('Starting delete process for workshop ID:', workshopId);
         
-        const deleteUrl = `${URLS.ServerIpAddress}/api/deleteWorkshop`;
+        const deleteUrl = `${URLS.ServerIpAddress}/deleteWorkshop`;
         console.log('Delete URL:', deleteUrl);
         
         const requestBody = { id: workshopId };
@@ -268,7 +268,7 @@ const InWorkshops = () => {
           try {
             console.log(`Deleting workshop ID: ${workshopId}`);
             
-            const deleteUrl = `${URLS.ServerIpAddress}/api/deleteWorkshop`;
+            const deleteUrl = `${ServerIpAddress}/deleteWorkshop`;
             console.log('Delete URL:', deleteUrl);
             
             const requestBody = { id: workshopId };

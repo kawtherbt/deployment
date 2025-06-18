@@ -27,7 +27,7 @@ function UpdateDepartment({ department, onClose, onUpdate }: UpdateDepartmentPro
 
     const updateDepartment = async (data: any) => {
         try {
-            const response = await fetch(`${URLS.ServerIpAddress}/api/UpdateDepartment`, {
+            const response = await fetch(`${URLS.ServerIpAddress}/UpdateDepartment`, {
                 method: 'PUT',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

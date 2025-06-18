@@ -17,7 +17,7 @@ function Login_page(){
             setStatus(FETCH_STATUS.LOADING);
             console.log('Attempting to login with:', { email: data.email });
             
-            const response = await fetch(`${API}/api/logIn`, {
+            const response = await fetch(`${ServerIpAddress}/logIn`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

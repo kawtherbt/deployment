@@ -45,7 +45,7 @@ const ClientDepartment: React.FC<ClientDepartmentProps> = ({ ID, nom, department
     const confirmDelete = async () => {
         try {
             console.log("ID: ",ID);
-            const response = await fetch(`${URLS.ServerIpAddress}/api/deleteDepartment`, {
+            const response = await fetch(`${URLS.ServerIpAddress}/deleteDepartment`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ID:Number(ID) }),

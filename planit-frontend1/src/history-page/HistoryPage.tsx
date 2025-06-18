@@ -8,7 +8,7 @@ import HistoryEvent from './history-element/HistoryEvent'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { URLS } from '../URLS';
-
+import { ServerIpAddress } from '../URLS';
 
 interface HistoryItem {
   ID: string;
@@ -38,7 +38,7 @@ function HistoryPage() {
   const getHistory = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${URLS.ServerIpAddress}/api/getEventsHistory`, {
+      const response = await fetch(`${ServerIpAddress}/getEventsHistory`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

@@ -70,7 +70,7 @@ function TeamPage(){
     const getTeams = async () => {
         try {
             setStatus(FETCH_STATUS.LOADING);
-            const response = await fetch(`${URLS.ServerIpAddress}/api/getAllTeams`, {
+            const response = await fetch(`${URLS.ServerIpAddress}/getAllTeams`, {
                 method: "GET",
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -93,7 +93,7 @@ function TeamPage(){
     const getStaffForTeams = async () => {
         try {
             setStatus(FETCH_STATUS.LOADING);
-            const response = await fetch(`${URLS.ServerIpAddress}/api/getAllStaffForTeams`, {
+            const response = await fetch(`${URLS.ServerIpAddress}/getAllStaffForTeams`, {
                 method: "GET",
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -116,7 +116,7 @@ function TeamPage(){
         try {
             console.log(ids);
             setStatus(FETCH_STATUS.LOADING);
-            const response = await fetch(`${URLS.ServerIpAddress}/api/deleteTeam`, {
+            const response = await fetch(`${URLS.ServerIpAddress}/deleteTeam`, {
                 method: "DELETE",
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',

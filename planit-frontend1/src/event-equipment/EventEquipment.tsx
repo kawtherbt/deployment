@@ -140,9 +140,9 @@ function EventEquipment() {
       console.log('Starting getEquipment function');
       setStatus(FETCH_STATUS.LOADING);
       
-      console.log('Fetching from URL:', `${URLS.ServerIpAddress}/api/getAvailableEquipmentForEvent`);
+      console.log('Fetching from URL:', `${URLS.ServerIpAddress}/getAvailableEquipmentForEvent`);
 
-      const response = await fetch(`${URLS.ServerIpAddress}/api/getAvailableEquipmentForEvent`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/getAvailableEquipmentForEvent`, {
         method: "GET",
         headers: { 
           'Content-Type': 'application/json'
@@ -179,9 +179,9 @@ function EventEquipment() {
       console.log('Starting getReservedEquipment function');
       setStatus(FETCH_STATUS.LOADING);
       
-      console.log('Fetching from URL:', `${URLS.ServerIpAddress}/api/getReservedEquipmentForEvent/${eventId}`);
+      console.log('Fetching from URL:', `${URLS.ServerIpAddress}/getReservedEquipmentForEvent/${eventId}`);
 
-      const response = await fetch(`${URLS.ServerIpAddress}/api/getReservedEquipmentForEvent/${eventId}`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/getReservedEquipmentForEvent/${eventId}`, {
         method: "GET",
         headers: { 
           'Content-Type': 'application/json'
@@ -263,7 +263,7 @@ function EventEquipment() {
         evenement_id: parseInt(eventId, 10)
       });
 
-      const response = await fetch(`${URLS.ServerIpAddress}/api/unreserveEquipment`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/unreserveEquipment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

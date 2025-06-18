@@ -35,7 +35,7 @@ const AddPrestataireModal: React.FC<AddPrestataireModalProps> = ({ isOpen, onClo
     try {
       const submitData ={...formData,num_tel:Number(formData.num_tel)}
       setStatus(FETCH_STATUS.LOADING);      
-      const response = await fetch(`${URLS.ServerIpAddress}/api/addPrestataire`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/addPrestataire`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(submitData),

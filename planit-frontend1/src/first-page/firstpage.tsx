@@ -30,7 +30,7 @@ const FirstPage = () => {
 
   const getFirstPageData = async () => {
     try {
-      const response = await fetch(`${API}/getFirstPageData`, {
+      const response = await fetch(`${ServerIpAddress}/getFirstPageData`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -62,7 +62,7 @@ const FirstPage = () => {
 
   const getFirstPageUpcomingEvents = async () => {
     try {
-      const response = await fetch(`${API}/getUPcomingEventsFirstPage`, {
+      const response = await fetch(`${ServerIpAddress}/getUPcomingEventsFirstPage`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

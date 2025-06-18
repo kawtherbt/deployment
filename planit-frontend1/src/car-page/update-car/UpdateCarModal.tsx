@@ -55,7 +55,7 @@ const UpdateCarModal: React.FC<UpdateCarModalProps> = ({ isOpen, onClose, getCar
     try {
         const submitData = {...formData,ID:item.ID}
       setStatus(FETCH_STATUS.LOADING);      
-      const response = await fetch(`${URLS.ServerIpAddress}/api/updateCar`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/updateCar`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(submitData),

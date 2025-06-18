@@ -7,7 +7,7 @@ import { FETCH_STATUS } from '../fetchStatus';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { URLS } from '../URLS';
-
+import { ServerIpAddress } from '../URLS';
 interface StaffElement {
   ID: number;
   nom: string;
@@ -40,7 +40,7 @@ function EventStaff() {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [isTeamsExpanded, setIsTeamsExpanded] = useState<boolean>(false);
   const [showAssignedStaff, setShowAssignedStaff] = useState<boolean>(false);
-export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
+ const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
 
   const IndexOfLastItem = itemPerPage * currentPage;
   const IndexOfFirstItem = IndexOfLastItem - itemPerPage;
@@ -97,8 +97,8 @@ export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost
       console.log('Fetching staff...');
       
       const endpoint = showAssignedStaff 
-        ? `${API}/getStaffByEvent/${eventId}`
-        : `${API}/getAvailableStaff`;
+        ? `${ServerIpAddress}/getStaffByEvent/${eventId}`
+        : `${ServerIpAddress}/getAvailableStaff`;
 
       const response = await fetch(endpoint, {
         method: "GET",
@@ -182,7 +182,7 @@ export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost
         };
         console.log('Making API request for staff:', staffId, 'with body:', requestBody);
         
-        return fetch(`${API}/addStaffToEvent`, {
+        return fetch(`${ServerIpAddress}/addStaffToEvent`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -260,7 +260,7 @@ export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost
         };
         console.log('Making API request to set staff available:', staffId, 'with body:', requestBody);
         
-        return fetch(`${API}/setStaffAvailable`, {
+        return fetch(`${ServerIpAddress}/setStaffAvailable`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

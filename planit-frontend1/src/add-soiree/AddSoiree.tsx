@@ -79,7 +79,7 @@ export default function AddSoiree() {
 
       console.log('Submitting soiree data:', submitData);
 
-      const response = await fetch(`${URLS.ServerIpAddress}/api/addSoiree`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/addSoiree`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
