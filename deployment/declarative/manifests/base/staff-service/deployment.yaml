@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: staff-service
+  labels:
+    app: staff-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: staff-service
+  template:
+    metadata:
+      labels:
+        app: staff-service
+    spec:
+      containers:
+      - name: staff-service
+        image: staff-service:latest      # sera remplacé par Kustomize/ECR URI
+        ports:
+        - containerPort: 8080

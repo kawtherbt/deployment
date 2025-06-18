@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: planit-ingress
+  annotations: { "kubernetes.io/ingress.class":"alb" }
+spec:
+  rules:
+  - host: dev.planit.example.com
+    http:
+      paths:
+      - path: /api/
+        pathType: Prefix
+        backend: { service: { name: auth-service,  port: { number: 8080 } } }
+      - path: /staff/
+        pathType: Prefix
+        backend: { service: { name: staff-service, port: { number: 8080 } } }
+        path: /event/
+        pathType: Prefix
+        backend: { service: { name: event-service, port: { number: 8080 } } }
+      - path: /
+        pathType: Prefix
+        backend: { service: { name: frontend-service, port: { number: 80 } } }

@@ -1,0 +1,19 @@
+resources:
+  - ../../base/auth-service
+  - ../../base/staff-service
+  - ../../base/frontend-service
+  ../../base/event-service
+
+images:
+  - name: auth-service
+    newName: ${ECR_BACKEND_URI}
+    newTag: latest
+  - name: staff-service
+    newName: ${ECR_BACKEND_URI}
+    newTag: latest
+  - name: frontend-service
+    newName: ${ECR_FRONTEND_URI}
+    newTag: latest
+  - name: event-service
+    newName: ${ECR_BACKEND_URI}
+    newTag: latest
