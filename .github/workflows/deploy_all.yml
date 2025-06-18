@@ -85,7 +85,9 @@ jobs:
           aws eks update-kubeconfig \
             --name ${{ secrets.EKS_CLUSTER_NAME }} \
             --region ${{ secrets.AWS_REGION }}
-
+      
+      - name: List current directory
+        run: pwd && ls -R deployment/declarative/manifests/base
       - name: Deploy all services
         run: |
           kubectl apply -f /deployment/declarative/manifests/base/auth-service
