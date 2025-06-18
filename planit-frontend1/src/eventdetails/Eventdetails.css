@@ -1,0 +1,129 @@
+/* Main layout */
+.evd-dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #fff7ed;
+}
+
+.evd-main-content {
+  flex: 1;
+  
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0rem;
+  overflow: auto;
+}
+
+.evd-page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.evd-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  margin-left: 3rem;
+}
+
+.evd-card {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 250px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.evd-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  border-color: #7c3aed;
+}
+
+.evd-card-icon {
+  background-color: #e0f2fe;
+  border-radius: 50%;
+  font-size: 2rem;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.evd-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.evd-card-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.evd-card.evd-highlighted {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+}
+
+.evd-card.evd-highlighted:hover {
+  background-color: #6d28d9;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2);
+}
+
+.evd-card.evd-highlighted .evd-card-icon {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.evd-card.evd-highlighted .evd-card-description {
+  color: #e5e7eb;
+}
+
+.evd-go-back-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #4b5563;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.evd-go-back-btn:hover {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+:root, body, html {
+  background-color: #fff7ed;
+}
+  

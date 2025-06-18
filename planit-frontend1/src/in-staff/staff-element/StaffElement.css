@@ -1,0 +1,162 @@
+/* Staff element row */
+.staff-element {
+  border-bottom: 1px solid #e2e8f0;
+  transition: background-color 0.2s ease;
+}
+
+.staff-element:hover {
+  background-color: #f8fafc;
+}
+
+.staff-element.selected {
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+.staff-element td {
+  padding: 1rem 1.25rem;
+  font-size: 0.875rem;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.staff-element td:first-child {
+  padding-left: 1.5rem;
+}
+
+.staff-element td:last-child {
+  padding-right: 1.5rem;
+  text-align: right;
+}
+
+/* Specific cell styles */
+.checkbox-cell {
+  width: 48px;
+}
+
+.first-name-cell,
+.last-name-cell {
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.email-cell {
+  color: #475569;
+}
+
+.phone-cell {
+  font-family: monospace;
+  letter-spacing: 0.05em;
+  color: #475569;
+}
+
+.role-cell {
+  color: #64748b;
+}
+
+/* Actions cell styling */
+.actions-cell {
+  width: 80px;
+  text-align: right;
+}
+
+/* Availability badge */
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.availability-available {
+  background-color: #ecfdf5;
+  color: #059669;
+}
+
+.availability-unavailable {
+  background-color: #fef2f2;
+  color: #ef4444;
+}
+
+.availability-on-leave {
+  background-color: #fff7ed;
+  color: #ea580c;
+}
+
+.availability-unknown {
+  background-color: #f4f4f5;
+  color: #71717a;
+}
+
+/* Date cell */
+.date-cell {
+  color: #64748b;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Actions dropdown */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.more-actions-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+  color: #64748b;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.more-actions-button:hover {
+  background-color: #f1f5f9;
+  color: #334155;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  min-width: 160px;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  font-size: 0.875rem;
+  color: #334155;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.dropdown-item:first-child {
+  color: #2563eb;
+}
+
+.dropdown-item:nth-child(2) {
+  color: #0891b2;
+} 

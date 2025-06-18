@@ -1,0 +1,134 @@
+/* Main layout */
+.aua-dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #fff7ed;
+}
+
+/* Main Content */
+.aua-main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow: auto;
+}
+
+.aua-page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Form Card */
+.aua-form-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+
+}
+
+.aua-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-self: center;
+}
+
+@media (min-width: 768px) {
+  .aua-form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.aua-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.aua-form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.aua-form-input {
+  width: 20rem;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.aua-form-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+/* Button styles */
+.aua-buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 15rem;
+  align-self: center;
+}
+
+.aua-add-btn, .aua-submit-button, .aua-add-button {
+  padding: 0.85rem 2rem;
+  background: linear-gradient(90deg, #4f46e5 0%, #2563eb 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(80,80,80,0.08);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.aua-add-btn:hover, .aua-submit-button:hover, .aua-add-button:hover {
+  background: linear-gradient(90deg, #2563eb 0%, #4f46e5 100%);
+  box-shadow: 0 6px 24px rgba(80,80,80,0.13);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.aua-secondary-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.aua-secondary-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #6b7280;
+  color: white;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 150px;
+}
+
+.aua-secondary-button:hover {
+  background-color: #4b5563;
+}
+
+/* Date input styling */
+.aua-form-input[type="date"] {
+  padding-right: 0.5rem;
+  min-height: 42px;
+}
+
+:root, body, html {
+  background-color: #fff7ed;
+} 

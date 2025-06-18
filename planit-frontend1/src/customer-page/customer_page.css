@@ -1,0 +1,226 @@
+/*.Customer_Page_Container{
+    background-color: rgb(179, 179, 191);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.Customer_Page_Content{
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin-left: 100px;
+    margin-right: 50px;
+    color: rgb(3, 2, 41);
+    
+}
+
+#add_customer_side_open{
+    background-color: rgb(96, 91, 255);
+    width: 50px;
+    height: 50px;
+    margin-left: 50px;
+}*/
+
+/* src/customer-page/customer_page.css */
+
+
+/*
+.Customer_Page_Container {
+    background-color: #f4f4f4; 
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Arial', sans-serif;
+}
+
+.Customer_Page_Content {
+    background-color: #ffffff; 
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 250px); 
+    margin: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+#add_customer_side_open {
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+#add_customer_side_open:hover {
+    background-color: #0056b3; 
+}
+
+.table {
+    background-color: #f9f9f9;
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    background-color: #007bff; 
+    color: white; 
+    padding: 10px;
+}
+
+.Customer_Table_Title {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    align-items: center;  
+}
+
+.customers {
+    padding: 20px; 
+}
+
+.customer_containing_div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; 
+    padding: 10px; 
+    border-bottom: 1px solid #e0e0e0; 
+}
+
+.customer_containing_button_subdiv {
+    background-color: #28a745; 
+    border-radius: 5px; 
+}
+
+#add_department_button {
+    padding: 7px;
+    background-color: #28a745; 
+    color: white; 
+    border: none; 
+    border-radius: 5px;s 
+    cursor: pointer; 
+    transition: background-color 0.3s; /
+}
+
+#add_department_button:hover {
+    background-color: #218838; 
+}*/
+
+
+/* customer_page.css */
+.Customer_Page_Container {
+    background-color: #f8f9fa;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-y: auto;
+}
+
+.Customer_Page_Content {
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 80px);
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-bottom: 40px;
+}
+
+/* Search styles */
+.customer_page_container_search {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.customer_page_search_icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.customer_page_container_search_input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.customer_page_container_search_input:focus {
+    outline: none;
+    border-color: #5e6ad2;
+    box-shadow: 0 0 0 3px rgba(94, 106, 210, 0.1);
+}
+
+.customer_page_container_search_input::placeholder {
+    color: #9ca3af;
+}
+
+#add_customer_side_open {
+    background-color: #5e6ad2;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    box-shadow: 0 4px 10px rgba(94, 106, 210, 0.3);
+    z-index: 1000;
+}
+
+/* Media queries for responsive layout */
+@media screen and (max-width: 768px) {
+    .Customer_Page_Container {
+        flex-direction: column;
+    }
+    
+    .Customer_Page_Content {
+        width: 100%;
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .customer_page_container_search {
+        width: 90%;
+        margin: 15px auto;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #add_customer_side_open {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+
+

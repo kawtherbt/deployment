@@ -1,0 +1,358 @@
+.workshops-container {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgba(44, 62, 80, 0.07);
+  padding: 40px 30px 60px 30px;
+  max-width: 1200px;
+  margin: 30px auto;
+  width: 100%;
+  margin-left: 13rem;
+  min-height: 80vh;
+}
+
+.workshops-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.workshops-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.workshops-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  color: #222;
+  white-space: nowrap;
+  margin-right: 20px;
+}
+
+.workshops-create-btn {
+  background: #2256e7;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.workshops-create-btn:hover {
+  background: #1741b6;
+}
+
+.workshops-search {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  width: 250px;
+  background: #fafbfc;
+  transition: border 0.2s;
+}
+
+.workshops-search:focus {
+  border: 1.5px solid #2256e7;
+  outline: none;
+}
+
+.workshops-table-wrapper {
+  background: #fafbfc;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+  padding: 0 0 0 0;
+  overflow-x: auto;
+}
+
+.workshops-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 18px;
+  background: transparent;
+}
+
+.workshops-table th {
+  color: #bfc3c9;
+  font-weight: 500;
+  font-size: 0.98rem;
+  padding: 12px 10px;
+  text-align: left;
+  background: transparent;
+}
+
+.workshops-recycle-bin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e74c3c;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.workshops-recycle-bin:hover {
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.workshops-row {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+  transition: box-shadow 0.2s;
+}
+
+.workshops-row td {
+  padding: 18px 10px;
+  font-size: 1rem;
+  color: #222;
+  vertical-align: middle;
+}
+
+.workshops-row td:first-child {
+  width: 40px;
+}
+
+.workshops-clickable-row {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.workshops-clickable-row:hover {
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.08);
+  transform: translateY(-2px);
+}
+
+.workshops-participants {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.workshops-progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: #edf2f7;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.workshops-progress-fill {
+  height: 100%;
+  background-color: #4299e1;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.workshops-type-pill {
+  background: #eaf7ef;
+  color: #6fcf97;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 7px 24px;
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.workshops-button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.workshops-spacer {
+  width: 24px;
+}
+
+.workshops-back-btn {
+  background: #f3f6fa;
+  color: #7d8597;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.workshops-back-btn:hover {
+  background: #e0e6ef;
+}
+
+.workshops-checkbox {
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 2px solid #2256e7;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.workshops-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 6px;
+  height: 11px;
+  border: solid #2256e7;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.instructor-info {
+  position: relative;
+  display: inline-block;
+}
+
+.instructor-button {
+  background: none;
+  border: none;
+  color: #2256e7;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+  text-decoration: underline;
+  font-family: inherit;
+}
+
+.instructor-button:hover {
+  color: #1741b6;
+}
+
+/* Modal Overlay */
+.instructor-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.instructor-modal {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.instructor-modal-content {
+  padding: 24px;
+}
+
+.instructor-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.instructor-modal-close:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.instructor-modal-content h3 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.instructor-modal-content p {
+  margin: 12px 0;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.instructor-modal-content strong {
+  color: #2c3e50;
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+.workshops-delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.workshops-delete-btn:hover {
+  background-color: #c82333;
+}
+
+.workshops-delete-selected {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.workshops-delete-selected:hover {
+  background-color: #c82333;
+} 

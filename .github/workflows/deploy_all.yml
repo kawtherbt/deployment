@@ -23,7 +23,7 @@ jobs:
           - { name: auth-service,     path: backend/auth,   is_frontend: false }
           - { name: staff-service,    path: backend/staff,  is_frontend: false }
           - { name: event-service,    path: backend/event,  is_frontend: false }
-          - { name: frontend-service, path: /     , is_frontend: true }
+          - { name: frontend-service, path: planit-frontend1, is_frontend: true }
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

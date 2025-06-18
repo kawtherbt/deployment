@@ -1,0 +1,243 @@
+.client_department_div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0.875rem 1rem;
+    background-color: #f9fafb;
+    transition: all 0.2s ease;
+}
+
+.client_department_div:hover {
+    background-color: #f3f4f6;
+}
+
+.client_department_div--selected {
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+.client_department_div > div {
+    padding: 0 1rem;
+    font-size: 0.825rem;
+    color: #4b5563;
+}
+
+.client_department_name_cell {
+    flex: 2;
+}
+
+.client_department_logo_name {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.client_department_name {
+    font-weight: 500;
+    color: #4b5563;
+}
+
+.client_department_phone_cell {
+    flex: 1;
+    color: #6b7280;
+}
+
+.client_department_email_cell {
+    flex: 1;
+    color: #6b7280;
+}
+
+.client_department_actions_cell {
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1.25rem !important;
+}
+
+.client_department_more_actions {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.client_department_more_actions:hover {
+    background-color: #f3f4f6;
+}
+
+.client_department_more_actions:focus {
+    outline: none;
+}
+
+.client_department_dropdown_menu {
+    position: absolute;
+    top: 50%;
+    right: 1.5%;
+    margin-top: 6px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 10;
+    width: 150px;
+    padding: 6px 0;
+    animation: fadeIn 0.2s ease-in-out;
+    color: #1f2937;
+}
+
+.dropdown_item {
+    width: 100%;
+    padding: 10px 16px;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: #000;
+}
+
+.dropdown_item:focus {
+    outline: none;
+}
+
+.dropdown_item:hover {
+    background-color: #f5f5f5;
+    color: #1f2937;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.delete-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.delete-modal {
+    background-color: white;
+    border-radius: 12px;
+    padding: 24px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: scaleIn 0.2s ease-out;
+}
+
+.delete-modal h3 {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.delete-modal p {
+    margin: 0 0 24px 0;
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.delete-modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.delete-modal-cancel,
+.delete-modal-confirm {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.delete-modal-cancel {
+    background-color: white;
+    border: 1px solid #d1d5db;
+    color: #374151;
+}
+
+.delete-modal-cancel:hover {
+    background-color: #f9fafb;
+}
+
+.delete-modal-confirm {
+    background-color: #ef4444;
+    border: none;
+    color: white;
+}
+
+.delete-modal-confirm:hover {
+    background-color: #dc2626;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .client_department_div {
+        padding: 0.75rem;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .client_department_div > div {
+        padding: 0 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .delete-modal {
+        margin: 16px;
+        padding: 20px;
+    }
+}

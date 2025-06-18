@@ -1,0 +1,655 @@
+/* Main container styles */
+.transport-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #fff7ed;
+}
+
+.transport-content {
+  flex: 1;
+  padding: 2rem;
+  overflow: auto;
+  margin-left: 0;
+}
+
+.transport-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Form container */
+.transport-form-container {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem 2rem;
+  max-width: 1185px;
+  margin: 0 auto;
+  width: 95%;
+}
+
+.form-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.transport-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5rem;
+}
+
+@media (min-width: 768px) {
+  .transport-form-grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 1600px;
+    margin: 0 auto;
+    gap: 2rem;
+  }
+}
+
+.transport-form-column {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  padding: 0 0.4rem;
+}
+
+/* Keep right column width consistent */
+.transport-form-column:nth-child(2) {
+  min-height: 400px; /* Ensure the column maintains height when buttons are hidden */
+}
+
+/* Form groups */
+.transport-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.transport-form-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.transport-form-group input,
+.transport-form-group select,
+.transport-form-group textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  outline: none;
+  height: 45px;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  line-height: 1.25rem;
+  background-color: white;
+  max-width: none;
+}
+
+/* Specific styling for datetime inputs */
+input[type="datetime-local"] {
+  padding-right: 0.5rem;
+}
+
+/* Specific styling for number inputs */
+input[type="number"] {
+  -moz-appearance: textfield; /* Remove spinner in Firefox */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.transport-form-group textarea {
+  min-height: 170px;
+  resize: vertical;
+  height: auto;
+}
+
+/* Description group specific style */
+.description-group {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Checkbox styles for Transport page */
+.transport-specific-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0.75rem 0;
+  position: relative;
+  justify-content: center;
+  gap: 8px;
+}
+
+.transport-specific-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: white;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  position: relative;
+  vertical-align: middle;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transport-specific-checkbox:checked {
+  border-color: #3b82f6;
+  background-color: white;
+}
+
+.transport-specific-checkbox:checked::after {
+  content: "✔";
+  position: absolute;
+  font-size: 11px;
+  color: #3b82f6;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transport-specific-checkbox-label {
+  font-size: 14px;
+  color: #4b5563;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Action buttons */
+.transport-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.button-row {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.action-button {
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  flex: 1;
+  border: none;
+  font-weight: 500;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.action-button.blue {
+  background-color: #2563eb;
+  color: white;
+}
+
+.action-button.blue:hover {
+  background-color: #1d4ed8;
+}
+
+.action-button.gray {
+  background-color: #e5e7eb;
+  color: #4b5563;
+}
+
+.action-button.gray:hover {
+  background-color: #d1d5db;
+}
+
+/* Bottom buttons */
+.transport-bottom-buttons {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+.add-transportation-button {
+  padding: 0.75rem 1rem;
+  background-color: #2563eb;
+  color: white;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+
+  max-width: 20rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.add-transportation-button:hover {
+  background-color: #1d4ed8;
+}
+
+.check-transportation-button {
+  padding: 0.85rem 1.75rem;
+  background-color: #e5e7eb;
+  color: #4b5563;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  min-width: 250px;
+  font-size: 1rem;
+}
+
+.check-transportation-button:hover {
+  background-color: #d1d5db;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .transport-form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .transport-bottom-buttons {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+.transport-form-group input[type="date"]::-webkit-calendar-picker-indicator,
+.transport-form-group input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(36%) sepia(98%) saturate(7492%) hue-rotate(210deg) brightness(95%) contrast(101%);
+  cursor: pointer;
+}
+
+/* Duration inputs styling */
+.duration-group {
+  margin-bottom: 1.5rem;
+}
+
+.duration-inputs {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.duration-hours,
+.duration-minutes {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 0 0.5rem;
+  width: 100px;
+}
+
+/* Ensure containers don't change on focus */
+.duration-hours:focus-within,
+.duration-minutes:focus-within {
+  border-color: #d1d5db !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.duration-hours input,
+.duration-minutes input {
+  border: none;
+  padding: 0.75rem 0;
+  width: 80%;
+  outline: none;
+  font-size: 0.875rem;
+  background-color: transparent;
+}
+
+/* Override default focus styles */
+.duration-hours input:focus,
+.duration-minutes input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+}
+
+.duration-label {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin-left: 4px;
+}
+
+/* Ensure input does not have focus styles from other rules */
+.transport-form-group .duration-inputs input:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+/* Make sure no other selectors override these styles */
+.transport-form-group input[type="text"][name="durationHours"]:focus,
+.transport-form-group input[type="text"][name="durationMinutes"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Add an extremely specific selector for the transport checkbox to avoid any conflicts */
+.transport-container .transport-form-container form .transport-form-column .transport-specific-checkbox-wrapper .transport-specific-checkbox {
+  width: 16px !important;
+  height: 16px !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-color: white !important;
+  border: 1.5px solid #cbd5e1 !important;
+  border-radius: 4px !important;
+  transition: all 0.15s ease !important;
+  position: relative !important;
+  vertical-align: middle !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  opacity: 1 !important;
+  display: inline-block !important;
+}
+
+.transport-container .transport-form-container form .transport-form-column .transport-specific-checkbox-wrapper .transport-specific-checkbox:checked {
+  border-color: #3b82f6 !important;
+  background-color: white !important;
+}
+
+.transport-container .transport-form-container form .transport-form-column .transport-specific-checkbox-wrapper .transport-specific-checkbox:checked::after {
+  content: "✔" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  font-size: 12px !important;
+  color: #3b82f6 !important;
+  display: block !important;
+}
+
+.transport-container .transport-form-container form .transport-form-column .transport-specific-checkbox-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  margin: 0.75rem 0 !important;
+  position: relative !important;
+  gap: 8px !important;
+  padding: 0 !important;
+}
+
+.transport-container .transport-form-container form .transport-form-column .transport-specific-checkbox-wrapper .transport-specific-checkbox-label {
+  font-size: 14px !important;
+  color: #4b5563 !important;
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+.transport-staff-table {
+  width: 100%;
+  margin: 1rem 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.transport-staff-table .staff-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.transport-staff-table .staff-table th,
+.transport-staff-table .staff-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.transport-staff-table .staff-table th {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+}
+
+.transport-staff-table .staff-table tr:hover {
+  background-color: #f9fafb;
+}
+
+.transport-staff-table .staff-table input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.transport-staff-table .staff-table input[type="checkbox"]:checked {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.loading-row {
+  text-align: center;
+  padding: 2rem;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #e2e8f0;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.empty-row {
+  text-align: center;
+  padding: 3rem;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.empty-icon {
+  font-size: 2rem;
+}
+
+.empty-state h3 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 1.125rem;
+}
+
+.empty-state p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.transport-form-select {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  outline: none;
+  font-size: 0.9rem;
+  line-height: 1.25rem;
+  background-color: white;
+  max-width: none;
+}
+
+.transport-form-select[multiple] {
+  height: 200px;
+  padding: 0.5rem;
+}
+
+.transport-form-select[multiple] option {
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.transport-form-select[multiple] option:hover {
+  background-color: #f3f4f6;
+}
+
+.transport-form-select[multiple] option:checked {
+  background-color: #e0e7ff;
+  color: #1e40af;
+}
+
+.staff-checkbox-list {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  background-color: white;
+}
+
+.staff-checkbox-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s;
+}
+
+.staff-checkbox-item:hover {
+  background-color: #f3f4f6;
+}
+
+.staff-checkbox-item input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.staff-checkbox-item label {
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #374151;
+  flex: 1;
+}
+
+.loading-message,
+.empty-message {
+  padding: 1rem;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* Internal Transport Toggle Styles */
+.internal-transport-toggle {
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.internal-transport-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.internal-transport-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  background-color: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.internal-transport-label:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.internal-transport-checkbox:checked + .internal-transport-label {
+  background-color: #eff6ff;
+  border-color: #3b82f6;
+}
+
+.toggle-icon {
+  position: relative;
+  width: 40px;
+  height: 24px;
+  background-color: #e2e8f0;
+  border-radius: 12px;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+}
+
+.toggle-icon:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.internal-transport-checkbox:checked + .internal-transport-label .toggle-icon {
+  background-color: #3b82f6;
+}
+
+.internal-transport-checkbox:checked + .internal-transport-label .toggle-icon:before {
+  transform: translateX(16px);
+}
+
+.toggle-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.internal-transport-checkbox:checked + .internal-transport-label .toggle-text {
+  color: #1e40af;
+}

@@ -1,0 +1,194 @@
+/* StaffElement.css */
+/*
+.accounts_element_container {
+    display: grid;
+    grid-template-columns: 40px 1fr 1fr 1fr 1fr 1fr 40px;
+    align-items: center;
+    padding: 16px 12px;
+    border-bottom: 1px solid #dfe0eb;
+    transition: background-color 0.2s ease;
+  }
+  
+  .accounts_element_container:hover {
+    background-color: #f5f6fa;
+  }
+  
+  .accounts_containing_subdiv {
+    padding: 0 10px;
+  }
+  
+  .accounts_containing_subdiv h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #252733;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .accounts_containing_subdiv.checkbox {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .accounts_containing_subdiv input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #0044FF;
+  }
+  
+  #accounts_type {
+    color: #0044FF;
+    background-color: rgba(0, 68, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .accounts_containing_subdiv img {
+    cursor: pointer;
+  }*/
+
+
+  /* StaffElement.css */
+
+.accounts_element_container {
+    display: grid;
+    grid-template-columns: 40px 1fr 1fr 1fr 1fr 1fr 40px;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+  }
+  
+  .accounts_element_container:hover {
+    background-color: #f9f9ff;
+  }
+  
+  .accounts_containing_subdiv {
+    padding: 0 10px;
+  }
+  
+  .accounts_containing_subdiv h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .accounts_containing_subdiv.checkbox {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .accounts_containing_subdiv input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #5932EA;
+    visibility: hidden;
+  }
+  
+  #accounts_type {
+    color: #5932EA;
+    background-color: rgba(89, 50, 234, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .accounts_containing_subdiv img {
+    cursor: pointer;
+    opacity: 0.6;
+  }
+  
+  .accounts_containing_subdiv img:hover {
+    opacity: 1;
+  }
+  
+  /* Make table cells equal width */
+  .accounts_element_container > div:nth-child(2),
+  .accounts_element_container > div:nth-child(3),
+  .accounts_element_container > div:nth-child(4),
+  .accounts_element_container > div:nth-child(5),
+  .accounts_element_container > div:nth-child(6) {
+    flex: 1;
+  }
+
+  /*.StaffElement_options_div {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    right: 1rem;
+    top: 100%;
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    z-index: 10;
+    min-width: 120px;
+    padding: 0.5rem 0;
+  }
+  
+  .StaffElement_options_div h3 {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .StaffElement_options_div h3:hover {
+    background-color: #f0f0f0;
+  }*/
+
+  .accounts_element_container {
+    position: relative;
+  }
+
+  .accounts_element_container.deleted{
+    max-height: 0px;
+    height: 0px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .StaffElement_options_div {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    z-index: 10;
+    min-width: 120px;
+    padding: 0.5rem 0;
+  }
+  
+  .StaffElement_options_div h3 {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .StaffElement_options_div h3:hover {
+    background-color: #f0f0f0;
+  }
+  
+  
+  

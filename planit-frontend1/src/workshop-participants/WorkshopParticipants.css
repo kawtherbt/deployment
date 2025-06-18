@@ -1,0 +1,134 @@
+.workshop-participants-container {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgba(44, 62, 80, 0.07);
+  padding: 40px 30px 60px 30px;
+  max-width: 1200px;
+  margin: 30px auto;
+  width: 100%;
+  margin-left: 13rem;
+  min-height: 80vh;
+}
+
+.workshop-participants-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.workshop-participants-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-left: 1rem;
+  color: #222;
+}
+
+.workshop-participants-search {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  width: 300px;
+  background: #fafbfc;
+  transition: border 0.2s;
+}
+
+.workshop-participants-search:focus {
+  border: 1.5px solid #2256e7;
+  outline: none;
+}
+
+.workshop-participants-table-wrapper {
+  background: #fafbfc;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+  padding: 0;
+  overflow-x: auto;
+}
+
+.workshop-participants-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 18px;
+  background: transparent;
+}
+
+.workshop-participants-table th {
+  color: #bfc3c9;
+  font-weight: 500;
+  font-size: 0.98rem;
+  padding: 12px 10px;
+  text-align: left;
+  background: transparent;
+}
+
+.workshop-participants-recycle-bin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e74c3c;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.workshop-participants-recycle-bin:hover {
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.workshop-participants-row {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+  transition: box-shadow 0.2s;
+}
+
+.workshop-participants-row:hover {
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.08);
+}
+
+.workshop-participants-row td {
+  padding: 18px 10px;
+  font-size: 1rem;
+  color: #222;
+  vertical-align: middle;
+}
+
+.workshop-participants-row td:first-child {
+  width: 40px;
+}
+
+.workshop-participants-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #2256e7;
+  border-radius: 4px;
+}
+
+.workshop-participants-button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.workshop-participants-back-btn {
+  display: block;
+  background: #f3f6fa;
+  color: #7d8597;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.workshop-participants-back-btn:hover {
+  background: #e0e6ef;
+} 

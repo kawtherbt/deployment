@@ -1,0 +1,147 @@
+/* TeamStaff.css */
+.team_staff {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0.875rem 1rem;
+    background-color: #f9fafb;
+    transition: all 0.2s ease;
+}
+
+.team_staff:hover {
+    background-color: #f3f4f6;
+}
+
+.team_staff--selected {
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+.team_staff > div {
+    padding: 0 1rem;
+    font-size: 0.825rem;
+    color: #4b5563;
+}
+
+.team_staff_name_cell {
+    flex: 2;
+}
+
+.team_staff_logo_name {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.team_staff_name {
+    font-weight: 500;
+    color: #4b5563;
+}
+
+.team_staff_phone_cell {
+    flex: 1;
+    color: #6b7280;
+}
+
+.team_staff_email_cell {
+    flex: 1;
+    color: #6b7280;
+}
+
+.team_staff_actions_cell {
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1.25rem !important;
+}
+
+.team_staff_more_actions {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.team_staff_more_actions:hover {
+    background-color: #f3f4f6;
+}
+
+.team_staff_more_actions:focus{
+    outline: none;
+}
+
+
+.team_staff_status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.15rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.team_staff_status--active {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+.team_staff_status--pending {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.team_staff_status--inactive {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.team_staff_dropdown_menu {
+    position: absolute;
+    top: 50%;
+    right: 1.5%;
+    margin-top: 6px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 10;
+    width: 150px;
+    padding: 6px 0;
+    animation: fadeIn 0.2s ease-in-out;
+    color: #1f2937;
+  }
+  
+  .dropdown_item {
+    width: 100%;
+    padding: 10px 16px;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: #000;
+  }
+  
+  .dropdown_item:focus{
+    outline: none;
+  }
+  
+  .dropdown_item:hover {
+    background-color: #f5f5f5;
+    color: #1f2937;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+ 

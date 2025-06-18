@@ -1,0 +1,68 @@
+.client_interface_event_page_subdi {
+    position: absolute;
+    right: 35%;
+    top: 20%;
+    background-color: #ffffff;
+    width: 400px;
+    height: 450px;
+    padding: 30px;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.client_interface_subdiv_clients {
+    background-color: #f5f7fa;
+    height: 90%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.client_interface_subdiv_element {
+    padding: 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    margin-bottom: 8px;
+    background-color: #ffffff;
+}
+
+.client_interface_subdiv_element:hover {
+    background-color: #f0f4ff;
+}
+
+.client_interface_subdiv_element.selected {
+    background-color: #dbeafe;
+    border-left: 4px solid #3b82f6;
+}
+
+.client_interface_subdiv_client {
+    margin-bottom: 6px;
+}
+
+.client_interface_subdiv_department {
+    margin-top: 6px;
+    padding-left: 10px;
+    border-left: 2px solid #e5e7eb;
+}
+
+#add_new_client_interface_button {
+    background-color: #3b82f6;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#add_new_client_interface_button:hover {
+    background-color: #2563eb;
+}
+

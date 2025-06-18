@@ -1,0 +1,575 @@
+/*.accounts_page_container {
+    padding: 24px;
+    margin-left: 50px;
+    background-color: #ffffff;
+    min-height: 100vh;
+    width: calc(100% - 50px);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+}
+
+.accounts_page_table {
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.accounts_page_header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.accounts_page_header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+    margin-right: auto;
+}
+
+.accounts_serch_div {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 6px;
+    padding: 8px 12px;
+    border: 1px solid #e5e7eb;
+    width: 200px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.accounts_serch_div img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    opacity: 0.5;
+}
+
+.accounts_serch_div input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+    color: #6b7280;
+}
+
+.accounts_serch_div input::placeholder {
+    color: #9ca3af;
+}
+
+#filter_accounts {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    font-size: 14px;
+    outline: none;
+    color: #6b7280;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    padding-right: 32px;
+    box-sizing: border-box;
+}
+
+#filter_accounts:hover {
+    border-color: #d1d5db;
+}
+
+#filter_accounts:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 1px #6366f1;
+}
+
+.accounts_page_header button {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.accounts_page_header button:hover {
+    background: #4338ca;
+}
+
+.accounts_elements_div {
+    margin: 0 -24px;
+    border-top: 1px solid #f3f4f6;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.accounts_page_footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2px;
+    margin-top: 24px;
+}
+
+.accounts_page_footer button {
+    min-width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #6b7280;
+    font-size: 14px;
+    padding: 0 8px;
+}
+
+.accounts_page_footer button:hover {
+    background: #f9fafb;
+}
+
+.accounts_page_footer button img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.5;
+}
+
+.accounts_page_footer button.active {
+    background: #4f46e5;
+    color: white;
+    border: none;
+}
+*/
+
+
+/*
+.accounts_page {
+    display: flex;
+    height: 100vh;
+    background-color: #fff7ed;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .accounts_page_container {
+    flex: 1;
+    padding: 2rem;
+    overflow: auto;
+    margin-left: 150px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-top-left-radius: 30px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  }
+  
+  
+  .accounts_page_container_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  
+  .accounts_page_container_title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #212121;
+  }
+  
+  
+  .accounts_page_container_search {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    width: 240px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .accounts_page_container_search:focus-within {
+    border-color: none;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+  }
+  
+  .accounts_page_search_icon {
+    color: #6b7280;
+    margin-right: 0.5rem;
+  }
+  
+  .accounts_page_container_search_input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    font-size: 0.875rem;
+  }
+  
+  .accounts_page_container_search_input:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+  
+  
+  
+  .accounts_page_container_add_accounts_button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .accounts_page_container_add_accounts_button:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .accounts_page_container_add_accounts_button:active {
+    transform: translateY(0);
+  }
+  
+  
+  .accounts_page_container_table_container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    /*overflow: hidden;*/
+   /* width: 90%;
+    margin-left: 2rem;
+  }*/
+  
+  /*
+  .accounts_page_container_table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  
+  .accounts_page_container_table thead {
+    background-color: white;
+  }
+  
+  .accounts_page_container_table th {
+    padding: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    border-bottom: 1px solid #e5e7eb;
+    text-transform: capitalize;
+  }
+  
+  .accounts_page_container_table input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #2563eb;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  
+  .accounts_page_table_loading,
+  .accounts_page_table_no_data {
+    text-align: center;
+    padding: 1.5rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+  
+  
+  .accounts_page_container_table tfoot {
+    padding: 1rem;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .accounts_page_table_footer_nav_buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    gap: 0.25rem;
+  }
+  
+  .accounts_page_container_table tfoot button {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    background-color: white;
+    color: #6b7280;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    transition: all 0.15s ease;
+  }
+  
+  .accounts_page_container_table tfoot button:hover:not(.active_page_button) {
+    background-color: #f9fafb;
+    color: #4b5563;
+  }
+  
+  .accounts_page_table_prev,
+  .accounts_page_table_next {
+    background-color: #f9fafb;
+  }
+  
+  .accounts_page_table_footer_nav_buttons .active_page_button {
+    background-color: #2563eb;
+    color: white !important;
+    border: none;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+  }
+  */
+
+  .accounts_page {
+    display: flex;
+    height: 100vh;
+    background-color: 
+  #fff7ed;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .accounts_page_container {
+  
+    flex: 1;
+    padding: 2rem;
+    overflow: auto;
+    margin-left: 150px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-top-left-radius: 30px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .accounts_page_container_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  
+  .accounts_page_container_title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: 
+  #212121;
+  }
+  
+  .accounts_page_container_search {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid 
+  #e0e0e0;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    width: 300px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-left: auto;
+    margin-right: 20px;
+    height: 2.7rem;
+  }
+  
+  .accounts_page_container_search:focus-within {
+    border-color: none;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+  }
+  
+  .accounts_page_search_icon {
+    color: 
+  #6b7280;
+    margin-right: 0.5rem;
+  }
+  
+  .accounts_page_container_search_input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    font-size: 0.875rem;
+  }
+  
+  .accounts_page_container_search_input:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .accounts_page_container_add_accounts_button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .accounts_page_container_add_accounts_button:hover {
+    background-color: 
+  #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .accounts_page_container_add_accounts_button:active {
+    transform: translateY(0);
+  }
+  
+  .accounts_page_container_table_container {
+  
+    flex: 1;
+    background-color: white;
+    border-radius: 12px;
+    /*box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);*/
+    /*overflow: hidden;*/
+    width: 100%;
+    
+    height: 85%;
+  }
+  
+  .accounts_page_container_table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    height: 100%;
+  }
+  
+  .accounts_page_container_table thead {
+    background-color: white;
+  }
+  
+  
+  
+  .accounts_page_container_table th {
+    padding: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: 
+  #6b7280;
+    border-bottom: 1px solid 
+  #e5e7eb;
+    text-transform: capitalize;
+  }
+  
+  .accounts_page_container_table input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: 
+  #2563eb;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .accounts_page_table_loading,
+  .accounts_page_table_no_data {
+    text-align: center;
+    padding: 1.5rem;
+    color: 
+  #6b7280;
+    font-size: 0.875rem;
+  }
+  
+  .accounts_page_container_table tfoot {
+    padding: 1rem;
+    border-top: 1px solid 
+  #e5e7eb;
+    margin-top: auto;
+  }
+  
+  .accounts_page_table_footer_nav_buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    gap: 0.25rem;
+    width: 100%;
+  }
+  
+  .accounts_page_container_table tfoot td {
+    padding: 0;  
+    width: 100%; 
+  }
+  
+  .accounts_page_container_table tfoot button {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 8px;
+    border: 1px solid 
+  #e5e7eb;
+    background-color: white;
+    color: 
+  #6b7280;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    transition: all 0.15s ease;
+    height: 2.3rem;
+  }
+  
+  .accounts_page_container_table tfoot button:hover:not(.active_page_button) {
+    background-color: 
+  #f9fafb;
+    color: 
+  #4b5563;
+  }
+  
+  .accounts_page_container_table tfoot button:focus{
+    outline: none;
+  }
+  
+  .accounts_page_table_prev,
+  .accounts_page_table_next {
+    background-color: 
+  #f9fafb;
+  }
+  
+  .accounts_page_table_footer_nav_buttons .active_page_button {
+    background-color: 
+  #2563eb;
+    color: white !important;
+    border: none;
+    font-weight: 500;
+    /*box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);*/
+  }
+  
+  .accounts_page_container_table_actions_header{
+    text-align: right;
+  }
+  
+  .accounts_page_container_table_actions_header img{
+    cursor: pointer;
+  }

@@ -1,0 +1,213 @@
+/* AddCarModal.css */
+.remove_staff_from_team_modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .remove_staff_from_team_modal {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 550px;
+    padding: 20px;
+    animation: slideIn 0.3s ease-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .remove_staff_from_team_modal_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .remove_staff_from_team_modal_header h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #111827;
+    margin: 0;
+  }
+  
+  .remove_staff_from_team_modal_close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  }
+  
+  .remove_staff_from_team_modal_close:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+  }
+  
+  .remove_staff_from_team_modal_form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .remove_staff_from_team_modal_form_row {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+  }
+  
+  .remove_staff_from_team_modal_form_group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .remove_staff_from_team_modal_form_group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    min-width: fit-content;
+  }
+  
+  .remove_staff_from_team_modal_form_group input,
+  .remove_staff_from_team_modal_form_group select {
+    padding: 10px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #1f2937;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+  }
+  
+  .remove_staff_from_team_modal_form_group input:focus,
+  .remove_staff_from_team_modal_form_group select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  }
+  
+  .remove_staff_from_team_modal_form_group input::placeholder {
+    color: #9ca3af;
+  }
+  
+  .remove_staff_from_team_modal_select_wrapper {
+    position: relative;
+  }
+  
+  .remove_staff_from_team_modal_select_wrapper::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #6b7280;
+  }
+  
+  .remove_staff_from_team_modal_form_group select {
+    appearance: none;
+    padding-right: 36px;
+    cursor: pointer;
+    width: 100%;
+    background-color: white;
+  }
+  
+  .remove_staff_from_team_modal_actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #remove_staff_from_team_modal_submit{
+    margin: 0;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .remove_staff_from_team_modal_cancel,
+  .remove_staff_from_team_modal_submit {
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 7rem;
+  }
+  
+  .remove_staff_from_team_modal_cancel {
+    background-color: white;
+    color: #374151;
+    border: 1px solid #d1d5db;
+  }
+  
+  .remove_staff_from_team_modal_cancel:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .remove_staff_from_team_modal_submit {
+    background-color: #6366f1;
+    color: white;
+    border: none;
+  }
+  
+  .remove_staff_from_team_modal_submit:hover {
+    background-color: #4f46e5;
+  }
+  
+  /* Disabled state styles */
+  .remove_staff_from_team_modal_form_group input:disabled,
+  .remove_staff_from_team_modal_form_group select:disabled {
+    background-color: #f9fafb;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  .remove_staff_from_team_modal_cancel:disabled,
+  .remove_staff_from_team_modal_submit:disabled,
+  .remove_staff_from_team_modal_close:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .remove_staff_from_team_modal_submit:disabled {
+    background-color: #a5a6f6;
+  }
+    
+  .remove_staff_from_team_modal_cancel:disabled {
+    background-color: #f3f4f6;
+  }

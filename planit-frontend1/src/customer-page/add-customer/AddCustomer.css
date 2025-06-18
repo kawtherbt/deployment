@@ -1,0 +1,535 @@
+/*.AddCustomer_container{
+    height: 100vh;
+    width: 50vw;
+    margin-left: auto;
+    overflow: hidden;
+    transition: width 0.5s ease;
+    background-color: blue;
+}
+
+.AddCustomer_container.extended{
+    width: 0px;
+}
+
+
+.AddCustomer_container_header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: aquamarine;
+    color: black;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#AddCustomer_container_exit_button{
+    border-radius: 50%;
+    padding: 0;
+    width: 25px;
+    height:25px;
+    margin-left: auto;
+}
+
+.AddCustomer_container_form_div{
+    background-color: blueviolet;
+    height: 100%;
+}
+
+#AddCustomer_container_form{
+    color: black;
+    height: 100%;
+    width: 100%;
+    margin-left: 0;
+    border-radius: 0;
+}
+
+.AddCustomer_container_form_input{
+    color: black;
+    
+}
+.AddCustomer_container_label{
+    color: black;
+}*/
+
+/* src/customer-page/add-customer/AddCustomer.css */
+
+/* src/customer-page/add-customer/AddCustomer.css */
+
+/*
+.AddCustomer_container {
+    height: 100vh;
+    width: 50vw; 
+    margin-left: auto;
+    overflow: hidden;
+    transition: width 0.5s ease;
+    background-color: #ffffff; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.AddCustomer_container.extended {
+    width: 0px;
+}
+
+.AddCustomer_container_header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    background-color: #007bff; 
+    color: white; 
+    padding: 10px; 
+}
+
+#AddCustomer_container_exit_button {
+    border-radius: 50%;
+    padding: 0;
+    width: 30px; 
+    height: 30px;
+    background-color: transparent; 
+    color: white; 
+    border: none; 
+    cursor: pointer;
+}
+
+.AddCustomer_container_form_div {
+    background-color: #f8f9fa; 
+    height: calc(100% - 50px); 
+    padding: 20px; 
+    overflow-y: auto; 
+}
+
+#AddCustomer_container_form {
+    color: black;
+    height: 100%;
+    width: 100%;
+    margin-left: 0;
+    border-radius: 0;
+}
+
+.AddCustomer_container_form_input {
+    margin-bottom: 15px; 
+}
+
+.AddCustomer_container_label {
+    color: #333; 
+    margin-bottom: 5px; 
+}
+
+.AddCustomer_container_form_input input {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ced4da; 
+    border-radius: 5px; 
+    font-size: 16px; 
+}
+
+.AddCustomer_container_form_input input:focus {
+    border-color: #007bff; 
+    outline: none; 
+}
+
+button[type='submit'] {
+    padding: 10px 15px; 
+    background-color: #007bff;
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+button[type='submit']:hover {
+    background-color: #0056b3; 
+}
+
+
+button[type='button'] {
+    background-color: transparent; 
+    color: #007bff; 
+    border: 1px solid #007bff; 
+    transition: background-color 0.3s; 
+}
+
+button[type='button']:hover {
+    background-color: #e7f1ff; 
+}
+
+/* AddCustomer.css */
+/*.AddCustomer_container {
+    height: 100vh;
+    width: 400px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.AddCustomer_container.extended {
+    width: 0px;
+    box-shadow: none;
+}
+
+.AddCustomer_container_header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    color: #111827;
+    padding: 20px 24px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.AddCustomer_container_header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+#AddCustomer_container_exit_button {
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    background-color: #f3f4f6;
+    color: #6b7280;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+#AddCustomer_container_exit_button:hover {
+    background-color: #e5e7eb;
+    color: #111827;
+}
+
+.AddCustomer_container_form_div {
+    background-color: #ffffff;
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+#AddCustomer_container_form {
+    color: #374151;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.AddCustomer_container_form_input {
+    margin-bottom: 20px;
+}
+
+.AddCustomer_container_label {
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+.AddCustomer_container_form_input input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #111827;
+    background-color: #ffffff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.AddCustomer_container_form_input input:focus {
+    border-color: #5e6ad2;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(94, 106, 210, 0.15);
+}
+
+.AddCustomer_container_form_input p:not(.AddCustomer_container_label) {
+    color: #ef4444;
+    font-size: 12px;
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+#AddCustomer_container_form button[type="submit"] {
+    padding: 12px 16px;
+    background-color: #5e6ad2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 8px;
+    width: 100%;
+}
+
+#AddCustomer_container_form button[type="submit"]:hover {
+    background-color: #4f59b8;
+}
+
+
+.company-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.company-logo-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+@media screen and (max-width: 768px) {
+    .AddCustomer_container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .AddCustomer_container_header {
+        padding: 16px;
+    }
+    
+    .AddCustomer_container_form_div {
+        padding: 16px;
+    }
+    
+    .AddCustomer_container_form_input {
+        margin-bottom: 16px;
+    }
+    
+    #AddCustomer_container_form button[type="submit"] {
+        padding: 10px 16px;
+    }
+}*/
+
+/* Reset & Base */
+/* Reset */
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  /* Sidebar Container */
+  .AddCustomer_container {
+    height: 100vh;
+    width: 400px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: #ffffff;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+  }
+  
+  .AddCustomer_container.extended {
+    width: 0px;
+    box-shadow: none;
+  }
+  
+  /* Header */
+  .AddCustomer_container_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #f3f4f6;
+    background-color: #ffffff;
+    color: #111827;
+  }
+  
+  .AddCustomer_container_header h2 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  /* Close Button */
+  #AddCustomer_container_exit_button {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #f3f4f6;
+    color: #6b7280;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+  }
+  
+  #AddCustomer_container_exit_button:hover {
+    width: 30px;
+    height: 30px;
+    background-color: #e5e7eb;
+    color: #111827;
+    outline: none;
+    flex-shrink: 0;
+  }
+  
+  /* Form Container */
+  .AddCustomer_container_form_div {
+    background-color: #ffffff;
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+  }
+  
+  /* Form Styling */
+  #AddCustomer_container_form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: #374151;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  /* Input Group */
+  .AddCustomer_container_form_input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+  
+  .AddCustomer_container_label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 8px;
+  }
+  
+  .AddCustomer_container_form_input input {
+    padding: 12px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #111827;
+    background-color: #ffffff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+  }
+  
+  .AddCustomer_container_form_input input:focus {
+    border-color: #5e6ad2;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(94, 106, 210, 0.15);
+  }
+  
+  /* Error Messages */
+  .AddCustomer_container_form_input p:not(.AddCustomer_container_label) {
+    color: #ef4444;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+  
+  /* Submit Button */
+  #AddCustomer_container_form button[type="submit"] {
+    padding: 12px 16px;
+    background-color: #5e6ad2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+  }
+  
+  #AddCustomer_container_form button[type="submit"]:hover {
+    background-color: #4f59b8;
+  }
+  
+  /* Logo Placeholder (Optional) */
+  .company-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    width: 100%;
+  }
+  
+  .company-logo-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .AddCustomer_container {
+      width: 100%;
+    }
+  
+    .AddCustomer_container_form_div {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .AddCustomer_container_header {
+      padding: 16px;
+    }
+  
+    .AddCustomer_container_form_div {
+      padding: 16px;
+    }
+  
+    .AddCustomer_container_form_input {
+      margin-bottom: 14px;
+    }
+  
+    #AddCustomer_container_form button[type="submit"] {
+      padding: 10px 16px;
+    }
+  }
+  

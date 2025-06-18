@@ -1,0 +1,228 @@
+.insoiree-container {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgba(44, 62, 80, 0.07);
+  padding: 40px 30px 60px 30px;
+  max-width: 1200px;
+  margin: 30px auto;
+  width: 100%;
+  margin-left: 13rem;
+  min-height: 80vh;
+}
+
+.insoiree-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.insoiree-controls {
+  display: flex;
+  align-items: center;
+  gap: 200px;
+}
+
+.insoiree-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  color: #222;
+  white-space: nowrap;
+  margin-right: 20px;
+}
+
+.insoiree-search {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  width: 250px;
+  background: #fafbfc;
+  transition: border 0.2s;
+}
+
+.insoiree-search:focus {
+  border: 1.5px solid #2256e7;
+  outline: none;
+}
+
+.insoiree-create-btn {
+  background: #2256e7;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.insoiree-create-btn:hover {
+  background: #1741b6;
+}
+
+.insoiree-table-wrapper {
+  background: #fafbfc;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+  padding: 0;
+  overflow-x: auto;
+}
+
+.insoiree-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 18px;
+  background: transparent;
+}
+
+.insoiree-table th {
+  color: #bfc3c9;
+  font-weight: 500;
+  font-size: 0.98rem;
+  padding: 12px 10px;
+  text-align: left;
+  background: transparent;
+}
+
+.insoiree-recycle-bin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e74c3c;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.insoiree-recycle-bin:hover {
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.insoiree-row {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+  transition: box-shadow 0.2s;
+}
+
+.insoiree-row td {
+  padding: 18px 10px;
+  font-size: 1rem;
+  color: #222;
+  vertical-align: middle;
+}
+
+.insoiree-row td:first-child {
+  width: 40px;
+}
+
+.insoiree-clickable-row {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.insoiree-clickable-row:hover {
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.08);
+  transform: translateY(-2px);
+}
+
+.insoiree-checkbox {
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 2px solid #2256e7;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.insoiree-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 6px;
+  height: 11px;
+  border: solid #2256e7;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.insoiree-button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.insoiree-back-btn {
+  background: #f3f6fa;
+  color: #7d8597;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.insoiree-back-btn:hover {
+  background: #e0e6ef;
+}
+
+.insoiree-participants {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.insoiree-progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: #edf2f7;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.insoiree-progress-fill {
+  height: 100%;
+  background-color: #4299e1;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.insoiree-delete-btn,
+.insoiree-delete-selected {
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.insoiree-delete-btn:hover,
+.insoiree-delete-selected:hover {
+  background-color: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.insoiree-delete-btn:active,
+.insoiree-delete-selected:active {
+  background-color: #991b1b;
+  transform: translateY(0);
+} 

@@ -1,0 +1,17 @@
+.client_interface_client_containing_div {
+    display: flex;
+    flex-direction: row;
+    color: #111827;
+    align-items: center;
+    font-size: 14px;
+}
+
+.client_interface_client_containing_subdiv {
+    font-weight: 500;
+}
+
+.client_interface_client_containing_subdiv.domain {
+    margin-left: auto;
+    color: #6b7280;
+    font-style: italic;
+}

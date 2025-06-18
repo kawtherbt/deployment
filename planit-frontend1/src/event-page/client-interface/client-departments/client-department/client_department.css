@@ -1,0 +1,20 @@
+.client_department_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e7eb;
+    align-items: center;
+}
+
+.client_department_subdiv {
+    flex-grow: 1;
+    margin-right: 10px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.client_department_subdiv:last-child {
+    margin-right: 0;
+}

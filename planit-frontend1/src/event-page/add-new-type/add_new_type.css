@@ -1,0 +1,146 @@
+/*.addNewType{
+    position: fixed;
+    top: 40%;
+    left: 35%;
+    width: 300px;
+    height: 25vh;
+    border-radius: 25px;
+    border-right: 25px;
+    border-top-right-radius: 25px;
+    background-color: white(223, 38, 38);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    z-index: 3000;
+    background-color: white;
+    
+}
+
+.new_type_name_input{
+    background-color: white;
+}
+
+#add_new_type_form{
+    background-color: white;
+    width: 50%;
+    display: flex;
+    margin:0;
+}
+
+.new_type_name_input{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#close_button {
+    border-radius: 100%;
+    
+    color: white;
+    width: 20px;
+    height: 20px;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+}*/
+
+/* Add New Type Modal Component - Improved but preserving original structure */
+.addNewType {
+    position: fixed;
+    top: 40%;
+    left: 35%;
+    width: 300px;
+    height: auto;
+    min-height: 25vh;
+    border-radius: 25px;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 3000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  #add_new_type_form {
+    background-color: white;
+    width: 80%; /* Increased from 50% for better space usage */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 15px;
+  }
+  
+  .new_type_name_input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  
+  .new_type_name_input label {
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  .new_type_name_input input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .new_type_name_input input:focus {
+    border-color: rgb(0, 102, 255);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.2);
+  }
+  
+  #add_new_type_form button[type="submit"] {
+    background-color: rgb(0, 102, 255);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+  }
+  
+  #add_new_type_form button[type="submit"]:hover {
+    background-color: rgb(0, 81, 204);
+  }
+  
+  #close_button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border-radius: 100%;
+    background-color: grey;
+    color: white;
+    width: 24px;
+    height: b24px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  #close_button:hover {
+    background-color: rgb(185, 28, 28);
+  }

@@ -1,0 +1,154 @@
+/* HistoryEvent.css */
+.history_event {
+    transition: background-color 0.2s ease;
+  }
+  
+  .history_event:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .history_event--selected {
+    background-color: #f0f4ff;
+  }
+  
+  .history_event td {
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #444;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .history_event_checkbox_cell {
+    width: 40px;
+  }
+  
+  .history_event_checkbox {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .history_event_phone_cell {
+    width: 110px;
+  }
+  
+  .history_event_name_cell {
+    width: 180px;
+  }
+  
+  .history_event_logo_name {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .history_event_logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .history_event_name {
+    font-weight: 500;
+  }
+  
+  .history_event_event_cell {
+    width: 150px;
+  }
+  
+  .history_event_date_cell {
+    width: 130px;
+  }
+  
+  .history_event_date_container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .history_event_calendar_icon {
+    color: #5787e6;
+    font-size: 1rem;
+  }
+  
+  .history_event_status_cell {
+    width: 120px;
+  }
+  
+  .history_event_status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: lowercase;
+    display: inline-block;
+  }
+  
+  .history_event_status--finance {
+    background-color: #e7f5ef;
+    color: #388e67;
+  }
+  
+  .history_event_status--technology {
+    background-color: #fff3e0;
+    color: #ed8936;
+  }
+  
+  .history_event_status--e-commerce {
+    background-color: #ffe6e6;
+    color: #e53e3e;
+  }
+  
+  .history_event_email_cell {
+    width: 200px;
+  }
+  
+  .history_event_actions_cell {
+    width: 40px;
+  }
+  
+  .history_event_more_actions {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #888;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .history_event_more_actions:focus{
+    outline: none;
+  }
+  
+  .history_event_more_actions:hover {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  @media (max-width: 1024px) {
+    .history_event_email_cell {
+      display: none;
+    }
+    
+    .history_event td {
+      padding: 0.75rem 0.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .history_event_phone_cell,
+    .history_event_date_cell {
+      display: none;
+    }
+  }

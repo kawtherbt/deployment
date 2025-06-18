@@ -1,0 +1,239 @@
+/* TeamPage.css */
+.team_page {
+    display: flex;
+    height: 100vh;
+    background-color: #f9fafb;
+    width: calc(100vw - 50px);
+    margin-left: 50px;
+}
+
+.team_page_container {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.team_page_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.team_page_title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #111827;
+    text-transform: capitalize;
+}
+
+.team_page_search {
+    position: relative;
+    width: 300px;
+    margin-left:auto;
+    margin-right:2rem;
+}
+
+.team_page_search_input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    background-color: white;
+}
+
+.team_page_search_input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.team_page_search_icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+}
+
+.team_page_add_button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0;
+    height: 2.7rem;
+    min-width: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team_page_add_button:hover {
+    background-color: #1d4ed8;
+}
+
+.team_page_add_button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.team_page_table_container {
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.team_page_table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.team_page_table_head {
+    display: flex;
+    padding: 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #4b5563;
+    background-color: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.team_page_table_head > div {
+    text-align: left;
+}
+
+.team_page_table_body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.team_page_checkbox_header {
+    width: 48px;
+}
+
+.team_page_checkbox_header_input {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+}
+
+.team_page_name_header {
+    flex: 2;
+}
+
+.team_page_members_header {
+    flex: 1;
+}
+
+.team_page_date_header {
+    flex: 1;
+}
+
+.team_page_actions_header {
+    width: fit-content;
+    text-align: right;
+    cursor: pointer;
+}
+
+.team_page_sort_icon {
+    margin-left: 0.25rem;
+    opacity: 0.5;
+    font-size: 0.75rem;
+}
+
+.team_page_loading, 
+.team_page_no_data {
+    padding: 2rem;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.team_page_table_footer_nav_buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    gap: 0.25rem;
+    width: 100%;
+  }
+  
+  
+  .team_page_table_footer_nav_buttons button {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 8px;
+    border: 1px solid 
+  #e5e7eb;
+    background-color: white;
+    color: 
+  #6b7280;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    transition: all 0.15s ease;
+    height: 2.3rem;
+  }
+  
+  .team_page_table_footer_nav_buttons button:hover:not(.active_page_button) {
+    background-color: 
+  #f9fafb;
+    color: 
+  #4b5563;
+  }
+  
+  .team_page_table_footer_nav_buttons button:focus{
+    outline: none;
+  }
+  
+  .team_page_table_prev,
+  .team_page_table_next {
+    background-color: 
+  #f9fafb;
+  }
+
+  .team_page_table_footer_nav_buttons .active_page_button {
+    background-color: 
+  #2563eb;
+    color: white !important;
+    border: none;
+    font-weight: 500;
+    /*box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);*/
+  }
+
+@media (max-width: 1024px) {
+    .team_page_search {
+        width: 200px;
+    }
+    
+    .team_page_email_header, 
+    .team_page_phone_header {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .team_page_header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .team_page_search {
+        width: 100%;
+    }
+}
+
+

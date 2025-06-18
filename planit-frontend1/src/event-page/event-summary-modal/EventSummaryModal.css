@@ -1,0 +1,127 @@
+.event-summary-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.event-summary-modal {
+    background-color: white;
+    border-radius: 8px;
+    padding: 24px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.event-summary-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.event-summary-modal-header h2 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 1.5rem;
+}
+
+.event-summary-modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: #6b7280;
+    transition: color 0.2s;
+}
+
+.event-summary-modal-close:hover {
+    color: #1f2937;
+}
+
+.event-summary-content {
+    margin-bottom: 24px;
+}
+
+.event-summary-section h3 {
+    color: #374151;
+    margin-bottom: 16px;
+    font-size: 1.25rem;
+}
+
+.event-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.event-summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.event-summary-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.event-summary-item label {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.event-summary-item span {
+    color: #1f2937;
+    font-size: 1rem;
+}
+
+.event-summary-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.event-summary-close-btn,
+.event-summary-details-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.event-summary-close-btn {
+    background-color: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+}
+
+.event-summary-close-btn:hover {
+    background-color: #e5e7eb;
+}
+
+.event-summary-details-btn {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+}
+
+.event-summary-details-btn:hover {
+    background-color: #1d4ed8;
+} 

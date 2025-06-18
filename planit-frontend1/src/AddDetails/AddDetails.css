@@ -1,0 +1,245 @@
+/*.add-details-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .content-area {
+    flex-grow: 1;
+    margin-left: 70px; 
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 10px 0;
+  }
+  
+  .greeting {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 14px;
+  }
+  
+  .user-role {
+    color: #777;
+    font-size: 12px;
+  }
+  
+  .cards-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .card {
+    flex: 1;
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+  }
+  
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 15px;
+  }
+  
+  .card h3 {
+    font-size: 16px;
+    margin: 0 0 10px 0;
+    color: white;
+  }
+  
+  .card p {
+    font-size: 12px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+
+  .card[style*="background-color: #FFFFFF"] h3,
+  .card[style*="background-color: #FFFFFF"] p {
+    color: #333;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 20px 0;
+  }
+  
+  .go-back-btn {
+    background-color: #e6e9f0;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #555;
+  }
+  
+  .go-back-btn:hover {
+    background-color: #d8dce6;
+  }
+  
+
+  .card[style*="background-color: #6B5DE6"] .card-icon {
+    filter: brightness(0) invert(1); 
+  }*/
+
+  .add-details-container {
+    display: flex;
+    min-height: 100vh;
+    background: #f9f9fb;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .content-area {
+    flex-grow: 1;
+    margin-left: 70px; /* Room for sidebar */
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .greeting {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 14px;
+    color: #444;
+  }
+  
+  .user-role {
+    font-size: 12px;
+    color: #999;
+  }
+  
+  .cards-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+  }
+  
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .card h3 {
+    font-size: 17px;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .card p {
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* Text override for white cards */
+  .card[style*="background-color: #FFFFFF"] h3,
+  .card[style*="background-color: #FFFFFF"] p {
+    color: #333;
+  }
+  
+  /* Icon color fix for purple background cards */
+  .card[style*="background-color: #6B5DE6"] .card-icon {
+    filter: brightness(0) invert(1);
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  
+  .go-back-btn {
+    background-color: #edf0f7;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a4a4a;
+    transition: background 0.3s ease;
+  }
+  
+  .go-back-btn:hover {
+    background-color: #dbe0eb;
+  }
+  

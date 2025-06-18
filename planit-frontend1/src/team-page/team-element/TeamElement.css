@@ -1,0 +1,175 @@
+/* TeamElement.css */
+
+.team_element {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+}
+
+.team_element:hover {
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+.team_element--selected {
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+.team_element > div {
+    padding: 0 1rem;
+    font-size: 0.875rem;
+    color: #374151;
+}
+
+.team_element_checkbox_cell {
+    width: 48px;
+    /*padding-left: 1.25rem !important;*/
+    display: flex;
+    align-items: center;
+}
+
+.team_element_checkbox {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    appearance: none;/*this line fixed the fucking black background*/
+    accent-color: #3b82f6;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 2px solid #d1d5db;
+    position: relative;
+}
+
+.team_element_checkbox:checked {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.team_element_checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.team_element_name_cell {
+    flex: 2;
+}
+
+.team_element_logo_name {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.team_element_name {
+    font-weight: 500;
+    color: #111827;
+}
+
+.team_element_members_cell {
+    flex: 1;
+}
+
+.team_element_creation_date_cell {
+    flex: 1;
+}
+
+.team_element_creation_date_container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.team_element_calendar_icon {
+    font-size: 1rem;
+}
+
+.team_element_actions_cell {
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    
+}
+
+.team_element_more_actions {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.team_element_more_actions:hover {
+    background-color: #f3f4f6;
+}
+
+.team_element_more_actions:focus {
+    outline: none;
+}
+
+.team_element_dropdown_button {
+    transition: transform 0.2s ease;
+}
+
+.team_element_dropdown_button--open {
+    transform: rotate(180deg);
+}
+
+.team_element_staff_wrapper {
+    padding-left: 3rem;
+}
+
+.team_element_staff_container {
+    display: none;
+}
+
+.team_element_staff_container--open {
+    display: block;
+}
+
+.team_element_status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.team_element_status--active {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+.team_element_status--pending {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.team_element_status--inactive {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+#team_element_checkbox_id:checked {
+    background-color: #0051ff; 
+    border-color: #0051ff;
+}

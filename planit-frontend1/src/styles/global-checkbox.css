@@ -1,0 +1,99 @@
+/* Modern elegant checkbox styling for all in-, participant, and add- pages */
+
+/* Target all checkboxes in the relevant pages */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-right: 8px;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Hover state */
+input[type="checkbox"]:hover {
+  border-color: #a0aec0;
+  background-color: rgba(34, 86, 231, 0.03);
+  transform: scale(1.03);
+}
+
+/* Focus state */
+input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+  border-color: #63b3ed;
+}
+
+/* Checked state */
+input[type="checkbox"]:checked {
+  background-color: #2256e7;
+  border-color: #2256e7;
+  transform: scale(1.05);
+}
+
+/* Custom checkmark */
+input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 11px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translate(-1px, -1px);
+  opacity: 1;
+}
+
+/* Animation for the checkmark */
+input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 11px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  opacity: 0;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+input[type="checkbox"]:checked::after {
+  transform: rotate(45deg) scale(1);
+  opacity: 1;
+}
+
+/* Specific checkbox classes for different components */
+.accomodationparticipant-checkbox,
+.workshopsparticipant-checkbox,
+.soireeparticipant-checkbox,
+.workshops-checkbox,
+.pauses-checkbox,
+.insoiree-checkbox {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background-color: transparent !important;
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.accomodationparticipant-checkbox:checked,
+.workshopsparticipant-checkbox:checked,
+.soireeparticipant-checkbox:checked,
+.workshops-checkbox:checked,
+.pauses-checkbox:checked,
+.insoiree-checkbox:checked {
+  background-color: #2256e7 !important;
+  border-color: #2256e7 !important;
+} 

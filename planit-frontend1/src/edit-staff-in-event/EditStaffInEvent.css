@@ -1,0 +1,236 @@
+/* Main layout */
+.asie-dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #fff7ed;
+}
+
+/* Main Content */
+.asie-main-content {
+  flex: 1;
+  padding: 30px;
+  margin-left: 50px;
+  transition: margin-left 0.6s ease;
+  position: relative;
+}
+
+.asie-page-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Form Card */
+.asie-form-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+  width: 1200px;
+  margin-left: 100px;
+}
+
+.asie-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1.5rem;
+  align-self: center;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.asie-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.asie-form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.asie-form-input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #0f172a;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.asie-form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.asie-form-input::placeholder {
+  color: #94a3b8;
+}
+
+.asie-form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.asie-button-group {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+}
+
+.asie-submit-button {
+  background: linear-gradient(90deg, #3b82f6 0%, #4f46e5 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 3rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  min-width: 150px;
+}
+
+.asie-back-button {
+  background: #e5e7eb;
+  color: #374151;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 3rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  min-width: 150px;
+}
+
+.asie-submit-button:hover,
+.asie-back-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.asie-submit-button:active,
+.asie-back-button:active {
+  transform: translateY(0);
+}
+
+.asie-multiple-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.asie-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.asie-checkbox-label {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  background-color: white;
+}
+
+.asie-checkbox-input:checked + .asie-checkbox-label {
+  background-color: white;
+  border-color: #3b82f6;
+}
+
+.asie-checkbox-input:checked + .asie-checkbox-label::after {
+  content: "✔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  color: #3b82f6;
+}
+
+@media (max-width: 768px) {
+  .asie-form-grid {
+    width: 90%;
+    grid-template-columns: 1fr;
+  }
+
+  .asie-form-input {
+    width: 100%;
+  }
+
+  .asie-button-group {
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .asie-submit-button,
+  .asie-back-button {
+    width: 100%;
+  }
+}
+
+/* Select styles */
+.asie-select-wrapper {
+  position: relative;
+  width: 20rem;
+}
+
+.asie-form-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+}
+
+.asie-form-select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.asie-select-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #6b7280;
+}
+
+/* Adjust for sidebar hover state */
+.sidebarholder:hover + .asie-main-content {
+  margin-left: 250px;
+} 

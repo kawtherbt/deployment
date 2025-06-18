@@ -1,0 +1,109 @@
+.add_department_interface {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    max-width: 400px;
+    height: 100vh;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0 auto;
+  }
+  
+  .add_department_interface > p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  #add_department_form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    
+    margin-right: 5rem;
+  }
+  
+  .add_department_form_subdiv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  .add_department_form_subdiv_input {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .add_department_form_subdiv_input > p {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+  }
+  
+  .add_department_form_subdiv_input > input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s, box-shadow 0.3s;
+    width: 100%;
+  }
+  
+  .add_department_form_subdiv_input > input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  }
+  
+  .add_department_form_subdiv_input > p:last-child {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #e74c3c; /* error text */
+  }
+  
+  .add_department_form_subdiv_buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+  }
+  
+  #AddDepartment_submit_button,
+  #AddDepartment_return_return {
+    padding: 0.75rem 1.5rem;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #AddDepartment_return_return {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+  }
+  
+  #AddDepartment_return_return:hover {
+    background-color: #d0d3d4;
+  }
+  
+  #AddDepartment_submit_button {
+    background-color: #3498db;
+    color: #fff;
+  }
+  
+  #AddDepartment_submit_button:hover {
+    background-color: #2980b9;
+  }
+  

@@ -1,0 +1,49 @@
+/* DateTimePickerWithIcon.css */
+.datetime-picker-container {
+    width: 100%;
+  }
+  
+  .date-time-input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .date-time-input {
+    width: 100%;
+    padding: 8px;
+    padding-right: 35px; /* Make room for the icon */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .calendar-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    cursor: pointer;
+    pointer-events: none; /* Let clicks go through to the input */
+  }
+  
+  /* Style the DatePicker component */
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+  
+  .react-datepicker__input-container {
+    width: 100%;
+  }
+  
+  /* Make sure the dropdown calendar appears properly */
+  .react-datepicker-popper {
+    z-index: 999;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 4px;
+  }

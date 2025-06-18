@@ -1,0 +1,24 @@
+.Element{
+    display: flex;
+    padding: 5px;
+    padding-left: 10px;
+    min-width: 10em;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Element:hover{
+    background:linear-gradient(to right,rgba(100, 108, 255,1),rgba(100, 108, 255,0.1),rgba(100, 108, 255,0));
+}
+
+a {
+    color: black;
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+.Element:hover a{
+    color: rgb(100, 108, 255);
+}

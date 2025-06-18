@@ -1,0 +1,437 @@
+/*.customer_containing_div{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.customer_containing_subdiv{
+    width:200px;
+}
+
+.customer_containing_subdiv.checkbox{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+}
+
+.customer_containing_button_subdiv{
+    width: 0px;
+    overflow: hidden;
+    transition: width 0.5s ease;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.customer_containing_button_subdiv.extended{
+    width: 200px;
+}
+
+#add_department_button{
+    padding: 7px;
+    background-color: rgb(96, 91, 255);
+}
+
+#customer_checkbox{
+    height: 20px;
+    width: 20px;    
+}*/
+
+/*
+.customer_containing_div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; 
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0; 
+    align-items: center; 
+    background-color: #ffffff; 
+}
+
+.customer_containing_subdiv {
+    width: 200px; 
+    text-align: left;
+}
+
+.customer_containing_subdiv.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.customer_containing_button_subdiv {
+    width: 150px; 
+    overflow: hidden;
+    transition: width 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.customer_containing_button_subdiv.extended {
+    width: 150px; 
+}
+
+#add_department_button {
+    padding: 10px; 
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+#add_department_button:hover {
+    background-color: #0056b3; 
+}
+
+#customer_checkbox {
+    height: 20px;
+    width: 20px;
+}*/
+/*
+.customer_containing_div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    align-items: center;
+    background-color: #ffffff;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
+}
+
+.customer_containing_subdiv {
+    width: 200px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.customer_containing_subdiv h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.customer_containing_subdiv.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+}
+
+.customer_containing_button_subdiv {
+    width: 150px;
+    overflow: hidden;
+    transition: width 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+}
+
+.customer_containing_button_subdiv.extended {
+    width: 150px;
+}
+
+#add_department_button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    white-space: nowrap;
+}
+
+#add_department_button:hover {
+    background-color: #0056b3;
+}
+
+#customer_checkbox {
+    height: 20px;
+    width: 20px;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .customer_containing_subdiv {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .customer_containing_subdiv {
+        width: 120px;
+    }
+    
+    .customer_containing_subdiv h3 {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .customer_containing_div {
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 10px;
+    }
+    
+    .customer_containing_subdiv {
+        width: calc(50% - 20px);
+    }
+    
+    .customer_containing_subdiv.checkbox {
+        width: 40px;
+    }
+    
+    .customer_containing_button_subdiv {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .customer_containing_button_subdiv.extended {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .customer_containing_div {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 10px;
+    }
+    
+    .customer_containing_subdiv {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .customer_containing_subdiv.checkbox {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .customer_containing_button_subdiv {
+        width: 100%;
+    }
+}
+    */
+
+/* customer.css */
+.customer_containing_div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f3f4f6;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.customer_containing_div:hover {
+    background-color: #f9fafb;
+}
+
+.customer_containing_subdiv {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.customer_containing_subdiv:nth-child(1) {
+    width: 5%;
+    min-width: 40px;
+}
+
+.customer_containing_subdiv:nth-child(2) {
+    width: 10%;
+    min-width: 80px;
+}
+
+.customer_containing_subdiv:nth-child(3) {
+    width: 15%;
+    min-width: 100px;
+}
+
+.customer_containing_subdiv:nth-child(4) {
+    width: 25%;
+    min-width: 180px;
+}
+
+.customer_containing_subdiv:nth-child(5) {
+    width: 20%;
+    min-width: 150px;
+}
+
+.customer_containing_subdiv:nth-child(6) {
+    width: 15%;
+    min-width: 120px;
+}
+
+.customer_containing_subdiv h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+    color: #111827;
+}
+
+.customer_containing_subdiv.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#customer_checkbox {
+    height: 18px;
+    width: 18px;
+    accent-color: #5e6ad2;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.customer_containing_button_subdiv {
+    margin-left: auto;
+    width: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+.customer_containing_button_subdiv.extended {
+    width: auto;
+}
+
+#add_department_button {
+    padding: 8px 16px;
+    background-color: #5e6ad2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+}
+
+#add_department_button:hover {
+    background-color: #4f59b8;
+}
+
+
+.company-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.category-tag {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.category-tag.finance {
+    background-color: #ecfdf5;
+    color: #10b981;
+}
+
+.category-tag.technology {
+    background-color: #fff7ed;
+    color: #f97316;
+}
+
+.category-tag.e-commerce {
+    background-color: #fef2f2;
+    color: #ef4444;
+}
+
+
+@media screen and (max-width: 1100px) {
+    .customer_containing_subdiv:nth-child(6) {
+        display: none;
+    }
+    
+    .customer_containing_subdiv:nth-child(5) {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .customer_containing_subdiv:nth-child(5) {
+        display: none;
+    }
+    
+    .customer_containing_subdiv:nth-child(4) {
+        width: 35%;
+    }
+    
+    .customer_containing_subdiv:nth-child(3) {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .customer_containing_div {
+        padding: 12px 8px;
+    }
+    
+    .customer_containing_subdiv h3 {
+        font-size: 13px;
+    }
+    
+    #add_department_button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .customer_containing_subdiv:nth-child(2) {
+        display: none;
+    }
+    
+    .customer_containing_subdiv:nth-child(3) {
+        width: 35%;
+    }
+    
+    .customer_containing_subdiv:nth-child(4) {
+        width: 55%;
+    }
+    
+    .customer_containing_button_subdiv {
+        margin-top: 8px;
+        width: 100%;
+    }
+    
+    .customer_containing_div {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .customer_containing_div {
+        padding: 10px 6px;
+    }
+    
+    .customer_containing_subdiv h3 {
+        font-size: 12px;
+    }
+}

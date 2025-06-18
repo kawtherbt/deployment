@@ -1,0 +1,157 @@
+/* HistoryPage.css */
+.history_page {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f9f7f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .history_page_container {
+    flex: 1;
+    padding: 2rem;
+    padding-left:5rem ;
+  }
+  
+  .history_page_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .history_page_title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+  }
+  
+  .history_page_search {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .history_page_search_input {
+    padding: 0.5rem 1rem;
+    padding-right: 2.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    width: 200px;
+    background-color: #fff;
+  }
+  
+  .history_page_search_icon {
+    position: absolute;
+    right: 0.75rem;
+    color: #888;
+  }
+  
+  .history_page_table_container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .history_page_table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  
+  .history_page_table thead {
+    background-color: #f9f9f9;
+    height: 3rem;
+  }
+  
+  .history_page_table th {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #666;
+    text-align: left;
+    text-transform: lowercase;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .history_page_sort_icon {
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+    color: #aaa;
+  }
+  
+  .history_page_checkbox_header {
+    width: 40px;
+  }
+  
+  .history_page_phone_header {
+    width: 110px;
+  }
+  
+  .history_page_name_header {
+    width: 180px;
+  }
+  
+  .history_page_event_header {
+    width: 150px;
+  }
+  
+  .history_page_date_header {
+    width: 130px;
+  }
+  
+  .history_page_status_header {
+    width: 120px;
+  }
+  
+  .history_page_email_header {
+    width: 200px;
+  }
+  
+  .history_page_actions_header {
+    width: 40px;
+  }
+  
+  .history_page_loading, 
+  .history_page_no_data {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+  }
+  
+  @media (max-width: 1024px) {
+    .history_page_container {
+      padding: 1rem;
+    }
+    
+    .history_page_email_header {
+      display: none;
+    }
+    
+    .history_page_table th {
+      padding: 0.75rem 0.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .history_page_header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .history_page_search {
+      width: 100%;
+    }
+    
+    .history_page_search_input {
+      width: 100%;
+    }
+    
+    .history_page_phone_header, 
+    .history_page_date_header {
+      display: none;
+    }
+  }

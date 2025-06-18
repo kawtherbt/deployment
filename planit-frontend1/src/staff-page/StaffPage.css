@@ -1,0 +1,472 @@
+/* StaffPage.css */
+/*
+.staff_page {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f7f8fc;
+  }
+  
+  .staff_page_content {
+    flex: 1;
+    padding: 30px;
+    margin-left: 280px; 
+  }
+  
+
+  .staff_page_content_graphs {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .staff_page_content_bargraph {
+    flex: 2;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+  }
+  
+  .staff_page_content_circlegraph {
+    flex: 1;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  .staff_page_content_table {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+  }
+  
+  .staff_page_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .staff_page_header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    color: #252733;
+  }
+  
+  .staff_serch_div {
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    padding: 8px 12px;
+    width: 300px;
+  }
+  
+  .staff_serch_div img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+  
+  .staff_serch_div input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+  }
+  
+  #filter_staff {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #dfe0eb;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+ 
+  .staff_elements_div {
+    margin-bottom: 20px;
+  }
+  
+
+  .accounts_element_container {
+    display: grid;
+    grid-template-columns: 40px 1fr 1fr 1fr 1fr 1fr 40px;
+    align-items: center;
+    padding: 16px 12px;
+    border-bottom: 1px solid #dfe0eb;
+  }
+  
+  .accounts_element_container:hover {
+    background-color: #f5f6fa;
+  }
+  
+  .accounts_containing_subdiv {
+    padding: 0 10px;
+  }
+  
+  .accounts_containing_subdiv h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #252733;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .accounts_containing_subdiv.checkbox {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .accounts_containing_subdiv input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+  
+  #accounts_type {
+    color: #0044FF;
+    background-color: rgba(0, 68, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 12px;
+  }
+  
+  .accounts_containing_subdiv img {
+    cursor: pointer;
+  }
+  
+  
+  .staff_page_footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .staff_page_footer button {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dfe0eb;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .staff_page_footer button:hover {
+    background-color: #f5f6fa;
+  }
+  
+  .staff_page_footer button img {
+    width: 16px;
+    height: 16px;
+  }
+  
+ 
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }*/
+
+  /* StaffPage.css */
+
+.staff_page {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f8f8fb;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .staff_page_content {
+    flex: 1;
+    padding: 30px;
+    margin-left: 50px; /* Match sidebar width when collapsed */
+    transition: margin-left 0.6s ease;
+    position: relative;
+  }
+  
+  /* Add Staff Button */
+  .staff_page_content > button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #5932EA;
+    color: white;
+    font-size: 24px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(89, 50, 234, 0.3);
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+  
+  .staff_page_content > button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Graphs section */
+  .staff_page_content_graphs {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .staff_page_content_bargraph {
+    flex: 2;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    position: relative;
+  }
+  
+  .staff_page_content_bargraph::before {
+    content: "Staff performance";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .staff_page_content_circlegraph {
+    flex: 1;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .staff_page_content_circlegraph::before {
+    content: "disponibilité";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Staff table section */
+  .staff_page_content_table {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+  }
+  
+  .staff_page_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+  }
+  
+  .staff_page_header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+  }
+  .staff_search_filter_div{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+  }
+  .staff_serch_div {
+    display: flex;
+    align-items: center;
+    background-color: #f9fbff;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    padding: 8px 12px;
+    width: 500px;
+    margin: 0 15px;
+    
+  }
+  
+  .staff_serch_div img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    opacity: 0.5;
+  }
+  
+  .staff_serch_div input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .staff_serch_div input:focus,textarea:focus,select:focus {
+    outline: none;        
+    box-shadow: none;
+  }
+  
+  #filter_staff {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #f0f0f0;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 120px;
+    max-width: 220px;
+  }
+
+  /* Table header row */
+.staff_page_content_table_header {
+    display: grid;
+    grid-template-columns: 40px 1fr 1fr 1fr 1fr 1fr 40px;
+    padding: 15px 12px;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 10px;
+  }
+  
+  .staff_page_content_table_header h3 {
+    font-weight: 600;
+    font-size: 12px;
+    color: #8b8b8b;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0 10px;
+  }
+  
+  .staff_page_content_table_header h3:first-child {
+    grid-column: 2; /* Skip the checkbox column */
+  }
+  
+  /* Remove the previously defined ::before pseudo-element */
+  .staff_elements_div::before {
+    content: none;
+  }
+  
+  /* Staff elements container */
+  .staff_elements_div {
+    margin-bottom: 20px;
+  }
+  
+  /* Pagination footer */
+  .staff_page_footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  
+  .staff_page_footer button {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eaeaea;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .staff_page_footer button:nth-child(2) {
+    background-color: #5932EA;
+    color: white;
+    border-color: #5932EA;
+  }
+  
+  .staff_page_footer button:hover {
+    background-color: #f5f5ff;
+    border-color: #5932EA;
+    color: #5932EA;
+  }
+  
+  .staff_page_footer button:nth-child(2):hover {
+    background-color: #5932EA;
+    color: white;
+  }
+  
+  .staff_page_footer button img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+  }
+  
+  .staff_page_footer button:hover img {
+    opacity: 1;
+  }
+  
+  /* Loading state */
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+  
+  /* Adjust for sidebar hover state */
+  .sidebarholder:hover + .staff_page_content {
+    margin-left: 250px;
+  }
+  
+  /* Responsive chart sizing */
+  .staff_page_content_bargraph canvas,
+  .staff_page_content_circlegraph canvas {
+    max-width: 100%;
+    height: auto !important;
+  }
+  
+  /* Doughnut chart center text */
+  .staff_page_content_circlegraph {
+    position: relative;
+  }
+  
+  .staff_page_content_circlegraph::after {
+    content: "80%";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: 600;
+    color: #5932EA;
+  }
+  
+  /* Chart label styles */
+  canvas {
+    font-family: 'Inter', sans-serif !important;
+  }

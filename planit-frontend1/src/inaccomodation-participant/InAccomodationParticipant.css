@@ -1,0 +1,184 @@
+.accomodationparticipant-container {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgba(44, 62, 80, 0.07);
+  padding: 40px 30px 60px 30px;
+  max-width: 1200px;
+  margin: 30px auto;
+  width: 100%;
+  margin-left: 13rem;
+  min-height: 80vh;
+}
+
+.accomodationparticipant-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.accomodationparticipant-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-left: 1rem;
+  color: #222;
+}
+
+.accomodationparticipant-search {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  width: 250px;
+  margin-left: auto;
+  background: #fafbfc;
+  transition: border 0.2s;
+}
+
+.accomodationparticipant-search:focus {
+  border: 1.5px solid #2256e7;
+  outline: none;
+}
+
+.accomodationparticipant-table-wrapper {
+  background: #fafbfc;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+  padding: 0;
+  overflow-x: auto;
+}
+
+.accomodationparticipant-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 18px;
+  background: transparent;
+}
+
+.accomodationparticipant-table th {
+  color: #bfc3c9;
+  font-weight: 500;
+  font-size: 0.98rem;
+  padding: 12px 10px;
+  text-align: left;
+  background: transparent;
+  position: relative;
+}
+
+.accomodationparticipant-recycle-bin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e74c3c;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+.accomodationparticipant-row {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+  transition: box-shadow 0.2s;
+}
+
+.accomodationparticipant-row:hover {
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.08);
+}
+
+.accomodationparticipant-row td {
+  padding: 18px 10px;
+  font-size: 1rem;
+  color: #222;
+  vertical-align: middle;
+}
+
+.accomodationparticipant-row td:first-child {
+  width: 40px;
+}
+
+.accomodationparticipant-checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.accomodationparticipant-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 6px;
+  height: 11px;
+  border: solid #2256e7;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.accomodationparticipant-more-menu {
+  font-size: 1.5rem;
+  color: #bfc3c9;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.accomodationparticipant-type-pill {
+  background: #eaf7ef;
+  color: #6fcf97;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 7px 24px;
+  font-size: 1rem;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.accomodationparticipant-type-pill.suite {
+  background: #eaf2fa;
+  color: #2563eb;
+}
+
+.accomodationparticipant-type-pill.single {
+  background: #f0f9ff;
+  color: #0ea5e9;
+}
+
+.accomodationparticipant-type-pill.premium {
+  background: #fdf2f8;
+  color: #db2777;
+}
+
+.accomodationparticipant-type-pill.standard {
+  background: #eaf7ef;
+  color: #6fcf97;
+}
+
+.accomodationparticipant-type-pill.vip,
+.accomodationparticipant-type-pill.instructor {
+  background: #f5f3ff;
+  color: #8b5cf6;
+}
+
+.accomodationparticipant-back-btn {
+  display: block;
+  margin: 40px auto 0 auto;
+  background: #f3f6fa;
+  color: #7d8597;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.accomodationparticipant-back-btn:hover {
+  background: #e0e6ef;
+}
+
+.accomodationparticipant-button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+} 

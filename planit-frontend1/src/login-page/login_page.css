@@ -1,0 +1,282 @@
+/* src/login-page/login_page.css */
+/*
+.login_page_container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.login_page_img {
+    flex: 1; 
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    color: white; 
+    text-align: center;
+    padding: 20px; 
+}
+
+.login_page_img h1 {
+    font-size: 2.5rem; 
+    margin-bottom: 10px;
+}
+
+.login_page_img p {
+    font-size: 1.2rem; 
+}
+
+.login_page_form_containing_div {
+    flex: 1; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    background-color: #ffffff; 
+    padding: 20px; 
+}
+
+.login_page_form {
+    width: 100%; 
+    max-width: 400px; 
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px; 
+}
+
+.login_page_form_input_div {
+    margin-bottom: 15px; 
+}
+
+.login_page_form_input_div p {
+    margin: 0; 
+    color: #333; 
+}
+
+.login_page_form_input_div input {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ced4da; 
+    border-radius: 5px; 
+    font-size: 16px; 
+}
+
+.login_page_form_input_div input:focus {
+    border-color: #007bff; 
+    outline: none;
+}
+
+button[type='submit'] {
+    padding: 10px 15px; 
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    width: 100%; 
+}
+
+button[type='submit']:hover {
+    background-color: #0056b3; 
+}
+
+
+.error-message {
+    color: red; 
+    font-size: 14px; 
+    margin-top: 5px; 
+}*/
+
+
+/* src/login-page/login_page.css */
+
+.login_page_container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+.login_page_img {
+    flex: 1;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 40px;
+    position: relative;
+}
+
+.login_page_img img {
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+
+
+/* Add a circle behind the logo text */
+.login_page_img::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 25px;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+/* Text below the image */
+.login_page_img h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.login_page_img p {
+    font-size: 15px;
+    line-height: 1.5;
+    max-width: 80%;
+    opacity: 0.9;
+}
+
+.login_page_form_containing_div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 40px;
+    position: relative;
+}
+
+.login_page_form {
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff;
+}
+
+
+.login_page_form::before {
+    content: "Welcome back to the Plan-it";
+    display: block;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.login_page_form_input_div {
+    margin-bottom: 24px;
+    position: relative;
+    width: 100%;
+}
+
+.login_page_form_input_div p {
+    margin: 0 0 8px 0;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.login_page_form_input_div input {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+    background-color: #f7f7f7;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.login_page_form_input_div input:focus {
+    border-bottom-color: #6039e4;
+    outline: none;
+    box-shadow: none;
+    background-color: #f0f0f7;
+}
+
+.login_page_form_input_div input::placeholder {
+    color: #aaa;
+}
+button[type='submit'] {
+    padding: 12px;
+    background-color: #6039e4;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+button[type='submit']:hover {
+    background-color: #4f2ecc;
+}
+
+/* Add remember me checkbox and signup link */
+.login_page_form::after {
+    content: "";
+    display: block;
+    margin-top: 20px;
+}
+
+/* Style for error messages */
+.error-message {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+/* Add styles for the checkbox (this would need to be added to the React component) */
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Add styles for the signup text (this would need to be added to the React component) */
+.signup-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.signup-text a {
+    color: #6039e4;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/*.chat-bubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #6039e4;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}*/

@@ -1,0 +1,148 @@
+
+.car_element {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.car_element:hover {
+  background-color: #f1f5f9;
+}
+
+.car_element--selected {
+  background-color: #dbeafe;
+}
+
+.car_element td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+  color: #1f2937;
+}
+
+.car_element_checkbox_cell {
+  width: 48px;
+}
+
+.car_element_checkbox_cell input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  accent-color: #3b82f6;
+  transition: transform 0.1s ease;
+}
+
+.car_element_checkbox_cell input[type="checkbox"]:hover {
+  transform: scale(1.1);
+}
+
+.car_element_name_cell {
+  font-weight: 500;
+}
+
+.car_elment_name {
+  color: #1f2937;
+}
+
+.car_element_matricule {
+  color: #4b5563;
+  font-size: 0.8125rem;
+}
+
+.car_element_category {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: #e5e7eb;
+  color: #374151;
+  transition: background-color 0.2s ease;
+}
+
+.car_element:hover .car_element_category {
+  background-color: #d1d5db;
+}
+
+.car_element_nbr_place {
+  text-align: center;
+}
+
+.car_element_actions_cell {
+  text-align: right;
+}
+
+.car_element_more_actions {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.375rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  opacity: 0.6;
+}
+
+.car_element_more_actions:focus{
+  outline: none;
+}
+
+.car_element:hover .car_element_more_actions {
+  opacity: 1;
+}
+
+.car_element_more_actions:hover {
+  transform: translateY(-1px);
+}
+
+.car_element_more_actions:active {
+  transform: translateY(0);
+}
+
+.car_element_more_actions img {
+  width: 20px;
+  height: 20px;
+}
+
+.car_element_dropdown_menu {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: 6px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 10;
+  width: 150px;
+  padding: 6px 0;
+  animation: fadeIn 0.2s ease-in-out;
+  color: #1f2937;
+}
+
+.dropdown_item {
+  width: 100%;
+  padding: 10px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #000;
+}
+
+.dropdown_item:focus{
+  outline: none;
+}
+
+.dropdown_item:hover {
+  background-color: #f5f5f5;
+  color: #1f2937;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+  
