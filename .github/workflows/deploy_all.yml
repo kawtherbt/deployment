@@ -8,13 +8,12 @@ on:
 env:
   AWS_REGION:     ${{ secrets.AWS_REGION }}
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-  ECR_REGISTRY:   ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+  BACKEND_ECR_REGISTRY: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/backend-services
+  FRONTEND_ECR_REGISTRY: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/frontend-service
   FRONTEND_REPO:  meryembraham/planit-frontend1
-  
 
 jobs:
   build-and-push:
-    
     name: 🐳 Build & Push Docker Images
     runs-on: ubuntu-latest
     strategy:
@@ -48,22 +47,28 @@ jobs:
 
       - name: Build & Push ${{ matrix.service.name }}
         env:
-          IMAGE: ${{ env.ECR_REGISTRY }}/${{ matrix.service.name }}:latest
+          BACKEND_ECR_REGISTRY: ${{ env.BACKEND_ECR_REGISTRY }}
+          FRONTEND_ECR_REGISTRY: ${{ env.FRONTEND_ECR_REGISTRY }}
         run: |
           CONTEXT=${{ matrix.service.path }}
+
           if [ "${{ matrix.service.is_frontend }}" = "true" ]; then
+            IMAGE=$FRONTEND_ECR_REGISTRY:latest
             docker build \
               --build-arg VITE_API_URL="https://${{ secrets.ALB_DNS }}/api" \
               -t $IMAGE $CONTEXT
+            docker push $IMAGE
           else
+            IMAGE=$BACKEND_ECR_REGISTRY:${{ matrix.service.name }}-latest
             docker build \
               --build-arg DB_HOST="${{ secrets.AURORA_ENDPOINT }}" \
               --build-arg DB_NAME="${{ secrets.AURORA_DB_NAME }}" \
               --build-arg DB_USER="${{ secrets.AURORA_DB_USER }}" \
               --build-arg DB_PASSWORD="${{ secrets.AURORA_DB_PASSWORD }}" \
               -t $IMAGE $CONTEXT
+            docker push $IMAGE
           fi
-          docker push $IMAGE
+
   deploy:
     name: 🚀 Deploy to EKS
     needs: build-and-push
@@ -80,17 +85,20 @@ jobs:
           aws eks update-kubeconfig \
             --name ${{ secrets.EKS_CLUSTER_NAME }} \
             --region ${{ secrets.AWS_REGION }}
+
       - name: Deploy all services
         run: |
           kubectl apply -f deployment/declarative/manifests/base/auth-service
           kubectl apply -f deployment/declarative/manifests/base/staff-service
           kubectl apply -f deployment/declarative/manifests/base/event-service
           kubectl apply -f deployment/declarative/manifests/base/frontend-service
+
       - name: Wait for LoadBalancers
         run: |
           for svc in auth-service staff-service event-service frontend-service; do
             kubectl wait --for=condition=ready --timeout=10m svc/$svc
           done
+
       - name: Show external endpoints
         run: |
           kubectl get svc \
