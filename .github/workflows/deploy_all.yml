@@ -2,7 +2,7 @@ name: Build ▶︎ Push ▶︎ Deploy All Services
 
 on:
   push:
-    branches: [ new ]
+    branches: [ main ]
   workflow_dispatch:
 
 env:
