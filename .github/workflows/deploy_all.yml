@@ -103,7 +103,7 @@ jobs:
             --region ${{ env.AWS_REGION }}
 
       - name: Deploy all services
-        run: |
+        run: |      
           kubectl apply -f deployment/declarative/manifests/base/auth-service
           kubectl apply -f deployment/declarative/manifests/base/staff-service
           kubectl apply -f deployment/declarative/manifests/base/event-service
