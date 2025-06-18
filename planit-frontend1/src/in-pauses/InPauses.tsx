@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Sidebar from '../sidebar/Sidebar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { URLS } from '../URLS';
+import { URLS,ServerIpAddress } from '../URLS';
 
 interface Pause {
   id: number;
@@ -82,7 +82,7 @@ const InPauses = () => {
         throw new Error('Invalid event ID');
       }
 
-      const url = `${URLS.ServerIpAddress}/api/getAllPausesForEvent/${evenement_id}`;
+      const url = `${ServerIpAddress}/getAllPausesForEvent/${evenement_id}`;
       const headers = getAuthHeaders();
 
       const response = await fetch(url, {
@@ -140,7 +140,7 @@ const InPauses = () => {
         const headers = getAuthHeaders();
         console.log('Request headers:', headers);
         
-        const deleteUrl = `${URLS.ServerIpAddress}/api/deletePause`;
+        const deleteUrl = `${URLS.ServerIpAddress}/deletePause`;
         console.log('Delete URL:', deleteUrl);
         
         const requestBody = { ID: String(pauseId) };

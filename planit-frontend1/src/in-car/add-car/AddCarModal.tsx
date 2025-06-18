@@ -32,7 +32,7 @@ const AddCarModal: React.FC<AddCarModalProps> = ({ isOpen, onClose, getCars }) =
     try {
       setIsLoading(true);
       
-      const response = await fetch(`${API}/addCar`, {
+      const response = await fetch(`${ServerIpAddress}/addCar`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
