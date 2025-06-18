@@ -1,100 +1,22 @@
-name: Infra ▶︎ DB ▶︎ Build ▶︎ Deploy
+
+name: Build ▶︎ Push ▶︎ Deploy
 
 on:
   push:
     branches: [ main ]
   workflow_dispatch:
-    inputs:
-      skip_terraform:
-        description: "Skip provisioning (infra already in place)"
-        required: false
-        default: "false"
-      skip_migrate:
-        description: "Skip DB migration (dump already uploaded manually)"
-        required: false
-        default: "false"
 
 env:
-  AWS_REGION:     eu-west-3
+  AWS_REGION:     ${{ secrets.AWS_REGION }}
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
   ECR_REGISTRY:   ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
   FRONTEND_REPO:  meryembraham/planit-frontend1
+  
 
 jobs:
-  terraform:
-    name: 🛠️ Provision Infra
-    if: ${{ github.event.inputs.skip_terraform != 'true' }}
-    runs-on: ubuntu-latest
-    outputs:
-      cluster_name: ${{ steps.out.outputs.cluster_name }}
-      alb_dns:      ${{ steps.out.outputs.alb_dns }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          path: infra
-
-      - uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_version: "1.5.6"
-
-      - uses: aws-actions/configure-aws-credentials@v3
-        with:
-          aws-region:            ${{ secrets.AWS_REGION }}
-          aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      - name: Terraform Init & Apply
-        working-directory: infra
-        run: |
-          terraform init -input=false
-          terraform apply -auto-approve
-
-      - name: Export Outputs
-        id: out
-        working-directory: infra
-        run: |
-          echo "cluster_name=$(terraform output -raw cluster_name)" >> $GITHUB_OUTPUT
-          echo "alb_dns=$(terraform output -raw alb_dns)"         >> $GITHUB_OUTPUT
-
-  migrate-db:
-    name: 🗄️ Migrate Local DB → Aurora
-    needs: terraform
-    if: ${{ github.event.inputs.skip_migrate != 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install Postgres client & AWS CLI
-        run: sudo apt-get update && sudo apt-get install -y postgresql-client awscli
-
-      - name: Dump local Postgres
-        env:
-          PGPASSWORD: ${{ secrets.LOCAL_DB_PASSWORD }}
-        run: |
-          pg_dump -Fc \
-            -h ${{ secrets.LOCAL_DB_HOST }} \
-            -U ${{ secrets.LOCAL_DB_USER }} \
-            -d ${{ secrets.LOCAL_DB_NAME }} \
-            -f dump.new
-
-      - name: Upload dump to S3
-        run: aws s3 cp dump.new s3://${{ needs.terraform.outputs.s3_bucket }}/dump.new
-
-      - name: Restore dump into Aurora
-        run: |
-          aws rds restore-db-cluster-from-s3 \
-            --db-cluster-identifier planit-aurora-restore \
-            --engine aurora-postgresql \
-            --source-engine postgres \
-            --s3-bucket-name ${{ needs.terraform.outputs.s3_bucket }} \
-            --s3-ingestion-role-arn arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/planit-rds-s3-import \
-            --s3-prefix dump.new \
-            --master-username ${{ secrets.AURORA_DB_USER }} \
-            --master-user-password ${{ secrets.AURORA_DB_PASSWORD }}
-
   build-and-push:
+    
     name: 🐳 Build & Push Docker Images
-    needs: migrate-db
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -130,20 +52,19 @@ jobs:
           IMAGE: ${{ env.ECR_REGISTRY }}/${{ matrix.service.name }}:latest
         run: |
           CONTEXT=${{ matrix.service.path }}
-          if [ "${{ matrix.service.is_frontend }}" = "true" ]; then
+          if [ if: ${{ matrix.service.is_frontend }} ]; then
             docker build \
-              --build-arg VITE_API_URL="http://${{ needs.terraform.outputs.alb_dns }}/api" \
+              --build-arg VITE_API_URL="https://${{ secrets.ALB_DNS }}/api" \
               -t $IMAGE $CONTEXT
           else
             docker build \
-              --build-arg DB_HOST="${{ needs.terraform.outputs.cluster_name }}" \
+              --build-arg DB_HOST="${{ secrets.AURORA_ENDPOINT }}" \
               --build-arg DB_NAME="${{ secrets.AURORA_DB_NAME }}" \
               --build-arg DB_USER="${{ secrets.AURORA_DB_USER }}" \
               --build-arg DB_PASSWORD="${{ secrets.AURORA_DB_PASSWORD }}" \
               -t $IMAGE $CONTEXT
           fi
           docker push $IMAGE
-
   deploy:
     name: 🚀 Deploy to EKS
     needs: build-and-push
@@ -156,23 +77,23 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Update kubeconfig
-        run: aws eks update-kubeconfig --name ${{ needs.terraform.outputs.cluster_name }} --region ${{ secrets.AWS_REGION }}
-
+        run: |
+          aws eks update-kubeconfig \
+            --name ${{ secrets.EKS_CLUSTER_NAME }} \
+            --region ${{ secrets.AWS_REGION }}
       - name: Deploy all services
         run: |
           kubectl apply -f deployment/declarative/manifests/base/auth-service
           kubectl apply -f deployment/declarative/manifests/base/staff-service
           kubectl apply -f deployment/declarative/manifests/base/event-service
           kubectl apply -f deployment/declarative/manifests/base/frontend-service
-
       - name: Wait for LoadBalancers
         run: |
           for svc in auth-service staff-service event-service frontend-service; do
-            echo "Waiting for $svc..."
             kubectl wait --for=condition=ready --timeout=10m svc/$svc
           done
-
       - name: Show external endpoints
         run: |
-          kubectl get svc auth-service staff-service event-service frontend-service \
+          kubectl get svc \
+            auth-service staff-service event-service frontend-service \
             -o custom-columns=NAME:.metadata.name,ENDPOINT:.status.loadBalancer.ingress[0].hostname
