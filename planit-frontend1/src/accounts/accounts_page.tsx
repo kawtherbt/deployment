@@ -15,6 +15,7 @@ import UpdateAccountModal from './update-account/UpdateAccountModal';
 import deleteGreyImg from '../assets/delete_24dp_grey.svg';
 import { URLS } from '../URLS';
 
+
 interface accountItem{
 ID:number;
 nom:string;
@@ -37,7 +38,7 @@ function Accounts_page(){
     const getAllAccounts = async() =>{
         try {
             setStatus(FETCH_STATUS.LOADING);
-            const reponse = await fetch(`${URLS.ServerIpAddress}/api/getAcounts`,{
+            const reponse = await fetch(`${ServerIpAddress}/getAcounts`,{
                 method:'GET',
                 headers:{'content-type':'application/json'},
                 credentials:'include',
