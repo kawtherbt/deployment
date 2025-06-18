@@ -87,18 +87,21 @@ jobs:
             --region ${{ secrets.AWS_REGION }}
 
 
-      - name: Deploy overlay/dev
-        run: |
-          kubectl apply -k deployment/declarative/manifests/overlays/dev
+      # - name: Deploy overlay/dev
+      #   run: |
+      #     kubectl apply -k deployment/declarative/manifests/overlays/dev
       
       # - name: List current directory
       #   run: pwd && ls -R deployment/declarative/manifests/base
-      # - name: Deploy all services
-      #   run: |
-      #     kubectl apply -f deployment/declarative/manifests/base/auth-service
-      #     kubectl apply -f deployment/declarative/manifests/base/staff-service
-      #     kubectl apply -f deployment/declarative/manifests/base/event-service
-      #     kubectl apply -f deployment/declarative/manifests/base/frontend-service
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy all services
+        run: |
+          kubectl apply -f deployment/declarative/manifests/base/auth-service
+          kubectl apply -f deployment/declarative/manifests/base/staff-service
+          kubectl apply -f deployment/declarative/manifests/base/event-service
+          kubectl apply -f deployment/declarative/manifests/base/frontend-service
 
       - name: Wait for LoadBalancers
         run: |
