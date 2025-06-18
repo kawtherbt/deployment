@@ -51,7 +51,7 @@ jobs:
           IMAGE: ${{ env.ECR_REGISTRY }}/${{ matrix.service.name }}:latest
         run: |
           CONTEXT=${{ matrix.service.path }}
-          if [ if: ${{ matrix.service.is_frontend }} ]; then
+          if [ "${{ matrix.service.is_frontend }}" = "true" ]; then
             docker build \
               --build-arg VITE_API_URL="https://${{ secrets.ALB_DNS }}/api" \
               -t $IMAGE $CONTEXT
