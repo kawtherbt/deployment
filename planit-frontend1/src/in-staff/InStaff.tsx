@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UpdateStaffModal from './update-staff/UpdateStaffModal';
 import { useNavigate } from 'react-router-dom';
-const API = import.meta.env.VITE_API_URL?? "http://localhost:5000";
+export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://localhost:5000";
 
 interface StaffElement {
   ID: number;

@@ -6,7 +6,7 @@ import './AddStaffEventTable.css';
 import { FETCH_STATUS } from '../fetchStatus';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const API = import.meta.env.VITE_API_URL?? "http://localhost:5000";
+export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://localhost:5000";
 interface StaffElement {
   ID: number;
   nom: string;

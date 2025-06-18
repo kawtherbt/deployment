@@ -5,7 +5,7 @@ import Event_creation from "./event-creation/event_creation";
 //import Add_new_type from "./add-new-type/add_new_type";
 import { FETCH_STATUS } from "../fetchStatus";
 import { URLS } from "../URLS";
-const API = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
+export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
 
 import "./event_page.css"
 import { toast } from "react-toastify";

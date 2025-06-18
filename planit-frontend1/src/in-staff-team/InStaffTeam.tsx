@@ -38,7 +38,7 @@ function InStaffTeam() {
   const [selectedItems, setSelectedItems] = useState<SelectedItems>({});
   const [currentPage, setCurrentPage] = useState(1);
   const itemPerPage = 7;
-const API = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
+export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
 
   const IndexOfLastItem = itemPerPage * currentPage;
   const IndexOfFirstItem = IndexOfLastItem - itemPerPage;

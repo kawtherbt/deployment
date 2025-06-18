@@ -1,34 +1,34 @@
-const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
-
+export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
 export const URLS = {
+  ServerIpAddress,
   // ─── Auth ───────────────────────────────────────────────
-  signUp:          `${API_BASE}/signUp`,          // POST
-  logIn:           `${API_BASE}/logIn`,           // POST
-  updateAccount:   `${API_BASE}/updateAccount`,   // PUT
-  getAccounts:     `${API_BASE}/getAcounts`,      // GET
-  deleteAccount:   `${API_BASE}/deleteAccount`,   // DELETE
+  signUp:          `${ServerIpAddress}/signUp`,          // POST
+  logIn:           `${ServerIpAddress}/logIn`,           // POST
+  updateAccount:   `${ServerIpAddress}/updateAccount`,   // PUT
+  getAccounts:     `${ServerIpAddress}/getAcounts`,      // GET
+  deleteAccount:   `${ServerIpAddress}/deleteAccount`,   // DELETE
 
   // ─── Staff ──────────────────────────────────────────────
-  getAllStaff:     `${API_BASE}/getAllStaff`,     // GET
-  addStaff:        `${API_BASE}/addStaff`,        // POST
-  updateStaff:     `${API_BASE}/updateStaff`,     // PUT
-  deleteStaff:     `${API_BASE}/deleteStaff`,     // DELETE
-  getStaffById: (id: number) => `${API_BASE}/staff/${id}`,
+  getAllStaff:     `${ServerIpAddress}/getAllStaff`,     // GET
+  addStaff:        `${ServerIpAddress}/addStaff`,        // POST
+  updateStaff:     `${ServerIpAddress}/updateStaff`,     // PUT
+  deleteStaff:     `${ServerIpAddress}/deleteStaff`,     // DELETE
+  getStaffById: (id: number) => `${ServerIpAddress}/staff/${id}`,
 // ─── Event ──────────────────────────────────────────────
-  addEvent:                   `${API_BASE}/addEvent`,                    
-  addEventType:               `${API_BASE}/addEventType`,                
-  getEventTypes:              `${API_BASE}/getEventTypes`,               
-  getUPcomingEvents:          `${API_BASE}/getUPcomingEvents`,           
-  getEventsHistory:           `${API_BASE}/getEventsHistory`,            
-  getUPcomingEventsPageData:  `${API_BASE}/getUPcomingEventsPageData`,   
-  getFirstPageData:           `${API_BASE}/getFirstPageData`,            
-  getUPcomingEventsFirstPage: `${API_BASE}/getUPcomingEventsFirstPage`,  
-  getRestOfEventsHistoryData: (id: number) => `${API_BASE}/getRestOfEventsHistoryData/${id}`,
+  addEvent:                   `${ServerIpAddress}/addEvent`,                    
+  addEventType:               `${ServerIpAddress}/addEventType`,                
+  getEventTypes:              `${ServerIpAddress}/getEventTypes`,               
+  getUPcomingEvents:          `${ServerIpAddress}/getUPcomingEvents`,           
+  getEventsHistory:           `${ServerIpAddress}/getEventsHistory`,            
+  getUPcomingEventsPageData:  `${ServerIpAddress}/getUPcomingEventsPageData`,   
+  getFirstPageData:           `${ServerIpAddress}/getFirstPageData`,            
+  getUPcomingEventsFirstPage: `${ServerIpAddress}/getUPcomingEventsFirstPage`,  
+  getRestOfEventsHistoryData: (id: number) => `${ServerIpAddress}/getRestOfEventsHistoryData/${id}`,
 
   // ─── Pause ──────────────────────────────────────────────
-  addPause:                   `${API_BASE}/addPause`,                    
-  updatePause:                `${API_BASE}/updatePause`,                 
-  deletePause:                `${API_BASE}/deletePause`,                 
-  getAllPausesForEvent:       (eventId: number) => `${API_BASE}/getAllPausesForEvent/${eventId}`,
+  addPause:                   `${ServerIpAddress}/addPause`,                    
+  updatePause:                `${ServerIpAddress}/updatePause`,                 
+  deletePause:                `${ServerIpAddress}/deletePause`,                 
+  getAllPausesForEvent:       (eventId: number) => `${ServerIpAddress}/getAllPausesForEvent/${eventId}`,
 };
   // ─── You can add more service URLs here…

@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 function StaffElement(props:any){
     const navigate = useNavigate();
-    const API = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
+    export const ServerIpAddress =import.meta.env.VITE_API_URL ?? "http://localhost:5000";
 
     const deleteStaff = async ()=>{
         try {

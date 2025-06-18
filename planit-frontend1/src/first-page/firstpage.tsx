@@ -5,7 +5,7 @@ import advertisementImage from '../assets/first_page_advertisement.png';
 import digitalImage from '../assets/first_page_digital.png';
 import Cookies from "js-cookie";
 import { toast } from 'react-toastify';
-const API = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
+export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
 
 const FirstPage = () => {
 

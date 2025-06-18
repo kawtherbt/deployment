@@ -40,7 +40,7 @@ function EventStaff() {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [isTeamsExpanded, setIsTeamsExpanded] = useState<boolean>(false);
   const [showAssignedStaff, setShowAssignedStaff] = useState<boolean>(false);
-const API = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
+export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
 
   const IndexOfLastItem = itemPerPage * currentPage;
   const IndexOfFirstItem = IndexOfLastItem - itemPerPage;

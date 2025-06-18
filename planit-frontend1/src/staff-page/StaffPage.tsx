@@ -23,7 +23,7 @@ import {
 import Loading from '../loading/loading';
 import { useNavigate } from 'react-router-dom';
 import { URLS } from '../URLS';
-const API = import.meta.env.VITE_API_URL?? "http://localhost:5000";
+export const ServerIpAddress =import.meta.env.VITE_API_URL?? "http://localhost:5000";
 
   ChartJS.register(
     CategoryScale,

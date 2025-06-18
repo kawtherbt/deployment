@@ -8,7 +8,7 @@ import Loading from '../loading/loading';
 import LeftImage from '../assets/Illustration.svg';
 import {toast, ToastContainer} from 'react-toastify';
 import { URLS } from '../URLS';
-const API = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
+export const ServerIpAddress =import.meta.env.VITE_API_URL ?? "http://localhost:5000";
 
 function Login_page(){
     const navigate = useNavigate();
