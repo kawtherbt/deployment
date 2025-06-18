@@ -1,4 +1,4 @@
-name: Build ▶︎ Push ▶︎ Deploy
+name: Build ▶︎ Push ▶︎ Deploy All Services
 
 on:
   push:
@@ -6,93 +6,117 @@ on:
   workflow_dispatch:
 
 env:
-  AWS_REGION:     ${{ secrets.AWS_REGION }}
-  AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+  AWS_REGION:     ${{ secrets.AWS_REGION }}                        # e.g. eu-west-3
+  AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}                  # your 12-digit account
   ECR_REGISTRY:   ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
-  FRONTEND_REPO:  meryembraham/planit-frontend1
-  
+  EKS_CLUSTER:    ${{ secrets.EKS_CLUSTER_NAME }}                # e.g. planit-eks
+  ALB_DNS:        ${{ secrets.ALB_DNS }}                         # e.g. planit-alb-xxxx.elb.amazonaws.com
+  AURORA_ENDPOINT: ${{ secrets.AURORA_ENDPOINT }}                # e.g. planit-aurora.cluster-xxx.rds.amazonaws.com
+  AURORA_DB_NAME:  ${{ secrets.AURORA_DB_NAME }}
+  AURORA_DB_USER:  ${{ secrets.AURORA_DB_USER }}
+  AURORA_DB_PASS:  ${{ secrets.AURORA_DB_PASSWORD }}
 
 jobs:
   build-and-push:
-    
     name: 🐳 Build & Push Docker Images
     runs-on: ubuntu-latest
     strategy:
       matrix:
         service:
-          - { name: auth-service,     path: backend/auth,   is_frontend: false }
-          - { name: staff-service,    path: backend/staff,  is_frontend: false }
-          - { name: event-service,    path: backend/event,  is_frontend: false }
-          - { name: frontend-service, path: frontend,       is_frontend: true }
+          - name: auth-service
+            repo: meryembraham/planit-auth
+            path: backend/auth
+            port: 8080
+            frontend: false
+          - name: staff-service
+            repo: meryembraham/planit-staff
+            path: backend/staff
+            port: 8080
+            frontend: false
+          - name: event-service
+            repo: meryembraham/planit-event
+            path: backend/event
+            port: 8080
+            frontend: false
+          - name: frontend-service
+            repo: meryembraham/planit-frontend1
+            path: frontend
+            port: 80
+            frontend: true
+
     steps:
-      - name: Checkout code
+      - name: Checkout deployment repo
         uses: actions/checkout@v4
-        with:
-          path: .
 
-      - name: Checkout frontend (if needed)
-        if: matrix.service.is_frontend == 'true'
+      - name: Checkout ${{ matrix.service.name }}
         uses: actions/checkout@v4
         with:
-          repository: ${{ env.FRONTEND_REPO }}
+          repository: ${{ matrix.service.repo }}
           token:      ${{ secrets.GITHUB_TOKEN }}
-          path:       frontend
+          path:       ${{ matrix.service.path }}
 
-      - uses: aws-actions/configure-aws-credentials@v3
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
         with:
-          aws-region:            ${{ secrets.AWS_REGION }}
+          aws-region:            ${{ env.AWS_REGION }}
           aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      - uses: aws-actions/amazon-ecr-login@v2
+      - name: Login to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build & Push ${{ matrix.service.name }}
         env:
-          IMAGE: ${{ env.ECR_REGISTRY }}/${{ matrix.service.name }}:latest
+          IMAGE: ${ECR_REGISTRY}/${{ matrix.service.name }}:latest
         run: |
-          CONTEXT=${{ matrix.service.path }}
-          if [ if: ${{ matrix.service.is_frontend }} ]; then
+          echo "Building & pushing $IMAGE from context '${{ matrix.service.path }}'…"
+          if [ "${{ matrix.service.frontend }}" = "true" ]; then
             docker build \
-              --build-arg VITE_API_URL="https://${{ secrets.ALB_DNS }}/api" \
-              -t $IMAGE $CONTEXT
+              --build-arg VITE_API_URL="https://${ALB_DNS}/api" \
+              -t $IMAGE ${{ matrix.service.path }}
           else
             docker build \
-              --build-arg DB_HOST="${{ secrets.AURORA_ENDPOINT }}" \
-              --build-arg DB_NAME="${{ secrets.AURORA_DB_NAME }}" \
-              --build-arg DB_USER="${{ secrets.AURORA_DB_USER }}" \
-              --build-arg DB_PASSWORD="${{ secrets.AURORA_DB_PASSWORD }}" \
-              -t $IMAGE $CONTEXT
+              --build-arg DB_HOST="${AURORA_ENDPOINT}" \
+              --build-arg DB_NAME="${AURORA_DB_NAME}" \
+              --build-arg DB_USER="${AURORA_DB_USER}" \
+              --build-arg DB_PASSWORD="${AURORA_DB_PASS}" \
+              -t $IMAGE ${{ matrix.service.path }}
           fi
           docker push $IMAGE
+
   deploy:
     name: 🚀 Deploy to EKS
     needs: build-and-push
     runs-on: ubuntu-latest
     steps:
-      - uses: aws-actions/configure-aws-credentials@v3
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
         with:
-          aws-region:            ${{ secrets.AWS_REGION }}
+          aws-region:            ${{ env.AWS_REGION }}
           aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Update kubeconfig
         run: |
           aws eks update-kubeconfig \
-            --name ${{ secrets.EKS_CLUSTER_NAME }} \
-            --region ${{ secrets.AWS_REGION }}
+            --name ${{ env.EKS_CLUSTER }} \
+            --region ${{ env.AWS_REGION }}
+
       - name: Deploy all services
-        run: |
+        run: |      
           kubectl apply -f deployment/declarative/manifests/base/auth-service
           kubectl apply -f deployment/declarative/manifests/base/staff-service
           kubectl apply -f deployment/declarative/manifests/base/event-service
           kubectl apply -f deployment/declarative/manifests/base/frontend-service
-      - name: Wait for LoadBalancers
+
+      - name: Wait for services
         run: |
           for svc in auth-service staff-service event-service frontend-service; do
-            kubectl wait --for=condition=ready --timeout=10m svc/$svc
+            kubectl wait --for=condition=available --timeout=5m deployment/$svc
+            kubectl wait --for=condition=ready     --timeout=5m svc/$svc
           done
+
       - name: Show external endpoints
         run: |
-          kubectl get svc \
-            auth-service staff-service event-service frontend-service \
+          kubectl get svc auth-service staff-service event-service frontend-service \
             -o custom-columns=NAME:.metadata.name,ENDPOINT:.status.loadBalancer.ingress[0].hostname
