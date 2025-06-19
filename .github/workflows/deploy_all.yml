@@ -54,7 +54,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build Docker Image - ${{ matrix.service.name }}
-        shell: pwsh
+        shell: powershell
         run: |
           $serviceName = "${{ matrix.service.name }}"
           $contextPath = "${{ matrix.service.path }}"
