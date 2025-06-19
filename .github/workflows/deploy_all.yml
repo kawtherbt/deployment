@@ -96,7 +96,7 @@ jobs:
   #         docker build -t "$repo:latest" planit-frontend1
   #         docker tag "$repo:latest" "$repo:${{ github.sha }}"
 
-
+  
 
   trivy-scan:
     name: Run Trivy Security Scan
