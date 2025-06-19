@@ -26,9 +26,6 @@ const authMiddleware = require('./middlewares/authMiddleware');
 
 const app = express();
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log('Server running on port 5000');
-});
 //app.use(cors({origin: 'http://0.0.0.0',credentials: true}));
 app.use(cors({origin: (origin, callback) => {callback(null, true);},credentials: true}));
 app.use(bodyParser.json());
@@ -42,6 +39,9 @@ app.use((req, res, next) => {
 });
 app.get('/healthcheck', (_req, res) => {
   res.json({ status: 'ok' });
+});
+app.listen(process.env.PORT || 8081, '0.0.0.0', () => {
+  console.log(`event running on port ${process.env.PORT||8081}`);
 });
 
 
