@@ -64,11 +64,8 @@ jobs:
           
           Write-Host "Building image for service: $service, from path: $path"
           
-          # Build image tagged with service + latest
-          docker buildx build --load -t "$repo:$service-latest" "$path"
-          
-          # Tag image with service + commit SHA
-          docker tag "$repo:$service-latest" "$repo:$service-$sha"
+          docker buildx build --load -t "${repo}:$service-latest" "$path"
+          docker tag "${repo}:$service-latest" "${repo}:$service-$sha"
 
   trivy-scan:
     name: Run Trivy Security Scan
@@ -92,8 +89,8 @@ jobs:
           $sha = "${{ github.sha }}"
           
           foreach ($svc in $services) {
-            $latestTag = "$repo:$svc-latest"
-            $shaTag = "$repo:$svc-$sha"
+            $latestTag = "${repo}:$svc-latest"
+            $shaTag = "${repo}:$svc-$sha"
             Write-Host "Scanning $latestTag"
             trivy image --exit-code 1 --severity HIGH,CRITICAL $latestTag
             Write-Host "Scanning $shaTag"
@@ -131,7 +128,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: dependency-check/Dependency-Check_Action@main
         with:
           project: 'netflix-clone-frontend'
@@ -141,7 +137,6 @@ jobs:
           args: >
             --enableRetired
             --enableExperimental
-
       - uses: actions/upload-artifact@v4
         with:
           name: owasp-dependency-check-reports
@@ -163,8 +158,8 @@ jobs:
           $sha = "${{ github.sha }}"
           
           foreach ($svc in $services) {
-            $latestTag = "$repo:$svc-latest"
-            $shaTag = "$repo:$svc-$sha"
+            $latestTag = "${repo}:$svc-latest"
+            $shaTag = "${repo}:$svc-$sha"
             Write-Host "Pushing $latestTag"
             docker push $latestTag
             Write-Host "Pushing $shaTag"
