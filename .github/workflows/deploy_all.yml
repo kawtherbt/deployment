@@ -52,7 +52,7 @@ jobs:
           $serviceName = "auth-service"
           $contextPath = "backend/auth"
           $imageRepo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/$serviceName"
-          docker build -t "$imageRepo:latest" "$contextPath"
+          docker build -t "$imageRepo:latest" backend/auth
           docker tag "$imageRepo:latest" "$imageRepo:${{ github.sha }}"
 
       - name: Build staff-service image
