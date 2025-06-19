@@ -54,7 +54,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build Docker Image - ${{ matrix.service.name }}
-        shell: powershell
+        shell: pwsh
         run: |
           $serviceName = "${{ matrix.service.name }}"
           $contextPath = "${{ matrix.service.path }}"
@@ -66,10 +66,9 @@ jobs:
             $imageRepo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/$serviceName"
           }
 
-          Write-Host "=== Building image $imageRepo from $contextPath ==="
+          Write-Host "=== Building $imageRepo from $contextPath ==="
 
           docker build -t "$imageRepo:latest" "$contextPath"
-  
           docker tag "$imageRepo:latest" "$imageRepo:${{ github.sha }}"
 
   trivy-scan:
