@@ -1,144 +1,116 @@
+name: CI/CD Pipeline - Single ECR Repo
+
 on:
   push:
     branches:
       - main
+
+env:
+  AWS_REGION: us-east-1
+  AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+  ECR_REPO: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-app-repository
 
 jobs:
   db-sync:
     name: Sync Local to Aurora DB
     runs-on: self-hosted
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
       - name: Add PostgreSQL to PATH
+        shell: powershell
         run: |
           $env:Path += ";C:\Program Files\PostgreSQL\15\bin"
-        shell: powershell
-
       - name: Run DB Sync Script
-        run: |
-          powershell -ExecutionPolicy Bypass -File .\scripts\db.ps1
         shell: powershell
+        run: powershell -ExecutionPolicy Bypass -File .\scripts\db.ps1
 
   configure-aws:
     name: Configure AWS Credentials
-    runs-on: windows-latest  
+    runs-on: windows-latest
     steps:
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v3
+      - uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: ${{ env.AWS_REGION }}
 
-  build-auth:
-    name: Build auth-service Image
+  build-services:
+    name: Build Docker Images (single repo)
     needs: [db-sync, configure-aws]
     runs-on: self-hosted
+    strategy:
+      matrix:
+        service:
+          - name: auth-service
+            path: backend/auth
+          - name: staff-service
+            path: backend/staff
+          - name: event-service
+            path: backend/event
+          - name: frontend-service
+            path: planit-frontend1
+
     steps:
       - uses: actions/checkout@v4
-
       - uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Build Docker Image
+      - name: Build and Tag Docker Image
         shell: powershell
         run: |
-          $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/auth-service"
-          docker build -t "$repo:latest" backend/auth
-          docker tag "$repo:latest" "$repo:${{ github.sha }}"
-
-  # build-staff:
-  #   name: Build staff-service Image
-  #   needs: [db-sync, configure-aws]
-  #   runs-on: self-hosted
-  #   steps:
-  #     - uses: actions/checkout@v4
-
-  #     - uses: aws-actions/amazon-ecr-login@v2
-
-  #     - name: Build Docker Image
-  #       shell: powershell
-  #       run: |
-  #         $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/staff-service"
-  #         docker build -t "$repo:latest" backend/staff
-  #         docker tag "$repo:latest" "$repo:${{ github.sha }}"
-
-  # build-event:
-  #   name: Build event-service Image
-  #   needs: [db-sync, configure-aws]
-  #   runs-on: self-hosted
-  #   steps:
-  #     - uses: actions/checkout@v4
-
-  #     - uses: aws-actions/amazon-ecr-login@v2
-
-  #     - name: Build Docker Image
-  #       shell: powershell
-  #       run: |
-  #         $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/event-service"
-  #         docker build -t "$repo:latest" backend/event
-  #         docker tag "$repo:latest" "$repo:${{ github.sha }}"
-
-  # build-frontend:
-  #   name: Build frontend-service Image
-  #   needs: [db-sync, configure-aws]
-  #   runs-on: self-hosted
-  #   steps:
-  #     - uses: actions/checkout@v4
-
-  #     - uses: aws-actions/amazon-ecr-login@v2
-
-  #     - name: Build Docker Image
-  #       shell: powershell
-  #       run: |
-  #         $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/frontend/frontend-service"
-  #         docker build -t "$repo:latest" planit-frontend1
-  #         docker tag "$repo:latest" "$repo:${{ github.sha }}"
-
-  
+          $repo = "${{ env.ECR_REPO }}"
+          $service = "${{ matrix.service.name }}"
+          $path = "${{ matrix.service.path }}"
+          $sha = "${{ github.sha }}"
+          
+          Write-Host "Building image for service: $service, from path: $path"
+          
+          # Build image tagged with service + latest
+          docker buildx build --load -t "$repo:$service-latest" "$path"
+          
+          # Tag image with service + commit SHA
+          docker tag "$repo:$service-latest" "$repo:$service-$sha"
 
   trivy-scan:
     name: Run Trivy Security Scan
-    needs: build-auth
+    needs: build-services
     runs-on: self-hosted
     steps:
       - name: Install Trivy (Windows)
+        shell: powershell
         run: |
           $trivyUrl = "https://github.com/aquasecurity/trivy/releases/download/v0.60.0/trivy_0.60.0_Windows-64bit.zip"
           $trivyExtractPath = "C:\tools\trivy"
           Invoke-WebRequest -Uri $trivyUrl -OutFile "trivy.zip"
           Expand-Archive -Path "trivy.zip" -DestinationPath $trivyExtractPath -Force
           echo "$trivyExtractPath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-        shell: powershell
 
-      - name: Run Trivy Scan
-        run: |
-          $repos = @(
-            "backend/auth-service",
-            "backend/staff-service",
-            "backend/event-service",
-            "frontend/frontend-service"
-          )
-          foreach ($repo in $repos) {
-            trivy image --exit-code 1 --severity HIGH,CRITICAL `
-              "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/$repo:latest"
-            trivy image --exit-code 1 --severity HIGH,CRITICAL `
-              "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/$repo:${{ github.sha }}"
-          }
+      - name: Scan images with Trivy
         shell: powershell
+        run: |
+          $services = @("auth-service", "staff-service", "event-service", "frontend-service")
+          $repo = "${{ env.ECR_REPO }}"
+          $sha = "${{ github.sha }}"
+          
+          foreach ($svc in $services) {
+            $latestTag = "$repo:$svc-latest"
+            $shaTag = "$repo:$svc-$sha"
+            Write-Host "Scanning $latestTag"
+            trivy image --exit-code 1 --severity HIGH,CRITICAL $latestTag
+            Write-Host "Scanning $shaTag"
+            trivy image --exit-code 1 --severity HIGH,CRITICAL $shaTag
+          }
 
   sonarqube-scan:
     name: Run SonarQube Scan
-    needs: build-auth
+    needs: build-services
     runs-on: self-hosted
     steps:
       - name: Install SonarScanner (Windows)
+        shell: powershell
         run: |
           Invoke-WebRequest -Uri "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-windows.zip" -OutFile "sonarscanner.zip"
           Expand-Archive -Path "sonarscanner.zip" -DestinationPath "C:\sonar-scanner" -Force
           echo "C:\sonar-scanner\sonar-scanner-5.0.1.3006-windows\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-        shell: powershell
 
       - name: Run SonarQube Scan
         shell: powershell
@@ -158,11 +130,9 @@ jobs:
     needs: sonarqube-scan
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: OWASP Dependency-Check
-        uses: dependency-check/Dependency-Check_Action@main
+      - uses: dependency-check/Dependency-Check_Action@main
         with:
           project: 'netflix-clone-frontend'
           path: '.'
@@ -172,46 +142,35 @@ jobs:
             --enableRetired
             --enableExperimental
 
-      - name: Upload OWASP Dependency-Check reports
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: owasp-dependency-check-reports
           path: './reports'
 
   push-to-ecr:
-    name: Push Docker Image to ECR
+    name: Push Docker Images to ECR
     needs: [trivy-scan, sonarqube-scan, owasp-dependency-check]
     runs-on: self-hosted
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Login to Amazon ECR
-        uses: aws-actions/amazon-ecr-login@v2
-
-      - name: Push Docker Images
+      - name: Push images to single ECR repo
         shell: powershell
         run: |
-          $accountId = "${{ secrets.AWS_ACCOUNT_ID }}"
+          $services = @("auth-service", "staff-service", "event-service", "frontend-service")
+          $repo = "${{ env.ECR_REPO }}"
           $sha = "${{ github.sha }}"
-
-          $services = @(
-            @{ Name = "auth-service";     IsFrontend = $false },
-            @{ Name = "staff-service";    IsFrontend = $false },
-            @{ Name = "event-service";    IsFrontend = $false },
-            @{ Name = "frontend-service"; IsFrontend = $true  }
-          )
-
+          
           foreach ($svc in $services) {
-            $repoType = if ($svc.IsFrontend) { "frontend" } else { "backend" }
-            $image = "$accountId.dkr.ecr.us-east-1.amazonaws.com/$repoType/$($svc.Name)"
-
-            Write-Host "Pushing $image:latest"
-            docker push "$image:latest"
-            Write-Host "Pushing $image:$sha"
-            docker push "$image:$sha"
+            $latestTag = "$repo:$svc-latest"
+            $shaTag = "$repo:$svc-$sha"
+            Write-Host "Pushing $latestTag"
+            docker push $latestTag
+            Write-Host "Pushing $shaTag"
+            docker push $shaTag
           }
 
       - name: Logout from Amazon ECR
-        run: docker logout ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
         shell: powershell
+        run: docker logout ${{ env.ECR_REPO }}
