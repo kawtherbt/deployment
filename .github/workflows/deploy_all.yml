@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - main
+
 jobs:
   db-sync:
     name: Sync Local to Aurora DB
@@ -65,7 +66,15 @@ jobs:
             $imageRepo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/$serviceName"
           }
 
-          docker buildx build --load -t "$imageRepo:latest" "$contextPath"
+          Write-Host "=== Building image $imageRepo from $contextPath ==="
+
+          docker buildx build --platform linux/amd64 --load -t "$imageRepo:latest" "$contextPath"
+
+          $imageExists = docker images "$imageRepo" -q
+          if (-not $imageExists) {
+            Write-Error "Docker image $imageRepo:latest not found after build!"
+            exit 1
+          }
 
           docker tag "$imageRepo:latest" "$imageRepo:${{ github.sha }}"
 
@@ -128,7 +137,7 @@ jobs:
         uses: dependency-check/Dependency-Check_Action@main
         with:
           project: 'netflix-clone-frontend'
-          path: '.'  # Root directory (where package.json is)
+          path: '.'
           format: 'HTML'
           out: './reports/dependencyCheck'
           args: >
@@ -174,7 +183,7 @@ jobs:
             Write-Host "Pushing $image:$sha"
             docker push "$image:$sha"
           }
-                
+
       - name: Logout from Amazon ECR
         run: docker logout ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
         shell: powershell
