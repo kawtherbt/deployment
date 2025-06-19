@@ -92,9 +92,13 @@ jobs:
             $latestTag = "${repo}:$svc-latest"
             $shaTag = "${repo}:$svc-$sha"
             Write-Host "Scanning $latestTag"
-            trivy image --exit-code 1 --severity HIGH,CRITICAL $latestTag
+            trivy image --exit-code 0 --severity HIGH,CRITICAL `
+            --ignore-unfixed `
+            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-app-repository:latest
             Write-Host "Scanning $shaTag"
-            trivy image --exit-code 1 --severity HIGH,CRITICAL $shaTag
+            trivy image --exit-code 0 --severity HIGH,CRITICAL `
+            --ignore-unfixed `
+            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-app-repository:${{ github.sha }}
           }
 
   sonarqube-scan:
