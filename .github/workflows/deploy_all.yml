@@ -24,43 +24,6 @@ jobs:
   configure-aws:
     name: Configure AWS Credentials
     runs-on: windows-latest  
-    outputs:
-      aws-configured: ${{ steps.set-output.outputs.success }}
-    steps:
-      - name: Configure AWS Credentials
-        id: set-output
-        uses: aws-actions/configure-aws-credentials@v3
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-
-  on:
-  push:
-    branches:
-      - main
-
-jobs:
-  db-sync:
-    name: Sync Local to Aurora DB
-    runs-on: self-hosted
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Add PostgreSQL to PATH
-        run: |
-          $env:Path += ";C:\Program Files\PostgreSQL\15\bin"
-        shell: powershell
-
-      - name: Run DB Sync Script
-        run: |
-          powershell -ExecutionPolicy Bypass -File .\scripts\db.ps1
-        shell: powershell
-
-  configure-aws:
-    name: Configure AWS Credentials
-    runs-on: windows-latest  
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v3
@@ -132,6 +95,8 @@ jobs:
           $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/frontend/frontend-service"
           docker build -t "$repo:latest" planit-frontend1
           docker tag "$repo:latest" "$repo:${{ github.sha }}"
+
+
 
   trivy-scan:
     name: Run Trivy Security Scan
