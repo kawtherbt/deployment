@@ -116,14 +116,14 @@ jobs:
           SONAR_HOST_URL: https://sonarcloud.io
         run: |
           sonar-scanner `
-            -D"sonar.projectKey=kawtherbt_deployment" `
-            -D"sonar.sources=." `
+            -D'sonar.projectKey=kawtherbt_deployment' `
+            -D'sonar.sources=.' `
             -D"sonar.host.url=$env:SONAR_HOST_URL" `
-            -D"sonar.login=$env:SONAR_TOKEN1" `
-            -D"sonar.organization=kawtherbt
-            -D"sonar.c.file.suffixes=-" `
-            -D"sonar.cpp.file.suffixes=-" `
-            -D"sonar.objc.file.suffixes=-"
+            -D"sonar.login=$env:SONAR_TOKEN" `
+            -D'sonar.organization=kawtherbt' `
+            -D'sonar.c.file.suffixes=-' `
+            -D'sonar.cpp.file.suffixes=-' `
+            -D'sonar.objc.file.suffixes=-'
 
   owasp-dependency-check:
     name: Run OWASP Dependency-Check
