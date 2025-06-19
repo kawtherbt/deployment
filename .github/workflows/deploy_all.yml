@@ -66,8 +66,6 @@ jobs:
             $imageRepo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/$serviceName"
           }
 
-          Write-Host "=== Building $imageRepo from $contextPath ==="
-
           docker build -t "$imageRepo:latest" "$contextPath"
           docker tag "$imageRepo:latest" "$imageRepo:${{ github.sha }}"
 
