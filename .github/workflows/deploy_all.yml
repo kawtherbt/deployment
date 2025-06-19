@@ -173,7 +173,7 @@ jobs:
             Write-Host "Pushing $image:$sha"
             docker push "$image:$sha"
           }
-            
+                
       - name: Logout from Amazon ECR
         run: docker logout ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
         shell: powershell
