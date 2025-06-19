@@ -3,7 +3,6 @@ on:
     branches:
       - main
 jobs:
-   
   db-sync:
     name: Sync Local to Aurora DB
     runs-on: self-hosted
@@ -42,10 +41,10 @@ jobs:
     strategy:
       matrix:
         service:
-        - { name: auth-service,     path: backend/auth,        is_frontend: false }
-        - { name: staff-service,    path: backend/staff,       is_frontend: false }
-        - { name: event-service,    path: backend/event,       is_frontend: false }
-        - { name: frontend-service, path: planit-frontend1,    is_frontend: true }
+          - { name: auth-service,     path: backend/auth,        is_frontend: false }
+          - { name: staff-service,    path: backend/staff,       is_frontend: false }
+          - { name: event-service,    path: backend/event,       is_frontend: false }
+          - { name: frontend-service, path: planit-frontend1,    is_frontend: true }
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -53,26 +52,21 @@ jobs:
       - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Build Docker Image- ${{ matrix.service.name }}
-        run: |    
-         $serviceName = "${{ matrix.service.name }}"
-         $contextPath = "${{ matrix.service.path }}"
-         $isFrontend = "${{ matrix.service.is_frontend }}"
+      - name: Build Docker Image - ${{ matrix.service.name }}
+        shell: pwsh
+        run: |
+          $serviceName = "${{ matrix.service.name }}"
+          $contextPath = "${{ matrix.service.path }}"
+          $isFrontend = "${{ matrix.service.is_frontend }}"
 
-         if ($isFrontend -eq "true") {
-          $imageRepo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/frontend/$serviceName"
-          docker build `
-            -t "$imageRepo:latest" `
-            $contextPath
-         } else {
-          $imageRepo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/$serviceName"
-          docker build `
-            -t "$imageRepo:latest" `
-            $contextPath
-         }
+          if ($isFrontend -eq "true") {
+            $imageRepo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/frontend/$serviceName"
+          } else {
+            $imageRepo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/$serviceName"
+          }
 
-         docker tag "$imageRepo:latest" "$imageRepo:${{ github.sha }}"
-        shell: powershell
+          docker build -t "$imageRepo:latest" $contextPath
+          docker tag "$imageRepo:latest" "$imageRepo:${{ github.sha }}"
 
   trivy-scan:
     name: Run Trivy Security Scan
@@ -118,7 +112,7 @@ jobs:
             -D"sonar.projectKey=kawtherbt_deployment" `
             -D"sonar.sources=." `
             -D"sonar.host.url=$env:SONAR_HOST_URL" `
-            -D"sonar.login=$env:SONAR_TOKEN1" `
+            -D"sonar.login=$env:SONAR_TOKEN" `
             -D"sonar.organization=kawtherbt"
 
   owasp-dependency-check:
@@ -131,7 +125,7 @@ jobs:
 
       - name: OWASP Dependency-Check
         uses: dependency-check/Dependency-Check_Action@main
-        with:  
+        with:
           project: 'netflix-clone-frontend'
           path: '.'  # Root directory (where package.json is)
           format: 'HTML'
@@ -158,6 +152,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Push Docker Image to Amazon ECR
+        shell: pwsh
         run: |
           $accountId = "${{ secrets.AWS_ACCOUNT_ID }}"
           $sha = "${{ github.sha }}"
@@ -170,15 +165,15 @@ jobs:
           )
 
           foreach ($svc in $services) {
-          $repoType = if ($svc.IsFrontend) { "frontend" } else { "backend" }
-          $image = "$accountId.dkr.ecr.us-east-1.amazonaws.com/$repoType/$($svc.Name)"
+            $repoType = if ($svc.IsFrontend) { "frontend" } else { "backend" }
+            $image = "$accountId.dkr.ecr.us-east-1.amazonaws.com/$repoType/$($svc.Name)"
 
-          Write-Host "Pushing $image..."
-          docker push "$image:latest"
-          docker push "$image:$sha"
+            Write-Host "Pushing $image:latest"
+            docker push "$image:latest"
+            Write-Host "Pushing $image:$sha"
+            docker push "$image:$sha"
           }
-       
-
+            
       - name: Logout from Amazon ECR
         run: docker logout ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
         shell: powershell
