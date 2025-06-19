@@ -100,7 +100,7 @@ jobs:
 
   trivy-scan:
     name: Run Trivy Security Scan
-    needs: build-image
+    needs: build-auth
     runs-on: self-hosted
     steps:
       - name: Install Trivy (Windows)
@@ -130,7 +130,7 @@ jobs:
 
   sonarqube-scan:
     name: Run SonarQube Scan
-    needs: build-image
+    needs: build-auth
     runs-on: self-hosted
     steps:
       - name: Install SonarScanner (Windows)
