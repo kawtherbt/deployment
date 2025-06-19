@@ -119,7 +119,7 @@ jobs:
             -D"sonar.projectKey=kawtherbt_deployment" `
             -D"sonar.sources=." `
             -D"sonar.host.url=$env:SONAR_HOST_URL" `
-            -D"sonar.login=$env:SONAR_TOKEN" `
+            -D"sonar.login=$env:SONAR_TOKEN1" `
             -D"sonar.organization=kawtherbt"
 
   owasp-dependency-check:
