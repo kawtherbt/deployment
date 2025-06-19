@@ -23,7 +23,7 @@ jobs:
 
   configure-aws:
     name: Configure AWS Credentials
-    runs-on: windows-latest
+    runs-on: windows-latest  
     outputs:
       aws-configured: ${{ steps.set-output.outputs.success }}
     steps:
