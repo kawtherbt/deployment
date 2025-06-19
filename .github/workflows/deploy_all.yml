@@ -69,7 +69,7 @@ jobs:
           Write-Host "=== Building image $imageRepo from $contextPath ==="
 
           docker build -t "$imageRepo:latest" "$contextPath"
-
+  
           docker tag "$imageRepo:latest" "$imageRepo:${{ github.sha }}"
 
   trivy-scan:
