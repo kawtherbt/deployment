@@ -35,52 +35,103 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-  build-image:
-    name: Build Docker Images
-    needs: [db-sync, configure-aws]
+  on:
+  push:
+    branches:
+      - main
+
+jobs:
+  db-sync:
+    name: Sync Local to Aurora DB
     runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Login to Amazon ECR
-        uses: aws-actions/amazon-ecr-login@v2
+      - name: Add PostgreSQL to PATH
+        run: |
+          $env:Path += ";C:\Program Files\PostgreSQL\15\bin"
+        shell: powershell
 
-      - name: Build auth-service image
+      - name: Run DB Sync Script
+        run: |
+          powershell -ExecutionPolicy Bypass -File .\scripts\db.ps1
+        shell: powershell
+
+  configure-aws:
+    name: Configure AWS Credentials
+    runs-on: windows-latest  
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+  build-auth:
+    name: Build auth-service Image
+    needs: [db-sync, configure-aws]
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build Docker Image
         shell: powershell
         run: |
-          $serviceName = "auth-service"
-          $contextPath = "backend/auth"
-          $imageRepo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/$serviceName"
-          docker build -t "$imageRepo:latest" backend/auth
-          docker tag "$imageRepo:latest" "$imageRepo:${{ github.sha }}"
+          $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/auth-service"
+          docker build -t "$repo:latest" backend/auth
+          docker tag "$repo:latest" "$repo:${{ github.sha }}"
 
-      - name: Build staff-service image
+  build-staff:
+    name: Build staff-service Image
+    needs: [db-sync, configure-aws]
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build Docker Image
         shell: powershell
         run: |
-          $serviceName = "staff-service"
-          $contextPath = "backend/staff"
-          $imageRepo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/$serviceName"
-          docker build -t "$imageRepo:latest" "$contextPath"
-          docker tag "$imageRepo:latest" "$imageRepo:${{ github.sha }}"
+          $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/staff-service"
+          docker build -t "$repo:latest" backend/staff
+          docker tag "$repo:latest" "$repo:${{ github.sha }}"
 
-      - name: Build event-service image
+  build-event:
+    name: Build event-service Image
+    needs: [db-sync, configure-aws]
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build Docker Image
         shell: powershell
         run: |
-          $serviceName = "event-service"
-          $contextPath = "backend/event"
-          $imageRepo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/$serviceName"
-          docker build -t "$imageRepo:latest" "$contextPath"
-          docker tag "$imageRepo:latest" "$imageRepo:${{ github.sha }}"
+          $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/event-service"
+          docker build -t "$repo:latest" backend/event
+          docker tag "$repo:latest" "$repo:${{ github.sha }}"
 
-      - name: Build frontend-service image
+  build-frontend:
+    name: Build frontend-service Image
+    needs: [db-sync, configure-aws]
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build Docker Image
         shell: powershell
         run: |
-          $serviceName = "frontend-service"
-          $contextPath = "planit-frontend1"
-          $imageRepo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/frontend/$serviceName"
-          docker build -t "$imageRepo:latest" "$contextPath"
-          docker tag "$imageRepo:latest" "$imageRepo:${{ github.sha }}"
+          $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/frontend/frontend-service"
+          docker build -t "$repo:latest" planit-frontend1
+          docker tag "$repo:latest" "$repo:${{ github.sha }}"
 
   trivy-scan:
     name: Run Trivy Security Scan
