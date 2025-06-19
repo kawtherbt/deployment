@@ -68,13 +68,7 @@ jobs:
 
           Write-Host "=== Building image $imageRepo from $contextPath ==="
 
-          docker buildx build --platform linux/amd64 --load -t "$imageRepo:latest" "$contextPath"
-
-          $imageExists = docker images "$imageRepo" -q
-          if (-not $imageExists) {
-            Write-Error "Docker image $imageRepo:latest not found after build!"
-            exit 1
-          }
+          docker build -t "$imageRepo:latest" "$contextPath"
 
           docker tag "$imageRepo:latest" "$imageRepo:${{ github.sha }}"
 
