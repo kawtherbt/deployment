@@ -48,53 +48,53 @@ jobs:
           docker build -t "$repo:latest" backend/auth
           docker tag "$repo:latest" "$repo:${{ github.sha }}"
 
-  build-staff:
-    name: Build staff-service Image
-    needs: [db-sync, configure-aws]
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v4
+  # build-staff:
+  #   name: Build staff-service Image
+  #   needs: [db-sync, configure-aws]
+  #   runs-on: self-hosted
+  #   steps:
+  #     - uses: actions/checkout@v4
 
-      - uses: aws-actions/amazon-ecr-login@v2
+  #     - uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Build Docker Image
-        shell: powershell
-        run: |
-          $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/staff-service"
-          docker build -t "$repo:latest" backend/staff
-          docker tag "$repo:latest" "$repo:${{ github.sha }}"
+  #     - name: Build Docker Image
+  #       shell: powershell
+  #       run: |
+  #         $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/staff-service"
+  #         docker build -t "$repo:latest" backend/staff
+  #         docker tag "$repo:latest" "$repo:${{ github.sha }}"
 
-  build-event:
-    name: Build event-service Image
-    needs: [db-sync, configure-aws]
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v4
+  # build-event:
+  #   name: Build event-service Image
+  #   needs: [db-sync, configure-aws]
+  #   runs-on: self-hosted
+  #   steps:
+  #     - uses: actions/checkout@v4
 
-      - uses: aws-actions/amazon-ecr-login@v2
+  #     - uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Build Docker Image
-        shell: powershell
-        run: |
-          $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/event-service"
-          docker build -t "$repo:latest" backend/event
-          docker tag "$repo:latest" "$repo:${{ github.sha }}"
+  #     - name: Build Docker Image
+  #       shell: powershell
+  #       run: |
+  #         $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend/event-service"
+  #         docker build -t "$repo:latest" backend/event
+  #         docker tag "$repo:latest" "$repo:${{ github.sha }}"
 
-  build-frontend:
-    name: Build frontend-service Image
-    needs: [db-sync, configure-aws]
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v4
+  # build-frontend:
+  #   name: Build frontend-service Image
+  #   needs: [db-sync, configure-aws]
+  #   runs-on: self-hosted
+  #   steps:
+  #     - uses: actions/checkout@v4
 
-      - uses: aws-actions/amazon-ecr-login@v2
+  #     - uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Build Docker Image
-        shell: powershell
-        run: |
-          $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/frontend/frontend-service"
-          docker build -t "$repo:latest" planit-frontend1
-          docker tag "$repo:latest" "$repo:${{ github.sha }}"
+  #     - name: Build Docker Image
+  #       shell: powershell
+  #       run: |
+  #         $repo = "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/frontend/frontend-service"
+  #         docker build -t "$repo:latest" planit-frontend1
+  #         docker tag "$repo:latest" "$repo:${{ github.sha }}"
 
 
 
