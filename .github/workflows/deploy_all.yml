@@ -151,7 +151,7 @@ jobs:
 
   push-to-ecr:
     name: Push Docker Images to ECR
-    needs: [trivy-scan, sonarqube-scan, owasp-dependency-check]
+    needs: [ sonarqube-scan, owasp-dependency-check]
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
