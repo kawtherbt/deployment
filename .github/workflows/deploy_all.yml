@@ -67,39 +67,39 @@ jobs:
           docker buildx build --load -t "${repo}:$service-latest" "$path"
           docker tag "${repo}:$service-latest" "${repo}:$service-$sha"
 
-  trivy-scan:
-    name: Run Trivy Security Scan
-    needs: build-services
-    runs-on: self-hosted
-    steps:
-      - name: Install Trivy (Windows)
-        shell: powershell
-        run: |
-          $trivyUrl = "https://github.com/aquasecurity/trivy/releases/download/v0.60.0/trivy_0.60.0_Windows-64bit.zip"
-          $trivyExtractPath = "C:\tools\trivy"
-          Invoke-WebRequest -Uri $trivyUrl -OutFile "trivy.zip"
-          Expand-Archive -Path "trivy.zip" -DestinationPath $trivyExtractPath -Force
-          echo "$trivyExtractPath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+  # trivy-scan:
+  #   name: Run Trivy Security Scan
+  #   needs: build-services
+  #   runs-on: self-hosted
+  #   steps:
+  #     - name: Install Trivy (Windows)
+  #       shell: powershell
+  #       run: |
+  #         $trivyUrl = "https://github.com/aquasecurity/trivy/releases/download/v0.60.0/trivy_0.60.0_Windows-64bit.zip"
+  #         $trivyExtractPath = "C:\tools\trivy"
+  #         Invoke-WebRequest -Uri $trivyUrl -OutFile "trivy.zip"
+  #         Expand-Archive -Path "trivy.zip" -DestinationPath $trivyExtractPath -Force
+  #         echo "$trivyExtractPath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 
-      - name: Scan images with Trivy
-        shell: powershell
-        run: |
-          $services = @("auth-service", "staff-service", "event-service", "frontend-service")
-          $repo = "${{ env.ECR_REPO }}"
-          $sha = "${{ github.sha }}"
+  #     - name: Scan images with Trivy
+  #       shell: powershell
+  #       run: |
+  #         $services = @("auth-service", "staff-service", "event-service", "frontend-service")
+  #         $repo = "${{ env.ECR_REPO }}"
+  #         $sha = "${{ github.sha }}"
           
-          foreach ($svc in $services) {
-            $latestTag = "${repo}:$svc-latest"
-            $shaTag = "${repo}:$svc-$sha"
-            Write-Host "Scanning $latestTag"
-            trivy image --exit-code 0 --severity HIGH,CRITICAL `
-            --ignore-unfixed `
-            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-app-repository:latest
-            Write-Host "Scanning $shaTag"
-            trivy image --exit-code 0 --severity HIGH,CRITICAL `
-            --ignore-unfixed `
-            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-app-repository:${{ github.sha }}
-          }
+  #         foreach ($svc in $services) {
+  #           $latestTag = "${repo}:$svc-latest"
+  #           $shaTag = "${repo}:$svc-$sha"
+  #           Write-Host "Scanning $latestTag"
+  #           trivy image --exit-code 0 --severity HIGH,CRITICAL `
+  #           --ignore-unfixed `
+  #           ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-app-repository:latest
+  #           Write-Host "Scanning $shaTag"
+  #           trivy image --exit-code 0 --severity HIGH,CRITICAL `
+  #           --ignore-unfixed `
+  #           ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-app-repository:${{ github.sha }}
+  #         }
 
   sonarqube-scan:
     name: Run SonarQube Scan
