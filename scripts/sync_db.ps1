@@ -11,7 +11,7 @@ pg_dump --clean --if-exists -h localhost -U admin1 -d planit-kawther -p 5432 -F 
 pg_restore -h planit-cluster.cluster-cktquqcaasvx.us-east-1.rds.amazonaws.com `
   -U admin1 `
   -d dbplanit `
-  -p 5432 `  
+  -p 5432 `       
   -v db.dump
   
 
