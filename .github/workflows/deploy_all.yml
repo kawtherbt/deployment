@@ -187,7 +187,7 @@ jobs:
             docker push $latestTag
             Write-Host "Pushing $shaTag"
             docker push $shaTag
-          }
+          }      
 
       - name: Logout from Amazon ECR
         shell: powershell
