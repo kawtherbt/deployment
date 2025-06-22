@@ -176,8 +176,21 @@ jobs:
       - name: Push images to single ECR repo
         shell: powershell
         run: |
-          $services = @("auth-service", "staff-service", "event-service", "frontend-service")
-          $repo = "${{ env.ECR_REPO }}"
+          $services = @(
+            "auth-service",
+            "staff-service",
+            "event-service",
+            "accomodation-service",
+            "client-service",
+            "equipement-service",
+            "instructor-service",
+            "prestataire-service",
+            "soiree-service",
+            "transport-service",
+            "workshop-service",
+            "frontend-service"
+          )
+              $repo = "${{ env.ECR_REPO }}"
           $sha = "${{ github.sha }}"
           
           foreach ($svc in $services) {
