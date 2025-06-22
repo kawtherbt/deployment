@@ -1,4 +1,4 @@
-const  =require('jsonwebtoken');
+const jwt =require('jsonwebtoken');
 
 const payload = {
   id: 2,

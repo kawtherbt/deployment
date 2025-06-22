@@ -40,7 +40,7 @@ function EventStaff() {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [isTeamsExpanded, setIsTeamsExpanded] = useState<boolean>(false);
   const [showAssignedStaff, setShowAssignedStaff] = useState<boolean>(false);
- const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
+ const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-1947330390.eu-west-3.elb.amazonaws.com/api";
 
   const IndexOfLastItem = itemPerPage * currentPage;
   const IndexOfFirstItem = IndexOfLastItem - itemPerPage;

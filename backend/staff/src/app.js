@@ -41,8 +41,8 @@ app.use((req, res, next) => {
 app.use('/api/staff', staffRoutes);
 app.get('/api/staff/health', (_req, res) => res.json({ status: 'ok' }));
 
-app.listen(process.env.PORT || 8080, '0.0.0.0', () => {
-  console.log(`Staff running on port ${process.env.PORT||8080}`);
+app.listen(process.env.PORT || 8082, '0.0.0.0', () => {
+  console.log(`Staff running on port ${process.env.PORT||8082}`);
 });
 
 

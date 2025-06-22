@@ -1,0 +1,15 @@
+const express = require("express");
+
+const {addPrestataire,updatePrestataire,deletePrestataire,getAllPrestataires} = require("../controllers/prestataireController");
+
+const router = express.Router();
+
+router.post("/addPrestataire", addPrestataire);
+
+router.put("/updatePrestataire", updatePrestataire);
+
+router.delete("/deletePrestataire", deletePrestataire);
+
+router.get("/getAllPrestataires", getAllPrestataires);
+
+module.exports = router;

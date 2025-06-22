@@ -1,9 +1,10 @@
-export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
+export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-1947330390.eu-west-3.elb.amazonaws.com/api";
+const AuthServiceURL = import.meta.env.VITE_AUTH_URL ?? "http://planit-alb-1947330390.eu-west-3.elb.amazonaws.com/api/auth";
 export const URLS = {
   ServerIpAddress,
   // ─── Auth ───────────────────────────────────────────────
   signUp:          `${ServerIpAddress}/signUp`,          // POST
-  logIn:           `${ServerIpAddress}/logIn`,           // POST
+  logIn:           `${AuthServiceURL}/logIn`,           // POST
   updateAccount:   `${ServerIpAddress}/updateAccount`,   // PUT
   getAccounts:     `${ServerIpAddress}/getAcounts`,      // GET
   deleteAccount:   `${ServerIpAddress}/deleteAccount`,   // DELETE

@@ -38,7 +38,7 @@ function InStaffTeam() {
   const [selectedItems, setSelectedItems] = useState<SelectedItems>({});
   const [currentPage, setCurrentPage] = useState(1);
   const itemPerPage = 7;
-const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
+const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-1947330390.eu-west-3.elb.amazonaws.com/api";
 
   const IndexOfLastItem = itemPerPage * currentPage;
   const IndexOfFirstItem = IndexOfLastItem - itemPerPage;

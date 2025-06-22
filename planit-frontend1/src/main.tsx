@@ -69,7 +69,11 @@ const router = createBrowserRouter([
     element: <Login_page />,
     errorElement: <div> 404 PAGE NOT FOUND</div>
   },
-
+ {
+    path: '/login',
+    element: <Login_page />,
+    errorElement: <div> 404 PAGE NOT FOUND</div>
+  },
   {
     path: '/landing',
     element: <LandingPage />,

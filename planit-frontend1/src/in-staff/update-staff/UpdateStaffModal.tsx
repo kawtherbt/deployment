@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import './UpdateStaffModal.css';
 import { toast } from 'react-toastify';
-export const ServerIpAddress =import.meta.env.VITE_API_URL?? "http://localhost:5000";
+export const ServerIpAddress =import.meta.env.VITE_API_URL?? "http://planit-alb-1947330390.eu-west-3.elb.amazonaws.com/api";
 
 interface StaffElement {
   ID: number;

@@ -44,7 +44,6 @@ app.listen(process.env.PORT || 8080, '0.0.0.0', () => {
   console.log(`Auth running on port ${process.env.PORT||8080}`);
 });
 
-app.use('/api',authRoutes);
 
 // app.use('/api',authMiddleware,eventRoutes);
 // app.use('/api',clientRoutes);
