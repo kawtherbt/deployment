@@ -16,7 +16,7 @@ $headers = @{
 
 # JSON payload to trigger sync with your connection ID
 $body = @{
-    connectionId = "21b38f56-be5e-4642-8fd8-b491cccc5b33"
+    connectionId = "7358320b-35a5-472c-979f-e134f073206b"
 }
 
 $jsonBody = $body | ConvertTo-Json -Depth 10
@@ -35,3 +35,4 @@ try {
         Write-Host "API Response: $responseBody"
     }
 }
+                
