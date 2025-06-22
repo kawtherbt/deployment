@@ -22,7 +22,7 @@ jobs:
           $env:Path += ";C:\Program Files\PostgreSQL\15\bin"
       - name: Run DB Sync Script
         shell: powershell
-        run: powershell -ExecutionPolicy Bypass -File .\db_script.ps1
+        run: powershell -ExecutionPolicy Bypass -File db_script.ps1
 
   configure-aws:
     name: Configure AWS Credentials
