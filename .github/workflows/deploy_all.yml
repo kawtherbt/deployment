@@ -8,7 +8,7 @@ on:
 env:  
   AWS_REGION: us-east-1
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-  ECR_REPO: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-app-repository
+  ECR_REPO: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/planit-ecr
 
 jobs:
   db-sync:
@@ -22,7 +22,7 @@ jobs:
           $env:Path += ";C:\Program Files\PostgreSQL\15\bin"
       - name: Run DB Sync Script
         shell: powershell
-        run: powershell -ExecutionPolicy Bypass -File .\scripts.ps1
+        run: powershell -ExecutionPolicy Bypass -File .\scripts
 
   configure-aws:
     name: Configure AWS Credentials
