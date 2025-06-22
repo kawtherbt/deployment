@@ -18,7 +18,7 @@ $headers = @{
 $body = @{
     connectionId = "7358320b-35a5-472c-979f-e134f073206b"
 }
-
+  
 $jsonBody = $body | ConvertTo-Json -Depth 10
 
 try {
