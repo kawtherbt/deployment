@@ -16,8 +16,10 @@ app.listen(process.env.PORT || 8080, '0.0.0.0', () => {
   console.log(`Auth running on port ${process.env.PORT||8080}`);
 });
 //app.use(cors({origin: 'http://0.0.0.0',credentials: true}));
-app.use(cors({origin: (origin, callback) => {callback(null, true);},credentials: true}));
-app.use(bodyParser.json());
+app.use(cors({
+  origin: 'http://planit-alb-397640012.us-east-1.elb.amazonaws.com', // or your real frontend domain
+  credentials: true
+}));app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieparser());
 

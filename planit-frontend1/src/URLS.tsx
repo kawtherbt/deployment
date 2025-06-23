@@ -1,5 +1,5 @@
-export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com";
-const AuthServiceURL = import.meta.env.VITE_AUTH_URL ?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com:8080/api";
+export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-397640012.us-east-1.elb.amazonaws.com";
+const AuthServiceURL = import.meta.env.VITE_AUTH_URL ?? "http://planit-alb-397640012.us-east-1.elb.amazonaws.com/api";
 export const URLS = {
   ServerIpAddress,
   // ─── Auth ───────────────────────────────────────────────

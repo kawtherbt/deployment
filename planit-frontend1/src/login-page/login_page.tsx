@@ -8,7 +8,7 @@ import Loading from '../loading/loading';
 import LeftImage from '../assets/Illustration.svg';
 import {toast, ToastContainer} from 'react-toastify';
 import { URLS } from '../URLS';
-export const ServerIpAddress =import.meta.env.VITE_API_URL ?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com";
+export const ServerIpAddress =import.meta.env.VITE_API_URL ?? "http://planit-alb-397640012.us-east-1.elb.amazonaws.com";
 
 function Login_page(){
     const navigate = useNavigate();
@@ -17,7 +17,7 @@ function Login_page(){
             setStatus(FETCH_STATUS.LOADING);
             console.log('Attempting to login with:', { email: data.email });
             
-            const response = await fetch(`${ServerIpAddress}:8080/api/logIn`, {
+            const response = await fetch(URLS.logIn, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

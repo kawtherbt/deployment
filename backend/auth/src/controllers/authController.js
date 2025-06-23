@@ -105,7 +105,7 @@ const logIn = async (req, res) => {
                 httpOnly: true,
                 secure: false,
                 sameSite: 'lax',
-                domain: '',
+                domain: 'planit-alb-397640012.us-east-1.elb.amazonaws.com',
                 maxAge: 28800000
             })
             .json({
