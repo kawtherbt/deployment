@@ -23,7 +23,7 @@ app.use(cookieparser());
 
 
 app.use('/api',authMiddleware,equipmentRoutes);
-app.get('/api/equipement/health', (_req, res) => res.json({ status: 'ok' }));
+app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
 
 
 

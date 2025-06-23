@@ -22,7 +22,7 @@ app.use(cookieparser());
 
 
 app.use('/api',authMiddleware,clientRoutes);
-app.get('/api/client/health', (_req, res) => res.json({ status: 'ok' }));
+app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
 
 
 module.exports = app ; 

@@ -23,7 +23,7 @@ export default function AccountCreation() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/accounts`, {
+      const response = await fetch(`${URLS.ServerIpAddress}:8081/api/accounts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

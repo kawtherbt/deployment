@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X } from 'lucide-react';
 import './AddCarModal.css';
 import { toast } from 'react-toastify';
-export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-1947330390.eu-west-3.elb.amazonaws.com/api";
+export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com";
 
 
 interface AddCarModalProps {

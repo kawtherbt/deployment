@@ -42,7 +42,7 @@ const AddAccountModal: React.FC<AddAccountModalProps> = ({ isOpen, onClose, getA
     
     try {
       setStatus(FETCH_STATUS.LOADING);      
-      const response = await fetch(`${URLS.ServerIpAddress}/signUp`, {
+      const response = await fetch(`${URLS.ServerIpAddress}:8081/api/accounts`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(formData),

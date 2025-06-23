@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieparser());
 
 app.use('/api',authMiddleware,prestataireRoutes);
-app.get('/api/prestataire/health', (_req, res) => {
+app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 module.exports = app ; 

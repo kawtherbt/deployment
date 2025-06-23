@@ -85,7 +85,7 @@ function AgencyStaffInEvent() {
       if (!response.ok) {
         if (response.status === 401) {
           toast.error('Authentication required');
-          navigate('/login');
+          navigate(':8080/api/logIn');
           return;
         }
         throw new Error(result.message || 'Failed to fetch staff');
@@ -222,7 +222,7 @@ function AgencyStaffInEvent() {
       if (!response.ok) {
         if (response.status === 401) {
           toast.error('Authentication required');
-          navigate('/login');
+          navigate(':8080/api/logIn');
           return;
         }
         throw new Error(result.message || 'Failed to delete staff');

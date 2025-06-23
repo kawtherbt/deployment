@@ -1,30 +1,30 @@
-export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-1947330390.eu-west-3.elb.amazonaws.com/api";
-const AuthServiceURL = import.meta.env.VITE_AUTH_URL ?? "http://planit-alb-1947330390.eu-west-3.elb.amazonaws.com/api/auth";
+export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com";
+const AuthServiceURL = import.meta.env.VITE_AUTH_URL ?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com:8080/api";
 export const URLS = {
   ServerIpAddress,
   // ─── Auth ───────────────────────────────────────────────
-  signUp:          `${ServerIpAddress}/signUp`,          // POST
+  signUp:          `${AuthServiceURL}/signUp`,          // POST
   logIn:           `${AuthServiceURL}/logIn`,           // POST
-  updateAccount:   `${ServerIpAddress}/updateAccount`,   // PUT
-  getAccounts:     `${ServerIpAddress}/getAcounts`,      // GET
-  deleteAccount:   `${ServerIpAddress}/deleteAccount`,   // DELETE
+  updateAccount:   `${AuthServiceURL}/updateAccount`,   // PUT
+  getAccounts:     `${AuthServiceURL}/getAccounts`,      // GET
+  deleteAccount:   `${AuthServiceURL}/deleteAccount`,   // DELETE
 
   // ─── Staff ──────────────────────────────────────────────
-  getAllStaff:     `${ServerIpAddress}/getAllStaff`,     // GET
-  addStaff:        `${ServerIpAddress}/addStaff`,        // POST
-  updateStaff:     `${ServerIpAddress}/updateStaff`,     // PUT
-  deleteStaff:     `${ServerIpAddress}/deleteStaff`,     // DELETE
-  getStaffById: (id: number) => `${ServerIpAddress}/staff/${id}`,
+  getAllStaff:     `${ServerIpAddress}:8082/api/getAllStaff`,     // GET
+  addStaff:        `${ServerIpAddress}:8082/api/addStaff`,        // POST
+  updateStaff:     `${ServerIpAddress}:8082/api/updateStaff`,     // PUT
+  deleteStaff:     `${ServerIpAddress}:8082/api/deleteStaff`,     // DELETE
+  getStaffById: (id: number) => `${ServerIpAddress}:8082/api/staff/${id}`,
 // ─── Event ──────────────────────────────────────────────
-  addEvent:                   `${ServerIpAddress}/addEvent`,                    
-  addEventType:               `${ServerIpAddress}/addEventType`,                
-  getEventTypes:              `${ServerIpAddress}/getEventTypes`,               
-  getUPcomingEvents:          `${ServerIpAddress}/getUPcomingEvents`,           
-  getEventsHistory:           `${ServerIpAddress}/getEventsHistory`,            
-  getUPcomingEventsPageData:  `${ServerIpAddress}/getUPcomingEventsPageData`,   
-  getFirstPageData:           `${ServerIpAddress}/getFirstPageData`,            
-  getUPcomingEventsFirstPage: `${ServerIpAddress}/getUPcomingEventsFirstPage`,  
-  getRestOfEventsHistoryData: (id: number) => `${ServerIpAddress}/getRestOfEventsHistoryData/${id}`,
+  addEvent:                   `${ServerIpAddress}:8081/api/addEvent`,                    
+  addEventType:               `${ServerIpAddress}:8081/api/addEventType`,                
+  getEventTypes:              `${ServerIpAddress}:8081/api/getEventTypes`,               
+  getUPcomingEvents:          `${ServerIpAddress}:8081/api/getUPcomingEvents`,           
+  getEventsHistory:           `${ServerIpAddress}:8081/api/getEventsHistory`,            
+  getUPcomingEventsPageData:  `${ServerIpAddress}:8081/api/getUPcomingEventsPageData`,   
+  getFirstPageData:           `${ServerIpAddress}:8081/api/getFirstPageData`,            
+  getUPcomingEventsFirstPage: `${ServerIpAddress}:8081/api/getUPcomingEventsFirstPage`,  
+  getRestOfEventsHistoryData: (id: number) => `${ServerIpAddress}:8081/api/getRestOfEventsHistoryData/${id}`,
 
   // ─── Pause ──────────────────────────────────────────────
   addPause:                   `${ServerIpAddress}/addPause`,                    

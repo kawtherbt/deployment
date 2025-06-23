@@ -44,7 +44,7 @@ const DeleteEquipmentModal: React.FC<DeleteEquipmentModalProps> = ({ isOpen, onC
             nbr:Number(formData.nbr)
         }
       setStatus(FETCH_STATUS.LOADING);      
-      const response = await fetch(`${URLS.ServerIpAddress}/deleteEquipment`, {
+      const response = await fetch(`${URLS.ServerIpAddress}:8085/api/deleteEquipment`, {
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(submitData),

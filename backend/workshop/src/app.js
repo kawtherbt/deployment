@@ -26,7 +26,7 @@ app.use(cookieparser());
 
 app.use('/api',authMiddleware,workshopRoutes);
 app.use('/api',authMiddleware,QARoutes);
-app.get('/api/workshop/health', (_req, res) => {
+app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 

@@ -155,9 +155,9 @@ export default function AddTransport() {
 
       setStatus('loading');
       console.log('Fetching staff for event ID:', eventId);
-      console.log('API URL:', `${URLS.ServerIpAddress}/getStaffByEvent/${eventId}`);
+      console.log('API URL:', `${URLS.ServerIpAddress}:8082/api/getStaffByEvent/${eventId}`);
       
-      const response = await fetch(`${URLS.ServerIpAddress}/getStaffByEvent/${eventId}`, {
+      const response = await fetch(`${URLS.ServerIpAddress}:8082/api/getStaffByEvent/${eventId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -185,7 +185,7 @@ export default function AddTransport() {
 
   const getCars = async () => {
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/getAllCars`, {
+      const response = await fetch(`${URLS.ServerIpAddress}:8089/api/getAllCars`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -335,7 +335,7 @@ export default function AddTransport() {
       }
 
       console.log('Prepared submission data:', submitData);
-      console.log('Sending request to:', `${URLS.ServerIpAddress}/addTransport`);
+      console.log('Sending request to:', `${URLS.ServerIpAddress}:8089/api/addTransport`);
 
       const response = await fetch(`${URLS.ServerIpAddress}/addTransport`, {
         method: 'POST',

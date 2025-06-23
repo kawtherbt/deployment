@@ -6,7 +6,7 @@ import './AddStaffEventTable.css';
 import { FETCH_STATUS } from '../fetchStatus';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-1947330390.eu-west-3.elb.amazonaws.com/api";
+export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com";
 interface StaffElement {
   ID: number;
   nom: string;
@@ -83,7 +83,7 @@ function AddStaffEventTable() {
   const fetchStaff = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${ServerIpAddress}/getAllStaff`, {
+      const response = await fetch(`${ServerIpAddress}:8082/api/getAllStaff`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

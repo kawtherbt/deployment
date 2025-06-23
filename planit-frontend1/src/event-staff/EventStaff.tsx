@@ -40,7 +40,7 @@ function EventStaff() {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [isTeamsExpanded, setIsTeamsExpanded] = useState<boolean>(false);
   const [showAssignedStaff, setShowAssignedStaff] = useState<boolean>(false);
- const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-1947330390.eu-west-3.elb.amazonaws.com/api";
+ const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com";
 
   const IndexOfLastItem = itemPerPage * currentPage;
   const IndexOfFirstItem = IndexOfLastItem - itemPerPage;
@@ -97,8 +97,8 @@ function EventStaff() {
       console.log('Fetching staff...');
       
       const endpoint = showAssignedStaff 
-        ? `${ServerIpAddress}/getStaffByEvent/${eventId}`
-        : `${ServerIpAddress}/getAvailableStaff`;
+        ? `${ServerIpAddress}:8082/api/getStaffByEvent/${eventId}`
+        : `${ServerIpAddress}:8082/api/getAvailableStaff`;
 
       const response = await fetch(endpoint, {
         method: "GET",
@@ -182,7 +182,7 @@ function EventStaff() {
         };
         console.log('Making API request for staff:', staffId, 'with body:', requestBody);
         
-        return fetch(`${ServerIpAddress}/addStaffToEvent`, {
+        return fetch(`${ServerIpAddress}:8082/api/addStaffToEvent`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -260,7 +260,7 @@ function EventStaff() {
         };
         console.log('Making API request to set staff available:', staffId, 'with body:', requestBody);
         
-        return fetch(`${ServerIpAddress}/setStaffAvailable`, {
+        return fetch(`${ServerIpAddress}:8082/api/setStaffAvailable`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

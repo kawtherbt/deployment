@@ -5,7 +5,7 @@ import advertisementImage from '../assets/first_page_advertisement.png';
 import digitalImage from '../assets/first_page_digital.png';
 import Cookies from "js-cookie";
 import { toast } from 'react-toastify';
-export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-1947330390.eu-west-3.elb.amazonaws.com/api";
+export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com";
 
 const FirstPage = () => {
 

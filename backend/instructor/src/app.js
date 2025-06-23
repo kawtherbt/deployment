@@ -24,7 +24,7 @@ app.use(cookieparser());
 
 
 app.use('/api',authMiddleware,instructorRoutes);
-app.get('/api/instructor/health', (_req, res) => {
+app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 

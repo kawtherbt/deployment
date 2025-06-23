@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X } from 'lucide-react';
 import './AddStaffModal.css';
 import { toast } from 'react-toastify';
-export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-1947330390.eu-west-3.elb.amazonaws.com/api";
+export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com";
 
 interface AddStaffModalProps {
   isOpen: boolean;
@@ -31,7 +31,7 @@ const AddStaffModal: React.FC<AddStaffModalProps> = ({ isOpen, onClose, getStaff
     try {
       setIsLoading(true);
       
-      const response = await fetch(`${ServerIpAddress}/addStaff`, {
+      const response = await fetch(`${ServerIpAddress}:8082/api/addStaff`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

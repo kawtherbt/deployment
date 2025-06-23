@@ -38,7 +38,7 @@ function Accounts_page(){
     const getAllAccounts = async() =>{
         try {
             setStatus(FETCH_STATUS.LOADING);
-            const reponse = await fetch(`${ServerIpAddress}/getAcounts`,{
+            const reponse = await fetch(`${ServerIpAddress}:8080/api/getAccounts`,{
                 method:'GET',
                 headers:{'content-type':'application/json'},
                 credentials:'include',
@@ -62,7 +62,7 @@ function Accounts_page(){
     const deleteAccounts = async (ids: number[]) => {
         try {
           setStatus(FETCH_STATUS.LOADING);
-          const response = await fetch(`${URLS.ServerIpAddress}/deleteAccount`, {
+          const response = await fetch(`${URLS.ServerIpAddress}:8080/api/deleteAccount`, {
             method: "DELETE",
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',

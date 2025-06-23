@@ -84,7 +84,7 @@ function AddStaffInEvent() {
 
   const getStaff = async () => {
     try {
-      const response = await axios.get<{ success: boolean; data: Staff[] }>('${ServerIpAddress}/staff');
+      const response = await axios.get<{ success: boolean; data: Staff[] }>('${ServerIpAddress}:8082/api/staff');
       if (response.data.success) {
         setStaff(response.data.data);
       }
@@ -95,7 +95,7 @@ function AddStaffInEvent() {
 
   const getEvents = async () => {
     try {
-      const response = await axios.get<{ success: boolean; data: Event[] }>('${ServerIpAddress}/events');
+      const response = await axios.get<{ success: boolean; data: Event[] }>('${ServerIpAddress}:8081/api/events');
       if (response.data.success) {
         setEvents(response.data.data);
       }
@@ -164,7 +164,7 @@ function AddStaffInEvent() {
 
       console.log('Submitting staff data:', requestBody);
 
-      const response = await fetch(`${URLS.ServerIpAddress}/api/addStaffWithAgence`, {
+      const response = await fetch(`${URLS.ServerIpAddress}:8082/api/addStaffWithAgence`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
