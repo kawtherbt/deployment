@@ -10,21 +10,21 @@ export const URLS = {
   deleteAccount:   `${AuthServiceURL}/deleteAccount`,   // DELETE
 
   // ─── Staff ──────────────────────────────────────────────
-  getAllStaff:     `${ServerIpAddress}:8082/api/getAllStaff`,     // GET
-  addStaff:        `${ServerIpAddress}:8082/api/addStaff`,        // POST
-  updateStaff:     `${ServerIpAddress}:8082/api/updateStaff`,     // PUT
-  deleteStaff:     `${ServerIpAddress}:8082/api/deleteStaff`,     // DELETE
-  getStaffById: (id: number) => `${ServerIpAddress}:8082/api/staff/${id}`,
+  getAllStaff:     `${ServerIpAddress}/getAllStaff`,     // GET
+  addStaff:        `${ServerIpAddress}/addStaff`,        // POST
+  updateStaff:     `${ServerIpAddress}/updateStaff`,     // PUT
+  deleteStaff:     `${ServerIpAddress}/deleteStaff`,     // DELETE
+  getStaffById: (id: number) => `${ServerIpAddress}/staff/${id}`,
 // ─── Event ──────────────────────────────────────────────
-  addEvent:                   `${ServerIpAddress}:8081/api/addEvent`,                    
-  addEventType:               `${ServerIpAddress}:8081/api/addEventType`,                
-  getEventTypes:              `${ServerIpAddress}:8081/api/getEventTypes`,               
-  getUPcomingEvents:          `${ServerIpAddress}:8081/api/getUPcomingEvents`,           
-  getEventsHistory:           `${ServerIpAddress}:8081/api/getEventsHistory`,            
-  getUPcomingEventsPageData:  `${ServerIpAddress}:8081/api/getUPcomingEventsPageData`,   
-  getFirstPageData:           `${ServerIpAddress}:8081/api/getFirstPageData`,            
-  getUPcomingEventsFirstPage: `${ServerIpAddress}:8081/api/getUPcomingEventsFirstPage`,  
-  getRestOfEventsHistoryData: (id: number) => `${ServerIpAddress}:8081/api/getRestOfEventsHistoryData/${id}`,
+  addEvent:                   `${ServerIpAddress}/addEvent`,                    
+  addEventType:               `${ServerIpAddress}/addEventType`,                
+  getEventTypes:              `${ServerIpAddress}/getEventTypes`,               
+  getUPcomingEvents:          `${ServerIpAddress}/getUPcomingEvents`,           
+  getEventsHistory:           `${ServerIpAddress}/getEventsHistory`,            
+  getUPcomingEventsPageData:  `${ServerIpAddress}/getUPcomingEventsPageData`,   
+  getFirstPageData:           `${ServerIpAddress}/getFirstPageData`,            
+  getUPcomingEventsFirstPage: `${ServerIpAddress}/getUPcomingEventsFirstPage`,  
+  getRestOfEventsHistoryData: (id: number) => `${ServerIpAddress}/getRestOfEventsHistoryData/${id}`,
 
   // ─── Pause ──────────────────────────────────────────────
   addPause:                   `${ServerIpAddress}/addPause`,                    
