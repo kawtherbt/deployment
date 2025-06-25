@@ -42,7 +42,7 @@ export default function ProjectDashboard() {
   const getUPcomingEventsPageData = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${URLS.ServerIpAddress}/getUPcomingEventsPageData`, {
+      const response = await fetch(`${URLS.getUPcomingEventsPageData}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

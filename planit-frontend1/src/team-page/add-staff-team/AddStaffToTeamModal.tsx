@@ -61,7 +61,7 @@ const AddStaffToTeamModal: React.FC<AddStaffToTeamModalProps> = ({ isOpen, onClo
         }
         try {
         setStatus(FETCH_STATUS.LOADING);      
-        const response = await fetch(`${URLS.ServerIpAddress}/addStaffToTeam`, {
+        const response = await fetch(`${URLS.addStaffToTeam}`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(submitData),

@@ -6,7 +6,7 @@ function Add_new_type (props:any){
 
     const submitNewType = async (data:any)=>{
         try{
-            const reponse = await fetch(`${URLS.ServerIpAddress}/addEventType`,{
+            const reponse = await fetch(`${URLS.addEventType}`,{
                 method:"POST",
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify(data),

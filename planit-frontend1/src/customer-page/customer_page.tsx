@@ -19,7 +19,7 @@ function Customer_page(){
 
     const getClients = async () => {
         try {
-            const reponse = await fetch(`${URLS.ServerIpAddress}/getAllClients`,{
+            const reponse = await fetch(`${URLS.getAllClients}`,{
                 method:'GET',
                 headers:{"Content-Type":"application/json"},
                 credentials:'include'

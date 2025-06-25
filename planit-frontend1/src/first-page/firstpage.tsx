@@ -5,7 +5,9 @@ import advertisementImage from '../assets/first_page_advertisement.png';
 import digitalImage from '../assets/first_page_digital.png';
 import Cookies from "js-cookie";
 import { toast } from 'react-toastify';
-export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com";
+export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-726372627.us-east-1.elb.amazonaws.com/api";
+import { URLS } from "../URLS";
+
 
 const FirstPage = () => {
 
@@ -30,7 +32,7 @@ const FirstPage = () => {
 
   const getFirstPageData = async () => {
     try {
-      const response = await fetch(`${ServerIpAddress}/getFirstPageData`, {
+      const response = await fetch(`${URLS.getFirstPageData}/`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -62,7 +64,7 @@ const FirstPage = () => {
 
   const getFirstPageUpcomingEvents = async () => {
     try {
-      const response = await fetch(`${ServerIpAddress}/getUPcomingEventsFirstPage`, {
+      const response = await fetch(`${URLS.getUPcomingEventsFirstPage}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

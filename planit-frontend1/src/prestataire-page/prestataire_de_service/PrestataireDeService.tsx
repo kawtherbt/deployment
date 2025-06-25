@@ -43,7 +43,7 @@ function Prestataires_page() {
     const getAllPrestataires = useCallback(async () => {
         try {
             setStatus(FETCH_STATUS.LOADING);
-            const response = await fetch(`${ServerIpAddress}/getPrestataires`, {
+            const response = await fetch(`${URLS.getAllPrestataires}/`, {
                 method: 'GET',
                 headers: { 'content-type': 'application/json' },
                 credentials: 'include',
@@ -73,7 +73,7 @@ function Prestataires_page() {
             return;
         }
         try {
-            const response = await fetch(`${ServerIpAddress}/deletePrestataire`, {
+            const response = await fetch(`${URLS.deletePrestataire}`, {
                 method: "DELETE",
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',

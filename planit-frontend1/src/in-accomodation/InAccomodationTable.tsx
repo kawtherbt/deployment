@@ -46,7 +46,7 @@ const InAccomodationTable = () => {
         console.log('Fetching accommodations for event ID:', numericEventId);
         console.log('Event ID type:', typeof numericEventId);
 
-        const response = await fetch(`${URLS.ServerIpAddress}/api/getEventAccomodation/${numericEventId}`, {
+        const response = await fetch(`${URLS.getEventAccomodation}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ const InAccomodationTable = () => {
 
   const handleDelete = async (id: number) => {
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/api/deleteAccomodation`, {
+      const response = await fetch(`${URLS.deleteAccomodation}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

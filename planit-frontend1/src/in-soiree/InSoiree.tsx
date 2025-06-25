@@ -85,7 +85,7 @@ const InSoiree = () => {
         throw new Error('Invalid event ID');
       }
 
-      const url = `${URLS.ServerIpAddress}/api/getEventSoiree/${numericEventId}`;
+      const url = `${URLS.getEventSoiree}`;
       const headers = getAuthHeaders();
 
       const response = await fetch(url, {
@@ -139,7 +139,7 @@ const InSoiree = () => {
         const headers = getAuthHeaders();
         console.log('Request headers:', headers);
         
-        const deleteUrl = `${URLS.ServerIpAddress}/api/deleteSoiree`;
+        const deleteUrl = `${URLS.deleteSoiree}`;
         console.log('Delete URL:', deleteUrl);
         
         const response = await fetch(deleteUrl, {
@@ -228,7 +228,7 @@ const InSoiree = () => {
         // Delete each soiree sequentially to ensure proper error handling
         for (const soireeId of selectedSoirees) {
           try {
-            const deleteUrl = `${URLS.ServerIpAddress}/api/deleteSoiree`;
+            const deleteUrl = `${URLS.deleteSoiree}`;
             console.log('Deleting soiree:', soireeId);
             
             const response = await fetch(deleteUrl, {

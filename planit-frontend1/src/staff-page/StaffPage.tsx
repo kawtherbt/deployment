@@ -7,7 +7,6 @@ import searchIcon from '../assets/search_black.svg';
 import StaffElement from './staff-element/StaffElement';
 import { toast } from 'react-toastify';
 import { FETCH_STATUS } from '../fetchStatus';
-
 import { Bar, Doughnut } from 'react-chartjs-2';
 import {
     ChartOptions,
@@ -23,7 +22,7 @@ import {
 import Loading from '../loading/loading';
 import { useNavigate } from 'react-router-dom';
 import { URLS } from '../URLS';
-export const ServerIpAddress =import.meta.env.VITE_API_URL?? "http://planit-alb-397640012.us-east-1.elb.amazonaws.com";
+export const ServerIpAddress =import.meta.env.VITE_API_URL?? "http://planit-alb-726372627.us-east-1.elb.amazonaws.com/api";
 
   ChartJS.register(
     CategoryScale,
@@ -60,7 +59,7 @@ function StaffPage(){
     const getAllStaff = async ()=>{
       try {
         setStatus(FETCH_STATUS.LOADING);
-        const reponse = await fetch(`${ServerIpAddress}/getAllStaff`,{
+        const reponse = await fetch(`${URLS.getAllStaff}`,{
             method:"GET",
             headers:{'Content-Type':'application/json'},
             credentials:'include',
@@ -83,7 +82,7 @@ function StaffPage(){
     const getParticipation = async ()=>{
       try {
         setStatus(FETCH_STATUS.LOADING);
-        const reponse = await fetch(`${ServerIpAddress}/getParticipation`,{
+        const reponse = await fetch(`${URLS.getParticipation}`,{
             method:"GET",
             headers:{'Content-Type':'application/json'},
             credentials:'include',

@@ -91,8 +91,8 @@ export default function AddPause() {
       console.log('Submit data being sent:', submitData);
 
       const url = isEditing 
-        ? `${URLS.ServerIpAddress}/updatePause`
-        : `${URLS.ServerIpAddress}/addPause`;
+        ? `${URLS.updatePause}`
+        : `${URLS.addPause}`;
 
       const method = isEditing ? 'PUT' : 'POST';
       console.log(`Making ${method} request to:`, url);

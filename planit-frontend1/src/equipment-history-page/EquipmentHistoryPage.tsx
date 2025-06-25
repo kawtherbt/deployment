@@ -46,7 +46,7 @@ function EquipmentHistoryPage() {
         hour12: false,
       }).replace(",", "");
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${URLS.ServerIpAddress}:8085/api/getHistoryEquipment/${current_time}`, {
+      const response = await fetch(`${URLS.getHistoryEquipment}`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

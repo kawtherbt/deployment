@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import './UpdateStaffModal.css';
 import { toast } from 'react-toastify';
-export const ServerIpAddress =import.meta.env.VITE_API_URL?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com";
-
+export const ServerIpAddress =import.meta.env.VITE_API_URL?? "http://planit-alb-726372627.us-east-1.elb.amazonaws.com/api";
+import { URLS } from '../../URLS';
 interface StaffElement {
   ID: number;
   nom: string;
@@ -55,7 +55,7 @@ const UpdateStaffModal: React.FC<UpdateStaffModalProps> = ({ isOpen, onClose, ge
     try {
       setIsLoading(true);
       
-      const response = await fetch(`${ServerIpAddress}:8082/api/updateStaff/${item.ID}`, {
+      const response = await fetch(`${URLS.updateStaff}/${item.ID}`, {
         method: "PUT",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

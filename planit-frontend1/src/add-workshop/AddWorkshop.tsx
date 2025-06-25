@@ -71,7 +71,7 @@ export default function AddWorkshop() {
         temp_fin: formatDateTime(formData.temp_fin)
       };
 
-      const response = await fetch(`${URLS.ServerIpAddress}/addWorkshop`, {
+      const response = await fetch(`${URLS.addWorkshop}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ export default function AddWorkshop() {
 
   const getInstructors = async () => {
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/getInstructorsForWorkshop`, {
+      const response = await fetch(`${URLS.getInstructorsForWorkshop}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

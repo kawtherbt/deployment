@@ -82,7 +82,7 @@ const InPauses = () => {
         throw new Error('Invalid event ID');
       }
 
-      const url = `${ServerIpAddress}/getAllPausesForEvent/${evenement_id}`;
+      const url = `${URLS.getAllPausesForEvent}`;
       const headers = getAuthHeaders();
 
       const response = await fetch(url, {

@@ -126,7 +126,7 @@ export default function AddTransport() {
 
   const getAgencies = async () => {
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/getAllAgencies`, {
+      const response = await fetch(`${URLS.getAllAgencies}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -155,9 +155,9 @@ export default function AddTransport() {
 
       setStatus('loading');
       console.log('Fetching staff for event ID:', eventId);
-      console.log('API URL:', `${URLS.ServerIpAddress}:8082/api/getStaffByEvent/${eventId}`);
+      console.log('API URL:', `${URLS.getStaffByEvent}`);
       
-      const response = await fetch(`${URLS.ServerIpAddress}:8082/api/getStaffByEvent/${eventId}`, {
+      const response = await fetch(`${URLS.getStaffByEvent}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -185,7 +185,7 @@ export default function AddTransport() {
 
   const getCars = async () => {
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}:8089/api/getAllCars`, {
+      const response = await fetch(`${URLS.getAllCars}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -337,7 +337,7 @@ export default function AddTransport() {
       console.log('Prepared submission data:', submitData);
       console.log('Sending request to:', `${URLS.ServerIpAddress}:8089/api/addTransport`);
 
-      const response = await fetch(`${URLS.ServerIpAddress}/addTransport`, {
+      const response = await fetch(`${URLS.addTransport}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -403,7 +403,7 @@ export default function AddTransport() {
             }
 
             console.log(`\n=== Processing Staff Member ${staffId} ===`);
-            const endpoint = 'http://localhost:5000/api/transport/addTransportStaff';
+            const endpoint = 'http://planit-alb-726372627.us-east-1.elb.amazonaws.com/api/transport/addTransportStaff';
             console.log('Request URL:', endpoint);
             console.log('Request payload:', {
               transport_id: Number(transportId),

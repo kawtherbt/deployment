@@ -126,7 +126,7 @@ export default function AddEquipment() {
       }).filter(([_, value]) => value !== '' && value !== null && value !== undefined));
 
       console.log("submitData : ", JSON.stringify(submitData, null, 2));
-      const response = await fetch(`${URLS.ServerIpAddress}:8085/api/addEquipment`, {
+      const response = await fetch(`${URLS.addEquipment}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -189,7 +189,7 @@ export default function AddEquipment() {
   const getCategoriesAndSubCategories = async () => {
     try {
 
-      const response = await fetch(`${URLS.ServerIpAddress}:8085/api/getCategory`, {
+      const response = await fetch(`${URLS.getCategory}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

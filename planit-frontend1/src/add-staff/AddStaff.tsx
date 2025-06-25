@@ -33,7 +33,7 @@ export default function AddStaff() {
       if (formData.lastName.trim() !== '') {
         submitData.prenom = formData.lastName;
       }
-      const response = await fetch(`${URLS.ServerIpAddress}:8082/api/addStaff`, {
+      const response = await fetch(`${URLS.addStaff}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(submitData),
@@ -59,7 +59,7 @@ export default function AddStaff() {
     try {
       const submitData={nom:(formData.firstName+" "+formData.lastName).trim(),role:formData.privilege,email:formData.email,type:"permanent",staff_id:id,status:"active"}
       console.log("account submitData:",JSON.stringify(submitData,null,2));
-      const response = await fetch(`${URLS.ServerIpAddress}:8080/api/signUp`, {
+      const response = await fetch(`${URLS.signUp}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(submitData),
@@ -83,7 +83,7 @@ export default function AddStaff() {
 
   const getTeams = async ()=>{
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}:8082/api/getAllTeams`, {
+      const response = await fetch(`${URLS.getAllTeams}`, {
         method:'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials:'include',

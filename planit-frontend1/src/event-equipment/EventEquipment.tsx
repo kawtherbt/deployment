@@ -140,9 +140,9 @@ function EventEquipment() {
       console.log('Starting getEquipment function');
       setStatus(FETCH_STATUS.LOADING);
       
-      console.log('Fetching from URL:', `${URLS.ServerIpAddress}/getAvailableEquipmentForEvent`);
+      console.log('Fetching from URL:', `${URLS.getAvailabeEquipment}`);
 
-      const response = await fetch(`${URLS.ServerIpAddress}/getAvailableEquipmentForEvent`, {
+      const response = await fetch(`${URLS.getAvailabeEquipment}`, {
         method: "GET",
         headers: { 
           'Content-Type': 'application/json'
@@ -263,7 +263,7 @@ function EventEquipment() {
         evenement_id: parseInt(eventId, 10)
       });
 
-      const response = await fetch(`${URLS.ServerIpAddress}/unreserveEquipment`, {
+      const response = await fetch(`${URLS.unreserveEquipment}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -50,7 +50,7 @@ const TransportList: React.FC = () => {
 
       try {
         setLoading(true);
-        const response = await fetch(`${URLS.ServerIpAddress}/getEventTransport/${eventId}`, {
+        const response = await fetch(`${URLS.getEventTransport}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ const TransportList: React.FC = () => {
       const requestBody = { ID: id.toString() };
       console.log('Request body:', requestBody);
 
-      const response = await fetch(`${URLS.ServerIpAddress}/deleteTransport`, {
+      const response = await fetch(`${URLS.deleteTransport}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

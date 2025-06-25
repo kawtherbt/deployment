@@ -39,7 +39,7 @@ const SubCategoryModal: React.FC<SubCategoryModalProps> = ({ isOpen, onClose, on
     
     try {
         const submitData={...formData,category_id:Number(formData.category_id)}
-        const response = await fetch(`${URLS.ServerIpAddress}/addSubCategory`, {
+        const response = await fetch(`${URLS.addSubCategory}`, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',

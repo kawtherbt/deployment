@@ -56,7 +56,7 @@ function AgencyEquipmentModal({ isOpen, onClose, eventId, onSuccess }: AgencyEqu
   const fetchAgencyEquipment = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${URLS.ServerIpAddress}/getAvailableAgencyEquipment`, {
+      const response = await fetch(`${URLS.getAvailableAgencyEquipment}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'

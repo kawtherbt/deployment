@@ -6,7 +6,7 @@ import './InStaffTeam.css';
 import { FETCH_STATUS } from '../fetchStatus';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { URLS } from '../URLS';
 interface Team {
   ID: number;
   nom: string;
@@ -38,7 +38,7 @@ function InStaffTeam() {
   const [selectedItems, setSelectedItems] = useState<SelectedItems>({});
   const [currentPage, setCurrentPage] = useState(1);
   const itemPerPage = 7;
-const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com";
+const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-726372627.us-east-1.elb.amazonaws.com/api";
 
   const IndexOfLastItem = itemPerPage * currentPage;
   const IndexOfFirstItem = IndexOfLastItem - itemPerPage;
@@ -89,7 +89,7 @@ const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-59826
   const getTeams = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${ServerIpAddress}/getAllTeams`, {
+      const response = await fetch(`${URLS.getAllTeams}`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -112,7 +112,7 @@ const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-59826
   const getStaffForTeams = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${ServerIpAddress}/getAllStaffForTeams` , {
+      const response = await fetch(`${URLS.getAllStaffForTeams}` , {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

@@ -5,6 +5,7 @@ import Sidebar from '../sidebar/Sidebar';
 import './InAddEquipment.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { URLS } from '../URLS';
 
 // Add date formatting utility functions
 const formatDate = (dateString: string) => {
@@ -52,7 +53,7 @@ function InAddEquipment() {
     e.preventDefault();
     
     try {
-      const response = await fetch('http://localhost:5000/api/equipment', {
+      const response = await fetch(`${URLS.addEquipment}`,{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

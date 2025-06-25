@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import { Import, X } from 'lucide-react';
 import './AddCarModal.css';
 import { toast } from 'react-toastify';
-export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com";
-
+import { URLS } from '../../URLS';
+export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-726372627.us-east-1.elb.amazonaws.com/api";
 
 interface AddCarModalProps {
   isOpen: boolean;
@@ -32,7 +32,7 @@ const AddCarModal: React.FC<AddCarModalProps> = ({ isOpen, onClose, getCars }) =
     try {
       setIsLoading(true);
       
-      const response = await fetch(`${ServerIpAddress}/addCar`, {
+      const response = await fetch(`${URLS.addCar}/`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

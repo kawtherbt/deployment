@@ -221,7 +221,7 @@ function AddEquipmentModal({ isOpen, onClose, onSuccess, eventId }: AddEquipment
 
   const getCategoriesAndSubCategories = async () => {
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/getCategory`, {
+      const response = await fetch(`${URLS.getCategory}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -267,7 +267,7 @@ function AddEquipmentModal({ isOpen, onClose, onSuccess, eventId }: AddEquipment
 
   const getAgencies = async () => {
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/getAvailableAgencyEquipment`, {
+      const response = await fetch(`${URLS.getAvailableAgencyEquipment}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

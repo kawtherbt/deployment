@@ -16,7 +16,7 @@ export default function PrestataireModal({ isOpen, onClose, onSelect }: Prestata
 
   const getAllPrestataires = async () => {
     try {
-      const response = await fetch(`${URLS.ServerIpAddress}/getAllPrestataires`, {
+      const response = await fetch(`${URLS.getAllPrestataires}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

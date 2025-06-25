@@ -30,7 +30,7 @@ const PrestatairePage: React.FC = () => {
   const getPrestataires = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${URLS.ServerIpAddress}/getAllPrestataires`, {
+      const response = await fetch(`${URLS.getAllPrestataires}`, {
         method: 'GET',
         headers: {'Content-Type': 'application/json'},
         credentials: 'include',
@@ -98,7 +98,7 @@ const PrestatairePage: React.FC = () => {
 
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${URLS.ServerIpAddress}/deletePrestataire`, {
+      const response = await fetch(`${URLS.deletePrestataire}`, {
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ IDs: selectedPrestataires }),

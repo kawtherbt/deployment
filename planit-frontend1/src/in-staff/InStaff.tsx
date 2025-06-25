@@ -9,8 +9,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UpdateStaffModal from './update-staff/UpdateStaffModal';
 import { useNavigate } from 'react-router-dom';
-export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-598261793.us-east-1.elb.amazonaws.com";
-
+export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-726372627.us-east-1.elb.amazonaws.com/api";
+import { URLS } from '../URLS';
 interface StaffElement {
   ID: number;
   nom: string;
@@ -93,7 +93,7 @@ function InStaff() {
   const getStaff = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${ServerIpAddress}:8082/api/getAllStaff`, {
+      const response = await fetch(`${URLS.getAllStaff}`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -123,7 +123,7 @@ function InStaff() {
   const deleteStaff = async (ids: number[]) => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${ServerIpAddress}:8082/api/deleteStaff`, {
+      const response = await fetch(`${URLS.deleteStaff}`, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
