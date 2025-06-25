@@ -27,8 +27,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieparser());
 
 
-app.use('/api',authMiddleware,staffRoutes);
-app.use('/api',authMiddleware,teamRoutes);
+app.use('/api/staff',authMiddleware,staffRoutes);
+app.use('/api/team',authMiddleware,teamRoutes);
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok' });
 });

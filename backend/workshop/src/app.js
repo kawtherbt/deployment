@@ -27,9 +27,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieparser());
 
 
-app.use('/api',authMiddleware,workshopRoutes);
-app.use('/api',authMiddleware,QARoutes);
-app.get('/api/health', (_req, res) => {
+app.use('/api/workshop',authMiddleware,workshopRoutes);
+app.use('/api/workshop',authMiddleware,QARoutes);
+app.get('/api/workshop/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 

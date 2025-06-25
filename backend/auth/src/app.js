@@ -24,8 +24,8 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieparser());
 
-app.use('/api',authRoutes);
-app.use('/api',authMiddleware,entrepriseRoutes);
+app.use('/api/auth',authRoutes);
+app.use('/api/auth',authMiddleware,entrepriseRoutes);
 app.get('/api/auth/health', (_req, res) => res.json({ status: 'ok' }));
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
 app.get('/health', (req, res) => {
