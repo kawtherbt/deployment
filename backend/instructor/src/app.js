@@ -18,7 +18,7 @@ app.listen(process.env.PORT || 8086, '0.0.0.0', () => {
 });
 //app.use(cors({origin: 'http://0.0.0.0',credentials: true}));
 app.use(cors({
-  origin: 'http://planit-alb-726372627.us-east-1.elb.amazonaws.com', // or your real frontend domain
+  origin: 'http://planit-alb-1555598401.us-east-1.elb.amazonaws.com', // or your real frontend domain
   credentials: true
 }));
 app.use(bodyParser.json());

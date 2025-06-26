@@ -8,7 +8,7 @@ import AddCarModal from './add-car/AddCarModal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UpdateCarModal from './update-car/UpdateCarModal';
-export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-726372627.us-east-1.elb.amazonaws.com/api";
+export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-1555598401.us-east-1.elb.amazonaws.com/api";
 
 interface CarElement {
   ID: number;

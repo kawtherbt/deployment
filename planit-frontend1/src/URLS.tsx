@@ -2,7 +2,7 @@ import AddAccountModal from "./accounts/add-account/AddAccountModal";
 
 export const ServerIpAddress =
   import.meta.env.VITE_API_URL ??
-  "http://planit-alb-726372627.us-east-1.elb.amazonaws.com/api";
+  "http://planit-alb-1555598401.us-east-1.elb.amazonaws.com/api";
 
 const AuthServiceURL = `${ServerIpAddress}/auth`;
 const StaffServiceURL = `${ServerIpAddress}/staff`;

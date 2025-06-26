@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UpdateStaffModal from './update-staff/UpdateStaffModal';
 import { useNavigate } from 'react-router-dom';
-export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-726372627.us-east-1.elb.amazonaws.com/api";
+export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-1555598401.us-east-1.elb.amazonaws.com/api";
 import { URLS } from '../URLS';
 interface StaffElement {
   ID: number;

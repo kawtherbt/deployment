@@ -3,7 +3,7 @@ import { Import, X } from 'lucide-react';
 import './AddCarModal.css';
 import { toast } from 'react-toastify';
 import { URLS } from '../../URLS';
-export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-726372627.us-east-1.elb.amazonaws.com/api";
+export const ServerIpAddress = import.meta.env.VITE_API_URL?? "http://planit-alb-1555598401.us-east-1.elb.amazonaws.com/api";
 
 interface AddCarModalProps {
   isOpen: boolean;
