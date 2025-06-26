@@ -19,7 +19,7 @@ app.listen(process.env.PORT || 8090, '0.0.0.0', () => {
 });
 //app.use(cors({origin: 'http://0.0.0.0',credentials: true}));
 app.use(cors({
-  origin: 'http://planit-alb-1555598401.us-east-1.elb.amazonaws.com', // or your real frontend domain
+  origin: 'http://planit-alb-1555598401.us-east-1.elb.amazonaws.com/api', // or your real frontend domain
   credentials: true
 }));
 app.use(bodyParser.json());
@@ -27,9 +27,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieparser());
 
 
-app.use('/api/workshop',authMiddleware,workshopRoutes);
-app.use('/api/workshop',authMiddleware,QARoutes);
-app.get('/api/workshop/health', (_req, res) => {
+app.use('/workshop',authMiddleware,workshopRoutes);
+app.use('/workshop',authMiddleware,QARoutes);
+app.get('/workshop/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 
