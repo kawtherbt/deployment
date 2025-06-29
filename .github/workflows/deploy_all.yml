@@ -216,3 +216,4 @@ jobs:
       - name: Logout from Amazon ECR
         shell: powershell
         run: docker logout ${{ env.ECR_REPO }}
+  
