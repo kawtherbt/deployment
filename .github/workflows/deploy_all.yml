@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - final
-   
+
 env:  
   AWS_REGION: us-east-1
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
@@ -88,6 +88,8 @@ jobs:
     needs: build-services
     runs-on: self-hosted
     steps:
+      - uses: aws-actions/amazon-ecr-login@v2
+
       - name: Install Trivy (Windows)
         shell: powershell
         run: |
@@ -100,7 +102,20 @@ jobs:
       - name: Scan images with Trivy
         shell: powershell
         run: |
-          $services = @("auth-service", "staff-service", "event-service", "frontend-service")
+          $services = @(
+            "auth-service",
+            "staff-service",
+            "event-service",
+            "accomodation-service",
+            "client-service",
+            "equipement-service",
+            "instructor-service",
+            "prestataire-service",
+            "soiree-service",
+            "transport-service",
+            "workshop-service",
+            "frontend-service"
+          )
           $repo = "${{ env.ECR_REPO }}"
           $sha = "${{ github.sha }}"
           
@@ -108,13 +123,9 @@ jobs:
             $latestTag = "${repo}:$svc-latest"
             $shaTag = "${repo}:$svc-$sha"
             Write-Host "Scanning $latestTag"
-            trivy image --exit-code 0 --severity HIGH,CRITICAL `
-            --ignore-unfixed `
-            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/planit:latest
+            trivy image --exit-code 0 --severity HIGH,CRITICAL --ignore-unfixed $latestTag
             Write-Host "Scanning $shaTag"
-            trivy image --exit-code 0 --severity HIGH,CRITICAL `
-            --ignore-unfixed `
-            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/planit:${{ github.sha }}
+            trivy image --exit-code 0 --severity HIGH,CRITICAL --ignore-unfixed $shaTag
           }
 
   sonarqube-scan:
@@ -190,7 +201,7 @@ jobs:
             "workshop-service",
             "frontend-service"
           )
-              $repo = "${{ env.ECR_REPO }}"
+          $repo = "${{ env.ECR_REPO }}"
           $sha = "${{ github.sha }}"
           
           foreach ($svc in $services) {
@@ -205,30 +216,3 @@ jobs:
       - name: Logout from Amazon ECR
         shell: powershell
         run: docker logout ${{ env.ECR_REPO }}
-  # terraform-deploy:
-  #   name: Deploy ECS Services with Terraform
-  #   needs: push-to-ecr
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - name: Checkout Repo
-  #       uses: actions/checkout@v4
-
-  #     - name: Setup Terraform
-  #       uses: hashicorp/setup-terraform@v3
-
-  #     - name: Configure AWS Credentials
-  #       uses: aws-actions/configure-aws-credentials@v3
-  #       with:
-  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  #         aws-region: ${{ env.AWS_REGION }}
-
-  #     - name: Terraform Init
-  #       run: terraform init
-
-  #     - name: Terraform Plan
-  #       run: terraform plan -out=tfplan
-
-  #     - name: Terraform Apply
-  #       run: terraform apply -auto-approve tfplan
