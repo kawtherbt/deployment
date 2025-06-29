@@ -110,11 +110,11 @@ jobs:
             Write-Host "Scanning $latestTag"
             trivy image --exit-code 0 --severity HIGH,CRITICAL `
             --ignore-unfixed `
-            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-app-repository:latest
+            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/planit-ecr:latest
             Write-Host "Scanning $shaTag"
             trivy image --exit-code 0 --severity HIGH,CRITICAL `
             --ignore-unfixed `
-            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/my-app-repository:${{ github.sha }}
+            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/planit-ecr:${{ github.sha }}
           }
 
   sonarqube-scan:
