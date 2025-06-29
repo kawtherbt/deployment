@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 function StaffElement(props:any){
     const navigate = useNavigate();
-    const ServerIpAddress =import.meta.env.VITE_API_URL ?? "http://planit-alb-1555598401.us-east-1.elb.amazonaws.com/api";
+    const ServerIpAddress =import.meta.env.VITE_API_URL ?? "http://planit-alb-895528359.us-east-1.elb.amazonaws.com/api";
 
     const deleteStaff = async ()=>{
         try {

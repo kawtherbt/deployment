@@ -5,7 +5,7 @@ const {addTeam,updateTeam,deleteTeam,getAllTeams,
 
 const router = express.Router();
 
-router.post("/addTeam",addTeam);
+router.post("/api/addTeam",addTeam);
 
 router.put("/addStaffToTeam",addStaffToTeam);
 router.put("/updateTeam",updateTeam);

@@ -403,7 +403,7 @@ export default function AddTransport() {
             }
 
             console.log(`\n=== Processing Staff Member ${staffId} ===`);
-            const endpoint = 'http://planit-alb-1555598401.us-east-1.elb.amazonaws.com/api/transport/addTransportStaff';
+            const endpoint = 'http://planit-alb-895528359.us-east-1.elb.amazonaws.com/api/transport/addTransportStaff';
             console.log('Request URL:', endpoint);
             console.log('Request payload:', {
               transport_id: Number(transportId),
