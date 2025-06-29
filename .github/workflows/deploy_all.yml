@@ -8,7 +8,7 @@ on:
 env:  
   AWS_REGION: us-east-1
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-  ECR_REPO: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/planit-ecr
+  ECR_REPO: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/planit
 
 jobs:
   db-sync:
@@ -110,11 +110,11 @@ jobs:
             Write-Host "Scanning $latestTag"
             trivy image --exit-code 0 --severity HIGH,CRITICAL `
             --ignore-unfixed `
-            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/planit-ecr:latest
+            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/planit:latest
             Write-Host "Scanning $shaTag"
             trivy image --exit-code 0 --severity HIGH,CRITICAL `
             --ignore-unfixed `
-            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/planit-ecr:${{ github.sha }}
+            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/planit:${{ github.sha }}
           }
 
   sonarqube-scan:
