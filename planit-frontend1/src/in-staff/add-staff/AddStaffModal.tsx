@@ -31,7 +31,7 @@ const AddStaffModal: React.FC<AddStaffModalProps> = ({ isOpen, onClose, getStaff
     try {
       setIsLoading(true);
       
-      const response = await fetch(`${URLS.addStaff}`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/staff/addStaff`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

@@ -93,7 +93,7 @@ function InStaff() {
   const getStaff = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${URLS.getAllStaff}`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/staff/getAllStaff`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

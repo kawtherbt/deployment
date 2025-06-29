@@ -13,7 +13,7 @@ function StaffElement(props:any){
     const deleteStaff = async ()=>{
         try {
           
-            const reponse = await fetch(`${URLS.deleteStaff}`,{
+            const reponse = await fetch(`${URLS.ServerIpAddress}/staff/deleteStaff`,{
                 method:"DELETE",
                 headers:{'Content-Type':'application/json'},
                 credentials:'include',
@@ -28,7 +28,7 @@ function StaffElement(props:any){
             setDeleted(true);
         
         }catch (error:any) {
-          console.error("error while getting upcoming events",error.message);
+          console.error("error while getting staff",error.message);
           toast.error(error.message);
         }
       }

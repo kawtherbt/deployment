@@ -59,7 +59,7 @@ function StaffPage(){
     const getAllStaff = async ()=>{
       try {
         setStatus(FETCH_STATUS.LOADING);
-        const reponse = await fetch(`${URLS.getAllStaff}`,{
+        const reponse = await fetch(`${URLS.ServerIpAddress}/staff/getAllStaff`,{
             method:"GET",
             headers:{'Content-Type':'application/json'},
             credentials:'include',
@@ -73,7 +73,7 @@ function StaffPage(){
         setStaff(result.data);
         setStatus(FETCH_STATUS.SUCCESS);
       }catch (error:any) {
-        console.error("error while getting upcoming events",error.message);
+        console.error("error while getting all staff",error.message);
         toast.error(error.message);
         setStatus(FETCH_STATUS.ERROR)
       }
@@ -96,7 +96,7 @@ function StaffPage(){
         setParticipationData(result.data);
         setStatus(FETCH_STATUS.SUCCESS);
       }catch (error:any) {
-        console.error("error while getting upcoming events",error.message);
+        console.error("error while getting participation",error.message);
         toast.error(error.message);
         setStatus(FETCH_STATUS.ERROR)
       }
