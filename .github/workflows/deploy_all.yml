@@ -195,7 +195,7 @@ jobs:
           
           foreach ($svc in $services) {
             $latestTag = "${repo}:$svc-latest"
-            $shaTag = "${repo}:$svc-$sha"
+            $shaTag = "${repo}:$svc-$sha"   
             Write-Host "Pushing $latestTag"
             docker push $latestTag
             Write-Host "Pushing $shaTag"
