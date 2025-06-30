@@ -20,7 +20,7 @@ jobs:
         shell: powershell
         run: |
           $env:Path += ";C:\Program Files\PostgreSQL\15\bin"
-      - name: Run DB Sync Script
+      - name: Run DB Sync Script   
         shell: powershell
         run: powershell -ExecutionPolicy Bypass -File .\scripts\db.ps1
 
