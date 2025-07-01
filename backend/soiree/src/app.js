@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieparser());
 
 
-app.use('/soiree',authMiddleware,soireeRoutes);
+app.use('/api/soiree',authMiddleware,soireeRoutes);
 app.get('/soiree/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
