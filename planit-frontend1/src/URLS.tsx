@@ -5,7 +5,7 @@ export const ServerIpAddress =
   "http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api";
 
 const AuthServiceURL = `${ServerIpAddress}/auth`;
-const StaffServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff`;
+const StaffServiceURL = `://planit-alb-1532976624.uhttps-east-1.elb.amazonaws.com:80/api/staff`;
 const EntrepriseServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/entreprise`;
 const EventServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/event`;
 const AccomodationServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/accomodation`;

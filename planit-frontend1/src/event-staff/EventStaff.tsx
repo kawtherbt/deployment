@@ -97,8 +97,8 @@ function EventStaff() {
       console.log('Fetching staff...');
       
       const endpoint = showAssignedStaff 
-        ? `${URLS.getStaffByEvent}`
-        : `${URLS.getAvailableStaff}`;
+        ? `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/getStaffByEvent/${eventId}`
+        : `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/getAvailableStaff`;
 
       const response = await fetch(endpoint, {
         method: "GET",
@@ -182,7 +182,7 @@ function EventStaff() {
         };
         console.log('Making API request for staff:', staffId, 'with body:', requestBody);
         
-        return fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/addStaffToEvent}`, {
+        return fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/addStaffToEvent`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -260,7 +260,7 @@ function EventStaff() {
         };
         console.log('Making API request to set staff available:', staffId, 'with body:', requestBody);
         
-        return fetch(`${URLS.setStaffAvailable}`, {
+        return fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/setStaffAvailable`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

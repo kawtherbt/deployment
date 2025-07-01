@@ -46,7 +46,7 @@ function EquipmentHistoryPage() {
         hour12: false,
       }).replace(",", "");
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${URLS.getHistoryEquipment}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/equipment/getHistoryEquipment/${current_time}`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

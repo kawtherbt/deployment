@@ -106,7 +106,7 @@ function AddStaffInEvent() {
 
   const getAgencies = async () => {
     try {
-      const response = await fetch(`${URLS.getAllAgencies}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/getAllAgencies`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ function AddStaffInEvent() {
 
       console.log('Submitting staff data:', requestBody);
 
-      const response = await fetch(`${URLS.addStaffWithAgence}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/addStaffWithAgence`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

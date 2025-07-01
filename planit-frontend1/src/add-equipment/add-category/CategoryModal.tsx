@@ -29,7 +29,7 @@ const CategoryModal: React.FC<CategoryModalProps> = ({ isOpen, onClose, onCatego
     setIsSubmitting(true);
     
     try {
-        const response = await fetch(`${URLS.addCategory}`, {
+        const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/equipment/addCategory`, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',

@@ -79,7 +79,7 @@ export default function AddSoiree() {
 
       console.log('Submitting soiree data:', submitData);
 
-      const response = await fetch(`${URLS.addSoiree}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/soiree/addSoiree`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

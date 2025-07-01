@@ -179,9 +179,9 @@ function EventEquipment() {
       console.log('Starting getReservedEquipment function');
       setStatus(FETCH_STATUS.LOADING);
       
-      console.log('Fetching from URL:', `${URLS.ServerIpAddress}/equipment/getReservedEquipmentForEvent/${eventId}`);
+      console.log('Fetching from URL:', `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/equipment/getReservedEquipmentForEvent/${eventId}`);
 
-      const response = await fetch(`${URLS.ServerIpAddress}/equipment/getReservedEquipmentForEvent/${eventId}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/equipment/getReservedEquipmentForEvent/${eventId}`, {
         method: "GET",
         headers: { 
           'Content-Type': 'application/json'

@@ -33,7 +33,7 @@ export default function AddStaff() {
       if (formData.lastName.trim() !== '') {
         submitData.prenom = formData.lastName;
       }
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/addStaff}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/addStaff`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(submitData),
@@ -83,7 +83,7 @@ export default function AddStaff() {
 
   const getTeams = async ()=>{
     try {
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/team/getAllTeams}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/team/getAllTeams`, {
         method:'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials:'include',

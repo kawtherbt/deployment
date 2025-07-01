@@ -267,7 +267,7 @@ function AddEquipmentModal({ isOpen, onClose, onSuccess, eventId }: AddEquipment
 
   const getAgencies = async () => {
     try {
-      const response = await fetch(`${URLS.getAvailableAgencyEquipment}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/equipment/getAvailableAgencyEquipment`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

@@ -160,7 +160,7 @@ const InWorkshops = () => {
       try {
         console.log('Starting delete process for workshop ID:', workshopId);
         
-        const deleteUrl = `${URLS.ServerIpAddress}/deleteWorkshop`;
+        const deleteUrl = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/workshop/deleteWorkshop`;
         console.log('Delete URL:', deleteUrl);
         
         const requestBody = { id: workshopId };
@@ -268,7 +268,7 @@ const InWorkshops = () => {
           try {
             console.log(`Deleting workshop ID: ${workshopId}`);
             
-            const deleteUrl = `${ServerIpAddress}/deleteWorkshop`;
+            const deleteUrl = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/workshop/deleteWorkshop`;
             console.log('Delete URL:', deleteUrl);
             
             const requestBody = { id: workshopId };

@@ -50,7 +50,7 @@ const TransportList: React.FC = () => {
 
       try {
         setLoading(true);
-        const response = await fetch(`${URLS.getEventTransport}`, {
+        const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/transport/getEventTransport/${eventId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ const TransportList: React.FC = () => {
       const requestBody = { ID: id.toString() };
       console.log('Request body:', requestBody);
 
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/transport/deleteTransport}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/transport/deleteTransport`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

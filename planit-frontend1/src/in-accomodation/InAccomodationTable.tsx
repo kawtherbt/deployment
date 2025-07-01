@@ -108,7 +108,7 @@ const InAccomodationTable = () => {
 
   const handleDelete = async (id: number) => {
     try {
-      const response = await fetch(`${URLS.deleteAccomodation}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/accomodation/deleteAccomodation`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
