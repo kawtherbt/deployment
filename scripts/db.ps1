@@ -16,7 +16,8 @@ $headers = @{
 
 # JSON payload to trigger sync with your connection ID
 $body = @{
-    connectionId = "21b38f56-be5e-4642-8fd8-b491cccc5b33"
+    # connectionId = "21b38f56-be5e-4642-8fd8-b491cccc5b33"
+    connectionId = "767d4beb-b725-462a-8fa8-f1dd94f9b54c"
 }
   
 $jsonBody = $body | ConvertTo-Json -Depth 10
