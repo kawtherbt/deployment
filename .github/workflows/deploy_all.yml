@@ -157,7 +157,7 @@ jobs:
             -D'sonar.objc.file.suffixes=-'
 
   owasp-dependency-check:
-    name: Run OWASP Dependency-Check
+    name: Run OWASP Dependency-Check  
     needs: sonarqube-scan
     runs-on: ubuntu-latest
     steps:
