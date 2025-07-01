@@ -1,0 +1,235 @@
+-- Script de nettoyage des colonnes Airbyte inutiles
+
+ALTER TABLE "Clients"
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE "Liste_equipement"
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE "Liste_staff"
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE "Q&A"
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE accomodation
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE accounts
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE agence
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE atelier
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE car
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE category
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE department
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE entreprise
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE equipement
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE evenement
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE evenement_invite
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE evenement_type
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE instructeur
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE invite
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE liste_equipement
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE pause
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE soire
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE staff
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE staff_transport
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE sub_category
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE team
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
+
+ALTER TABLE transport
+  DROP COLUMN IF EXISTS _airbyte_raw_id,
+  DROP COLUMN IF EXISTS _airbyte_extracted_at,
+  DROP COLUMN IF EXISTS _airbyte_generation_id,
+  DROP COLUMN IF EXISTS _airbyte_meta,
+  DROP COLUMN IF EXISTS raw_id,
+  DROP COLUMN IF EXISTS _airbyte_emitted_at,
+  DROP COLUMN IF EXISTS _airbyte_id;
