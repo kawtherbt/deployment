@@ -58,7 +58,7 @@ const UpdatePrestataireModal: React.FC<UpdatePrestataireModalProps> = ({ isOpen,
     try {
       const submitData = {...formData, ID: item.ID};
       setStatus(FETCH_STATUS.LOADING);      
-      const response = await fetch(`${URLS.updatePrestataire}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/prestataire/updatePrestataire`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(submitData),

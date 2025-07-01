@@ -182,7 +182,7 @@ function EventStaff() {
         };
         console.log('Making API request for staff:', staffId, 'with body:', requestBody);
         
-        return fetch(`${URLS.addStaffToEvent}`, {
+        return fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/addStaffToEvent}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

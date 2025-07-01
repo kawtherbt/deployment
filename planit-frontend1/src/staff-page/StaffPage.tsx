@@ -59,7 +59,7 @@ function StaffPage(){
     const getAllStaff = async ()=>{
       try {
         setStatus(FETCH_STATUS.LOADING);
-        const reponse = await fetch(`${URLS.ServerIpAddress}/staff/getAllStaff`,{
+        const reponse = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/getAllStaff`,{
             method:"GET",
             headers:{'Content-Type':'application/json'},
             credentials:'include',
@@ -82,7 +82,7 @@ function StaffPage(){
     const getParticipation = async ()=>{
       try {
         setStatus(FETCH_STATUS.LOADING);
-        const reponse = await fetch(`${URLS.getParticipation}`,{
+        const reponse = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/getParticipation`,{
             method:"GET",
             headers:{'Content-Type':'application/json'},
             credentials:'include',

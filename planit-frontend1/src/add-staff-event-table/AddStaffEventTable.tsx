@@ -84,7 +84,7 @@ function AddStaffEventTable() {
   const fetchStaff = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${URLS.getAllStaff}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/getAllStaff`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

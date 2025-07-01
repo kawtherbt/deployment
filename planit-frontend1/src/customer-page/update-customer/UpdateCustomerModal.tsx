@@ -56,7 +56,7 @@ const UpdateCustomerModal: React.FC<UpdateCustomerModalProps> = ({ isOpen, onClo
     try {
         const submitData = {...formData,num_tel:Number(formData.num_tel),ID:Number(itemid)}
       setStatus(FETCH_STATUS.LOADING);      
-      const response = await fetch(`${URLS.updateClient}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/client/updateClient`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(submitData),

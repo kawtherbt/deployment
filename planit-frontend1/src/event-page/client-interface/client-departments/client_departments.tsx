@@ -10,7 +10,7 @@ function ClientDepartments(props:any){
         try {
             //alert("trying to get client department");
             //alert(JSON.stringify({user_id:props.clientID}));
-            const reponse = await fetch(`${URLS.ServerIpAddress}/getClientDepartments/${props.clientID}`,{
+            const reponse = await fetch(`${URLS.ServerIpAddress}/client/getClientDepartments/${props.clientID}`,{
                 method:'GET',
                 headers:{"Content-Type":"application/json"},
                 credentials: 'include',
@@ -24,7 +24,7 @@ function ClientDepartments(props:any){
             
             setDepartments(result.data);
         } catch (error:any) {
-            console.error("failed to get clients",error.message);
+            console.error("failed to get clients departments",error.message);
         }
     }
 

@@ -19,7 +19,7 @@ function Customer_page(){
 
     const getClients = async () => {
         try {
-            const reponse = await fetch(`${URLS.getAllClients}`,{
+            const reponse = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/client/getAllClients`,{
                 method:'GET',
                 headers:{"Content-Type":"application/json"},
                 credentials:'include'

@@ -84,7 +84,7 @@ function AddStaffInEvent() {
 
   const getStaff = async () => {
     try {
-      const response = await axios.get<{ success: boolean; data: Staff[] }>('${URLS.ServerIpAddress}/staff');
+      const response = await axios.get<{ success: boolean; data: Staff[] }>('http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff');
       if (response.data.success) {
         setStaff(response.data.data);
       }
@@ -95,7 +95,7 @@ function AddStaffInEvent() {
 
   const getEvents = async () => {
     try {
-      const response = await axios.get<{ success: boolean; data: Event[] }>('${ServerIpAddress}/events');
+      const response = await axios.get<{ success: boolean; data: Event[] }>('http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/event');
       if (response.data.success) {
         setEvents(response.data.data);
       }

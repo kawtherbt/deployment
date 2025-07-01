@@ -69,7 +69,7 @@ function Equipment_table(props:any){
             //const SubmitData = {timestamp:String(current_time)}
             //console.log(JSON.stringify(SubmitData));
             setStatus(FETCH_STATUS.LOADING);
-            const reponse = await fetch(`${URLS.getAllEquipment}`,{
+            const reponse = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/equipment/getAllEquipment`,{
                 method:"GET",
                 headers:{'Content-Type':'application/json'},
                 credentials:'include',

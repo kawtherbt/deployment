@@ -126,7 +126,7 @@ export default function AddTransport() {
 
   const getAgencies = async () => {
     try {
-      const response = await fetch(`${URLS.getAllAgencies}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/getAllAgencies`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -185,7 +185,7 @@ export default function AddTransport() {
 
   const getCars = async () => {
     try {
-      const response = await fetch(`${URLS.getAllCars}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/transport/getAllCars}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -337,7 +337,7 @@ export default function AddTransport() {
       console.log('Prepared submission data:', submitData);
       console.log('Sending request to:', `${URLS.ServerIpAddress}:8089/api/addTransport`);
 
-      const response = await fetch(`${URLS.addTransport}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/transport/addTransport}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -403,7 +403,7 @@ export default function AddTransport() {
             }
 
             console.log(`\n=== Processing Staff Member ${staffId} ===`);
-            const endpoint = 'http://planit-alb-895528359.us-east-1.elb.amazonaws.com/api/transport/addTransportStaff';
+            const endpoint = 'http://planit-alb-895528359.us-east-1.elb.amazonaws.com:80/api/transport/addTransportStaff';
             console.log('Request URL:', endpoint);
             console.log('Request payload:', {
               transport_id: Number(transportId),

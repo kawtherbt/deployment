@@ -12,7 +12,7 @@ function Department(props:any){
             data = {...data,"client_id":props.clientID,num_tel:Number(data.num_tel)};
             
             
-            const reponse = await fetch(`${URLS.ServerIpAddress}/addDepartment`,{
+            const reponse = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/client/addDepartment`,{
                 method:"POST",
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify(data),

@@ -44,7 +44,7 @@ function Login_page(){
             Cookies.set('isLogedIn', 'true', {expires: 1/3, sameSite: 'lax'});
             Cookies.set('role', result.data.role, {expires: 1/3, sameSite: 'lax'});
             Cookies.set('user', JSON.stringify(result.data), {expires: 1, sameSite: 'lax'});
-            
+            Cookies.set('token', result.data.token, {expires: 1,sameSite: 'lax', secure: false,});
             // Store token in memory or secure storage
             localStorage.setItem('token', result.data.token);
             

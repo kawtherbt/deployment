@@ -6,7 +6,7 @@ import { FETCH_STATUS } from '../fetchStatus';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, useParams } from 'react-router-dom';
-import { URLS } from '../URLS';
+import { ServerIpAddress, URLS } from '../URLS';
 import ReserveEquipmentModal from './ReserveEquipmentModal';
 import AgencyEquipmentModal from './AgencyEquipmentModal';
 
@@ -140,9 +140,9 @@ function EventEquipment() {
       console.log('Starting getEquipment function');
       setStatus(FETCH_STATUS.LOADING);
       
-      console.log('Fetching from URL:', `${URLS.getAvailabeEquipment}`);
+      console.log('Fetching from URL:', `${ServerIpAddress}/equipment/getAvailabeEquipment`);
 
-      const response = await fetch(`${URLS.getAvailabeEquipment}`, {
+      const response = await fetch(`${ServerIpAddress}/equipment/getAvailabeEquipment}`, {
         method: "GET",
         headers: { 
           'Content-Type': 'application/json'
@@ -179,9 +179,9 @@ function EventEquipment() {
       console.log('Starting getReservedEquipment function');
       setStatus(FETCH_STATUS.LOADING);
       
-      console.log('Fetching from URL:', `${URLS.ServerIpAddress}/getReservedEquipmentForEvent/${eventId}`);
+      console.log('Fetching from URL:', `${URLS.ServerIpAddress}/equipment/getReservedEquipmentForEvent/${eventId}`);
 
-      const response = await fetch(`${URLS.ServerIpAddress}/getReservedEquipmentForEvent/${eventId}`, {
+      const response = await fetch(`${URLS.ServerIpAddress}/equipment/getReservedEquipmentForEvent/${eventId}`, {
         method: "GET",
         headers: { 
           'Content-Type': 'application/json'
@@ -263,7 +263,7 @@ function EventEquipment() {
         evenement_id: parseInt(eventId, 10)
       });
 
-      const response = await fetch(`${URLS.unreserveEquipment}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/equipment/unreserveEquipment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

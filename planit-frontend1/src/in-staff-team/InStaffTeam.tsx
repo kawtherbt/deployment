@@ -89,7 +89,7 @@ const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-89552
   const getTeams = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${URLS.getAllTeams}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/team/getAllTeams`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -112,7 +112,7 @@ const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-89552
   const getStaffForTeams = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`${URLS.getAllStaffForTeams}` , {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/team/getAllStaffForTeams` , {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

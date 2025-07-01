@@ -163,7 +163,7 @@ function AddEquipmentModal({ isOpen, onClose, onSuccess, eventId }: AddEquipment
         agence_id: formData.agence_id ? Number(formData.agence_id) : undefined
       };
 
-      const response = await fetch(`${URLS.ServerIpAddress}/addEquipment`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/equipment/addEquipment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -221,7 +221,7 @@ function AddEquipmentModal({ isOpen, onClose, onSuccess, eventId }: AddEquipment
 
   const getCategoriesAndSubCategories = async () => {
     try {
-      const response = await fetch(`${URLS.getCategory}`, {
+      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/equipment/getCategory`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
