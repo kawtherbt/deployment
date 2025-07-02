@@ -43,7 +43,7 @@ function Prestataires_page() {
     const getAllPrestataires = useCallback(async () => {
         try {
             setStatus(FETCH_STATUS.LOADING);
-            const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/prestataire/getAllPrestataires`, {
+            const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/prestataire/getAllPrestataires`, {
                 method: 'GET',
                 headers: { 'content-type': 'application/json' },
                 credentials: 'include',
@@ -73,7 +73,7 @@ function Prestataires_page() {
             return;
         }
         try {
-            const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/prestataire/deletePrestataire`, {
+            const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/prestataire/deletePrestataire`, {
                 method: "DELETE",
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',

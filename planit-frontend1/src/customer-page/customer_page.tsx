@@ -19,7 +19,7 @@ function Customer_page(){
 
     const getClients = async () => {
         try {
-            const reponse = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/client/getAllClients`,{
+            const reponse = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/client/getAllClients`,{
                 method:'GET',
                 headers:{"Content-Type":"application/json"},
                 credentials:'include'

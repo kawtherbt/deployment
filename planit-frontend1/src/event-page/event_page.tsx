@@ -5,7 +5,7 @@ import Event_creation from "./event-creation/event_creation";
 //import Add_new_type from "./add-new-type/add_new_type";
 import { FETCH_STATUS } from "../fetchStatus";
 import { URLS } from "../URLS";
-export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-378717788.us-east-1.elb.amazonaws.com/api";
+export const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-1132579378.us-east-1.elb.amazonaws.com/api";
 
 import "./event_page.css"
 import { toast } from "react-toastify";
@@ -14,7 +14,7 @@ function Event_page(){
     const getUpcomingEvents = async ()=>{
         try {
             setStatus(FETCH_STATUS.LOADING);
-            const reponse = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/event/getUPcomingEvents`,{
+            const reponse = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/event/getUPcomingEvents`,{
                 method:"GET",
                 headers:{'Content-Type':'application/json'},
                 credentials:'include',

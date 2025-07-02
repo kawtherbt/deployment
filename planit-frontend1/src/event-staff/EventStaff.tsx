@@ -40,7 +40,7 @@ function EventStaff() {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [isTeamsExpanded, setIsTeamsExpanded] = useState<boolean>(false);
   const [showAssignedStaff, setShowAssignedStaff] = useState<boolean>(false);
- const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-378717788.us-east-1.elb.amazonaws.com/api";
+ const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-1132579378.us-east-1.elb.amazonaws.com/api";
 
   const IndexOfLastItem = itemPerPage * currentPage;
   const IndexOfFirstItem = IndexOfLastItem - itemPerPage;
@@ -97,8 +97,8 @@ function EventStaff() {
       console.log('Fetching staff...');
       
       const endpoint = showAssignedStaff 
-        ? `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/staff/getStaffByEvent/${eventId}`
-        : `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/staff/getAvailableStaff`;
+        ? `planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/getStaffByEvent/${eventId}`
+        : `planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/getAvailableStaff`;
 
       const response = await fetch(endpoint, {
         method: "GET",
@@ -182,7 +182,7 @@ function EventStaff() {
         };
         console.log('Making API request for staff:', staffId, 'with body:', requestBody);
         
-        return fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/staff/addStaffToEvent`, {
+        return fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/addStaffToEvent`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -260,7 +260,7 @@ function EventStaff() {
         };
         console.log('Making API request to set staff available:', staffId, 'with body:', requestBody);
         
-        return fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/staff/setStaffAvailable`, {
+        return fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/setStaffAvailable`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

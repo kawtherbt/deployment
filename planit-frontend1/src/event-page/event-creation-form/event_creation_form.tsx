@@ -40,7 +40,7 @@ function Event_creation_form(props:any,ref:any){
         try {
             
             setClient_interfaceStatus(FETCH_STATUS.LOADING);
-            const reponse = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/client/getAllClients`,{
+            const reponse = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/client/getAllClients`,{
                 method:'GET',
                 headers:{"Content-Type":"application/json"},
                 credentials: 'include',
@@ -65,7 +65,7 @@ function Event_creation_form(props:any,ref:any){
             //props.setStatus(FETCH_STATUS.LOADING);
              
             console.log("trying to create");
-            const reponse = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/event/addEvent`,{
+            const reponse = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/event/addEvent`,{
                 method:'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(data),
@@ -93,7 +93,7 @@ function Event_creation_form(props:any,ref:any){
 
     const getEventTypes = async ()=>{
         try{
-            const reponse = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/event/getEventTypes`,{
+            const reponse = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/event/getEventTypes`,{
                 method:'GET',
                 headers:{'Content-Type':'application/json'},
                 credentials: 'include',
@@ -131,7 +131,7 @@ function Event_creation_form(props:any,ref:any){
         try {
             props.setStatus(FETCH_STATUS.LOADING);
             
-            const reponse = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/event/updateEvent`,{
+            const reponse = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/event/updateEvent`,{
                 method:'PUT',
                 headers:{'Content-Type':'application/json'},
                 body:JSON.stringify({...data,"ID":id}),
@@ -165,7 +165,7 @@ function Event_creation_form(props:any,ref:any){
     const deleteEvent = async(id:number)=>{
         try {
             props.setStatus(FETCH_STATUS.LOADING);
-            const reponse = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/event/deleteEvent`,{
+            const reponse = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/event/deleteEvent`,{
                 method:'DELETE',
                 headers:{'Content-Type':'application/json'},
                 body:JSON.stringify({"ID":id}),

@@ -30,7 +30,7 @@ const PrestatairePage: React.FC = () => {
   const getPrestataires = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/prestataire/getAllPrestataires`, {
+      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/prestataire/getAllPrestataires`, {
         method: 'GET',
         headers: {'Content-Type': 'application/json'},
         credentials: 'include',
@@ -98,7 +98,7 @@ const PrestatairePage: React.FC = () => {
 
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/prestataire/deletePrestataire`, {
+      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/prestataire/deletePrestataire`, {
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ IDs: selectedPrestataires }),

@@ -46,7 +46,7 @@ export default function AdduserAccomodation() {
     try {
       setStatus(FETCH_STATUS.LOADING);
       const submitData = {...formData,evenement_id:evenement_id.current,number:Number(formData.number),prix:Number(formData.prix)}
-      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/accomodation/addAccomodation`, {
+      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/accomodation/addAccomodation`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
