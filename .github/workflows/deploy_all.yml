@@ -204,7 +204,7 @@ jobs:
           )
           $repo = "${{ env.ECR_REPO }}"
           $sha = "${{ github.sha }}"
-          
+            
           foreach ($svc in $services) {
             $latestTag = "${repo}:$svc-latest"
             $shaTag = "${repo}:$svc-$sha"   
