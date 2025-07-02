@@ -29,7 +29,7 @@ export default function StaffUpdate() {
     e.preventDefault();
     
     try {
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/updateStaff`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/staff/updateStaff`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json',},
         credentials:'include',

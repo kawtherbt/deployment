@@ -126,7 +126,7 @@ export default function AddEquipment() {
       }).filter(([_, value]) => value !== '' && value !== null && value !== undefined));
 
       console.log("submitData : ", JSON.stringify(submitData, null, 2));
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/equipment/addEquipment`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/equipment/addEquipment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -189,7 +189,7 @@ export default function AddEquipment() {
   const getCategoriesAndSubCategories = async () => {
     try {
 
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/equipment/getCategory`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/equipment/getCategory`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

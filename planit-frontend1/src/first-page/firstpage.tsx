@@ -32,7 +32,7 @@ const FirstPage = () => {
 
   const getFirstPageData = async () => {
     try {
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/event/getFirstPageData/`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/event/getFirstPageData/`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -64,7 +64,7 @@ const FirstPage = () => {
 
   const getFirstPageUpcomingEvents = async () => {
     try {
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/event/getUPcomingEventsFirstPage`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/event/getUPcomingEventsFirstPage`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

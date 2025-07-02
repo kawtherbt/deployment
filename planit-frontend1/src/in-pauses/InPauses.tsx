@@ -140,7 +140,7 @@ const InPauses = () => {
         const headers = getAuthHeaders();
         console.log('Request headers:', headers);
         
-        const deleteUrl = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/pause/deletePause`;
+        const deleteUrl = `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/pause/deletePause`;
         console.log('Delete URL:', deleteUrl);
         
         const requestBody = { ID: String(pauseId) };
@@ -220,7 +220,7 @@ const InPauses = () => {
 
         const deletePromises = selectedPauses.map(pauseId => {
           console.log('Creating delete promise for pause:', pauseId);
-          return fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/pause/deletePause`, {
+          return fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/pause/deletePause`, {
             method: 'DELETE',
             headers: headers,
             body: JSON.stringify({ id: pauseId }),

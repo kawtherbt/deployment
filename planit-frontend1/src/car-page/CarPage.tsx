@@ -81,7 +81,7 @@ function CarPage() {
   const getCars = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/transport/getAllCars`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/transport/getAllCars`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -104,7 +104,7 @@ function CarPage() {
   const deleteCars = async (ids: number[]) => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/transport/deleteCar`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/transport/deleteCar`, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

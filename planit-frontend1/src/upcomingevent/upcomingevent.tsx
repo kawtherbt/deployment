@@ -42,7 +42,7 @@ export default function ProjectDashboard() {
   const getUPcomingEventsPageData = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/event/getUPcomingEventsPageData`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/event/getUPcomingEventsPageData`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

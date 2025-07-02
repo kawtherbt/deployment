@@ -32,7 +32,7 @@ const AddCarModal: React.FC<AddCarModalProps> = ({ isOpen, onClose, getCars }) =
     try {
       setIsLoading(true);
       
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/transport/addCar`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/transport/addCar`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

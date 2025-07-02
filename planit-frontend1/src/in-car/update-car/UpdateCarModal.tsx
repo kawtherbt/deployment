@@ -54,7 +54,7 @@ const UpdateCarModal: React.FC<UpdateCarModalProps> = ({ isOpen, onClose, getCar
     try {
       setIsLoading(true);
       
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/transport/updateCar/${item.ID}`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/transport/updateCar/${item.ID}`, {
         method: "PUT",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

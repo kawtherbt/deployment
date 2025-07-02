@@ -13,7 +13,7 @@ function StaffElement(props:any){
     const deleteStaff = async ()=>{
         try {
           
-            const reponse = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/deleteStaff`,{
+            const reponse = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/staff/deleteStaff`,{
                 method:"DELETE",
                 headers:{'Content-Type':'application/json'},
                 credentials:'include',

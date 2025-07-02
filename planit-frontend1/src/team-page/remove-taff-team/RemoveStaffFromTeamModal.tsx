@@ -41,7 +41,7 @@ const RemoveStaffFromTeamModal: React.FC<RemoveStaffFromTeamModalProps> = ({ isO
             teamId: formData.teamId,
         }
       setStatus(FETCH_STATUS.LOADING);      
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/team/addStaffToTeam`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/team/addStaffToTeam`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(submitData),

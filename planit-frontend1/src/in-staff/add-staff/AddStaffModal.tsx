@@ -31,7 +31,7 @@ const AddStaffModal: React.FC<AddStaffModalProps> = ({ isOpen, onClose, getStaff
     try {
       setIsLoading(true);
       
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/staff/addStaff`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/staff/addStaff`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

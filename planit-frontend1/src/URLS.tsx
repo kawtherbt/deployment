@@ -2,22 +2,22 @@ import AddAccountModal from "./accounts/add-account/AddAccountModal";
 
 export const ServerIpAddress =
   import.meta.env.VITE_API_URL ??
-  "http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api";
+  "planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api";
 
 const AuthServiceURL = `${ServerIpAddress}/auth`;
 const StaffServiceURL = `://planit-alb-1532976624.uhttps-east-1.elb.amazonaws.com:80/api/staff`;
-const EntrepriseServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/entreprise`;
-const EventServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/event`;
-const AccomodationServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/accomodation`;
-const ClientServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/client`;
-const EquipmentServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/equipment`;
-const TransportServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/transport`;
-const WorkshopServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/workshop`;
-const SoireeServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/soiree`;
-const InstructorServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/instructor`;
-const PrestataireServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/apiprestataire`;
-const TeamServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/team`;
-const PauseServiceURL = `http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/pause`;
+const EntrepriseServiceURL = `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/entreprise`;
+const EventServiceURL = `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/event`;
+const AccomodationServiceURL = `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/accomodation`;
+const ClientServiceURL = `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/client`;
+const EquipmentServiceURL = `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/equipment`;
+const TransportServiceURL = `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/transport`;
+const WorkshopServiceURL = `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/workshop`;
+const SoireeServiceURL = `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/soiree`;
+const InstructorServiceURL = `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/instructor`;
+const PrestataireServiceURL = `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/apiprestataire`;
+const TeamServiceURL = `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/team`;
+const PauseServiceURL = `planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/pause`;
 
 export const URLS = {
   ServerIpAddress,

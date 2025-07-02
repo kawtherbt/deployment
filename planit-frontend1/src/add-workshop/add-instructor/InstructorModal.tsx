@@ -40,7 +40,7 @@ const InstructorModal: React.FC<InstructorModalProps> = ({ isOpen, onClose, onIn
     try {
         const submitData={...formData,age:Number(formData.age),num_tel:Number(formData.num_tel)}
         alert(JSON.stringify(submitData))
-        const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/instructor/addInstructor`, {
+        const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/instructor/addInstructor`, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',

@@ -124,7 +124,7 @@ export default function UpdateEquipment() {
 
       console.log("formData", JSON.stringify(formData));
       console.log("submitData", JSON.stringify(submitData));
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/equipment/updateEquipment`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/equipment/updateEquipment`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(submitData),
@@ -157,7 +157,7 @@ export default function UpdateEquipment() {
 
   const getCategoriesAndSubCategories = async () => {
     try {
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/equipment/getCategory`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/equipment/getCategory`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -213,7 +213,7 @@ export default function UpdateEquipment() {
 
   const getPrestataireById = async (id: string) => {
     try {
-      const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/prestataire/getAllPrestataires`, {
+      const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/prestataire/getAllPrestataires`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

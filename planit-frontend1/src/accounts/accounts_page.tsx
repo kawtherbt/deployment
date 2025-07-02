@@ -38,7 +38,7 @@ function Accounts_page(){
     const getAllAccounts = async() =>{
         try {
             setStatus(FETCH_STATUS.LOADING);
-            const reponse = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/auth/getAccounts`,{
+            const reponse = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/auth/getAccounts`,{
                 method:'GET',
                 headers:{'content-type':'application/json'},
                 credentials:'include',
@@ -62,7 +62,7 @@ function Accounts_page(){
     const deleteAccounts = async (ids: number[]) => {
         try {
           setStatus(FETCH_STATUS.LOADING);
-          const response = await fetch(`http://planit-alb-1532976624.us-east-1.elb.amazonaws.com:80/api/auth/deleteAccount`, {
+          const response = await fetch(`planit-alb-378717788.us-east-1.elb.amazonaws.com:80/api/auth/deleteAccount`, {
             method: "DELETE",
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
