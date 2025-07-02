@@ -38,7 +38,7 @@ jobs:
     name: Build Docker Images (single repo)
     needs: [db-sync, configure-aws]
     runs-on: self-hosted
-    strategy:
+    strategy:  
       matrix:
         service:
           - name: auth-service
