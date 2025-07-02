@@ -91,8 +91,8 @@ export default function AddPause() {
       console.log('Submit data being sent:', submitData);
 
       const url = isEditing 
-        ? `planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/pause/updatePause`
-        : `planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/pause/addPause`;
+        ? `http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/pause/updatePause`
+        : `http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/pause/addPause`;
 
       const method = isEditing ? 'PUT' : 'POST';
       console.log(`Making ${method} request to:`, url);

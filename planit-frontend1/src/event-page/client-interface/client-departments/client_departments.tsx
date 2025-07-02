@@ -10,7 +10,7 @@ function ClientDepartments(props:any){
         try {
             //alert("trying to get client department");
             //alert(JSON.stringify({user_id:props.clientID}));
-            const reponse = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/client/getClientDepartments/${props.clientID}`,{
+            const reponse = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/client/getClientDepartments/${props.clientID}`,{
                 method:'GET',
                 headers:{"Content-Type":"application/json"},
                 credentials: 'include',

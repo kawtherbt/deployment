@@ -126,7 +126,7 @@ export default function AddTransport() {
 
   const getAgencies = async () => {
     try {
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/getAllAgencies`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/getAllAgencies`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -155,9 +155,9 @@ export default function AddTransport() {
 
       setStatus('loading');
       console.log('Fetching staff for event ID:', eventId);
-      console.log('API URL:', `planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/getStaffByEvent/${eventId}`);
+      console.log('API URL:', `http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/getStaffByEvent/${eventId}`);
       
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/getStaffByEvent/${eventId}`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/getStaffByEvent/${eventId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -185,7 +185,7 @@ export default function AddTransport() {
 
   const getCars = async () => {
     try {
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/transport/getAllCars`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/transport/getAllCars`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -335,9 +335,9 @@ export default function AddTransport() {
       }
 
       console.log('Prepared submission data:', submitData);
-      console.log('Sending request to:', `planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/transport/addTransport`);
+      console.log('Sending request to:', `http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/transport/addTransport`);
 
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/transport/addTransport`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/transport/addTransport`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

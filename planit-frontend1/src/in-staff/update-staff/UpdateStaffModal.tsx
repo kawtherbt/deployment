@@ -55,7 +55,7 @@ const UpdateStaffModal: React.FC<UpdateStaffModalProps> = ({ isOpen, onClose, ge
     try {
       setIsLoading(true);
       
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/updateStaff/${item.ID}`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/updateStaff/${item.ID}`, {
         method: "PUT",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

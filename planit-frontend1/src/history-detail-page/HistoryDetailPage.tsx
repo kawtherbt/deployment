@@ -240,7 +240,7 @@ const HistoryDetailPage = () => {
   const getEventTransports = async () => {
     try {
         setStatus(FETCH_STATUS.LOADING);
-        const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/transport/getEventtransport/${eventId}`,
+        const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/transport/getEventtransport/${eventId}`,
             {
                 method: "GET",
                 headers: {

@@ -90,7 +90,7 @@ function content(props:any){
                 return;
             }
 
-            const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/client/deleteClient`,{
+            const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/client/deleteClient`,{
                 method:'DELETE',
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify({IDs:ids}),

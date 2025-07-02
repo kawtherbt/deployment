@@ -163,7 +163,7 @@ function AddEquipmentModal({ isOpen, onClose, onSuccess, eventId }: AddEquipment
         agence_id: formData.agence_id ? Number(formData.agence_id) : undefined
       };
 
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/addEquipment`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/addEquipment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -221,7 +221,7 @@ function AddEquipmentModal({ isOpen, onClose, onSuccess, eventId }: AddEquipment
 
   const getCategoriesAndSubCategories = async () => {
     try {
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/getCategory`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/getCategory`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -267,7 +267,7 @@ function AddEquipmentModal({ isOpen, onClose, onSuccess, eventId }: AddEquipment
 
   const getAgencies = async () => {
     try {
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/getAvailableAgencyEquipment`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/getAvailableAgencyEquipment`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

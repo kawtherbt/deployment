@@ -71,7 +71,7 @@ export default function AddWorkshop() {
         temp_fin: formatDateTime(formData.temp_fin)
       };
 
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/workshop/addWorkshop`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/workshop/addWorkshop`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ export default function AddWorkshop() {
 
   const getInstructors = async () => {
     try {
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/instructor/getInstructorsForWorkshop`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/instructor/getInstructorsForWorkshop`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

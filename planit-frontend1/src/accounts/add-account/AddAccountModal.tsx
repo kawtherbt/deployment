@@ -42,7 +42,7 @@ const AddAccountModal: React.FC<AddAccountModalProps> = ({ isOpen, onClose, getA
     
     try {
       setStatus(FETCH_STATUS.LOADING);      
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/event/accounts`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/event/accounts`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(formData),

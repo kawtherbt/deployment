@@ -70,7 +70,7 @@ function TeamPage(){
     const getTeams = async () => {
         try {
             setStatus(FETCH_STATUS.LOADING);
-            const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/team/getAllTeams`, {
+            const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/team/getAllTeams`, {
                 method: "GET",
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -93,7 +93,7 @@ function TeamPage(){
     const getStaffForTeams = async () => {
         try {
             setStatus(FETCH_STATUS.LOADING);
-            const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/team/getAllStaffForTeams`, {
+            const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/team/getAllStaffForTeams`, {
                 method: "GET",
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -116,7 +116,7 @@ function TeamPage(){
         try {
             console.log(ids);
             setStatus(FETCH_STATUS.LOADING);
-            const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/team/deleteTeam`, {
+            const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/team/deleteTeam`, {
                 method: "DELETE",
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',

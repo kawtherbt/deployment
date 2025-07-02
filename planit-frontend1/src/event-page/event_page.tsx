@@ -14,7 +14,7 @@ function Event_page(){
     const getUpcomingEvents = async ()=>{
         try {
             setStatus(FETCH_STATUS.LOADING);
-            const reponse = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/event/getUPcomingEvents`,{
+            const reponse = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/event/getUPcomingEvents`,{
                 method:"GET",
                 headers:{'Content-Type':'application/json'},
                 credentials:'include',

@@ -25,7 +25,7 @@ function Equipment_page(){
               }).replace(",", "");
             //console.log(JSON.stringify(SubmitData));
             setStatus(FETCH_STATUS.LOADING);
-            const reponse = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/getEquipmentUse/${current_time}`,{
+            const reponse = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/getEquipmentUse/${current_time}`,{
                 method:"GET",
                 headers:{'Content-Type':'application/json'},
                 credentials:'include',
@@ -58,7 +58,7 @@ function Equipment_page(){
               }).replace(",", "");
             //console.log(JSON.stringify(SubmitData));
             setStatus(FETCH_STATUS.LOADING);
-            const reponse = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/getCategoryUse/${current_time}`,{
+            const reponse = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/getCategoryUse/${current_time}`,{
                 method:"GET",
                 headers:{'Content-Type':'application/json'},
                 credentials:'include',

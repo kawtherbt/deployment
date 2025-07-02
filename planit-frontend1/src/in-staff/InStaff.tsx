@@ -93,7 +93,7 @@ function InStaff() {
   const getStaff = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/getAllStaff`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/getAllStaff`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -123,7 +123,7 @@ function InStaff() {
   const deleteStaff = async (ids: number[]) => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/deleteStaff`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/deleteStaff`, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

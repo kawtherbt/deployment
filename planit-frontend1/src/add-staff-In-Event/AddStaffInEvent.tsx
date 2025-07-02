@@ -84,7 +84,7 @@ function AddStaffInEvent() {
 
   const getStaff = async () => {
     try {
-      const response = await axios.get<{ success: boolean; data: Staff[] }>('planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff');
+      const response = await axios.get<{ success: boolean; data: Staff[] }>('http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff');
       if (response.data.success) {
         setStaff(response.data.data);
       }
@@ -95,7 +95,7 @@ function AddStaffInEvent() {
 
   const getEvents = async () => {
     try {
-      const response = await axios.get<{ success: boolean; data: Event[] }>('planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/event');
+      const response = await axios.get<{ success: boolean; data: Event[] }>('http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/event');
       if (response.data.success) {
         setEvents(response.data.data);
       }
@@ -106,7 +106,7 @@ function AddStaffInEvent() {
 
   const getAgencies = async () => {
     try {
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/getAllAgencies`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/getAllAgencies`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ function AddStaffInEvent() {
 
       console.log('Submitting staff data:', requestBody);
 
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/addStaffWithAgence`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/addStaffWithAgence`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

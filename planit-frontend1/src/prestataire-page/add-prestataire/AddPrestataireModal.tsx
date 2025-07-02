@@ -35,7 +35,7 @@ const AddPrestataireModal: React.FC<AddPrestataireModalProps> = ({ isOpen, onClo
     try {
       const submitData ={...formData,num_tel:Number(formData.num_tel)}
       setStatus(FETCH_STATUS.LOADING);      
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/prestataire/addPrestataire`, {
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/prestataire/addPrestataire`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(submitData),

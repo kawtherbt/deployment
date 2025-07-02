@@ -55,8 +55,8 @@ function ReserveEquipmentModal({ isOpen, onClose, equipmentId, eventId, onSucces
     });
     
     try {
-      console.log('Sending reservation request to:', `planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/reserveEquipment`);
-      const response = await fetch(`planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/reserveEquipment`, {
+      console.log('Sending reservation request to:', `http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/reserveEquipment`);
+      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/reserveEquipment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
