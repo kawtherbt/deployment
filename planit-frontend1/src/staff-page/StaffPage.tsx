@@ -22,7 +22,7 @@ import {
 import Loading from '../loading/loading';
 import { useNavigate } from 'react-router-dom';
 import { URLS } from '../URLS';
-export const ServerIpAddress =import.meta.env.VITE_API_URL?? "http://planit-alb-895528359.us-east-1.elb.amazonaws.comapi";
+export const ServerIpAddress =import.meta.env.VITE_API_URL?? "http://planit-alb-378717788.us-east-1.elb.amazonaws.comapi";
 
   ChartJS.register(
     CategoryScale,
