@@ -1,4 +1,4 @@
-name: CI/CD Pipeline - Single ECR Repo
+name: CI/CD DevSecOps Pipeline 
 
 on:
   push:
