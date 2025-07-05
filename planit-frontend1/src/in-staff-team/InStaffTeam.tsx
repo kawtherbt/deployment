@@ -38,7 +38,7 @@ function InStaffTeam() {
   const [selectedItems, setSelectedItems] = useState<SelectedItems>({});
   const [currentPage, setCurrentPage] = useState(1);
   const itemPerPage = 7;
-const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-1132579378.us-east-1.elb.amazonaws.com/api";
+const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-1128307560.us-east-1.elb.amazonaws.com/api";
 
   const IndexOfLastItem = itemPerPage * currentPage;
   const IndexOfFirstItem = IndexOfLastItem - itemPerPage;
@@ -89,7 +89,7 @@ const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-11325
   const getTeams = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/team/getAllTeams`, {
+      const response = await fetch(`http://planit-alb-1128307560.us-east-1.elb.amazonaws.com:80/api/team/getAllTeams`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -112,7 +112,7 @@ const ServerIpAddress = import.meta.env.VITE_API_URL ?? "http://planit-alb-11325
   const getStaffForTeams = async () => {
     try {
       setStatus(FETCH_STATUS.LOADING);
-      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/team/getAllStaffForTeams` , {
+      const response = await fetch(`http://planit-alb-1128307560.us-east-1.elb.amazonaws.com:80/api/team/getAllStaffForTeams` , {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

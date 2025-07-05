@@ -53,7 +53,7 @@ function InAddEquipment() {
     e.preventDefault();
     
     try {
-      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/addEquipment`,{
+      const response = await fetch(`http://planit-alb-1128307560.us-east-1.elb.amazonaws.com:80/api/equipment/addEquipment`,{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

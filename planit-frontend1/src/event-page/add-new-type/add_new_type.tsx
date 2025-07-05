@@ -6,7 +6,7 @@ function Add_new_type (props:any){
 
     const submitNewType = async (data:any)=>{
         try{
-            const reponse = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/event/addEventType`,{
+            const reponse = await fetch(`http://planit-alb-1128307560.us-east-1.elb.amazonaws.com:80/api/event/addEventType`,{
                 method:"POST",
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify(data),

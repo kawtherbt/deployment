@@ -34,7 +34,7 @@ const AddTeamModal: React.FC<AddTeamModalProps> = ({ isOpen, onClose, getTeams }
     
     try {
       setStatus(FETCH_STATUS.LOADING);      
-      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/team/addTeam`, {
+      const response = await fetch(`http://planit-alb-1128307560.us-east-1.elb.amazonaws.com:80/api/team/addTeam`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(formData),

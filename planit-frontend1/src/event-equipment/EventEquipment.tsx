@@ -179,9 +179,9 @@ function EventEquipment() {
       console.log('Starting getReservedEquipment function');
       setStatus(FETCH_STATUS.LOADING);
       
-      console.log('Fetching from URL:', `http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/getReservedEquipmentForEvent/${eventId}`);
+      console.log('Fetching from URL:', `http://planit-alb-1128307560.us-east-1.elb.amazonaws.com:80/api/equipment/getReservedEquipmentForEvent/${eventId}`);
 
-      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/getReservedEquipmentForEvent/${eventId}`, {
+      const response = await fetch(`http://planit-alb-1128307560.us-east-1.elb.amazonaws.com:80/api/equipment/getReservedEquipmentForEvent/${eventId}`, {
         method: "GET",
         headers: { 
           'Content-Type': 'application/json'
@@ -263,7 +263,7 @@ function EventEquipment() {
         evenement_id: parseInt(eventId, 10)
       });
 
-      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/equipment/unreserveEquipment`, {
+      const response = await fetch(`http://planit-alb-1128307560.us-east-1.elb.amazonaws.com:80/api/equipment/unreserveEquipment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

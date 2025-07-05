@@ -22,7 +22,7 @@ import {
 import Loading from '../loading/loading';
 import { useNavigate } from 'react-router-dom';
 import { URLS } from '../URLS';
-export const ServerIpAddress =import.meta.env.VITE_API_URL?? "http://planit-alb-1132579378.us-east-1.elb.amazonaws.comapi";
+export const ServerIpAddress =import.meta.env.VITE_API_URL?? "http://planit-alb-1128307560.us-east-1.elb.amazonaws.comapi";
 
   ChartJS.register(
     CategoryScale,
@@ -59,7 +59,7 @@ function StaffPage(){
     const getAllStaff = async ()=>{
       try {
         setStatus(FETCH_STATUS.LOADING);
-        const reponse = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/getAllStaff`,{
+        const reponse = await fetch(`http://planit-alb-1128307560.us-east-1.elb.amazonaws.com:80/api/staff/getAllStaff`,{
             method:"GET",
             headers:{'Content-Type':'application/json'},
             credentials:'include',
@@ -82,7 +82,7 @@ function StaffPage(){
     const getParticipation = async ()=>{
       try {
         setStatus(FETCH_STATUS.LOADING);
-        const reponse = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/getParticipation`,{
+        const reponse = await fetch(`http://planit-alb-1128307560.us-east-1.elb.amazonaws.com:80/api/staff/getParticipation`,{
             method:"GET",
             headers:{'Content-Type':'application/json'},
             credentials:'include',

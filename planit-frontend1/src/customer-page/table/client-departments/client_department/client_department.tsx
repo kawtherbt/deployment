@@ -45,7 +45,7 @@ const ClientDepartment: React.FC<ClientDepartmentProps> = ({ ID, nom, department
     const confirmDelete = async () => {
         try {
             console.log("ID: ",ID);
-            const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/client/deleteDepartment`, {
+            const response = await fetch(`http://planit-alb-1128307560.us-east-1.elb.amazonaws.com:80/api/client/deleteDepartment`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ID:Number(ID) }),

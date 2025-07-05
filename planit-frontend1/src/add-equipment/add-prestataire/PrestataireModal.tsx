@@ -16,7 +16,7 @@ export default function PrestataireModal({ isOpen, onClose, onSelect }: Prestata
 
   const getAllPrestataires = async () => {
     try {
-      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/prestataire/getAllPrestataires`, {
+      const response = await fetch(`http://planit-alb-1128307560.us-east-1.elb.amazonaws.com:80/api/prestataire/getAllPrestataires`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

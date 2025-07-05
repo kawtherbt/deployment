@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import './UpdateStaffModal.css';
 import { toast } from 'react-toastify';
-export const ServerIpAddress =import.meta.env.VITE_API_URL?? "http://planit-alb-1132579378.us-east-1.elb.amazonaws.com/api";
+export const ServerIpAddress =import.meta.env.VITE_API_URL?? "http://planit-alb-1128307560.us-east-1.elb.amazonaws.com/api";
 import { URLS } from '../../URLS';
 interface StaffElement {
   ID: number;
@@ -55,7 +55,7 @@ const UpdateStaffModal: React.FC<UpdateStaffModalProps> = ({ isOpen, onClose, ge
     try {
       setIsLoading(true);
       
-      const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/staff/updateStaff/${item.ID}`, {
+      const response = await fetch(`http://planit-alb-1128307560.us-east-1.elb.amazonaws.com:80/api/staff/updateStaff/${item.ID}`, {
         method: "PUT",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

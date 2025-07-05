@@ -27,7 +27,7 @@ function UpdateDepartment({ department, onClose, onUpdate }: UpdateDepartmentPro
 
     const updateDepartment = async (data: any) => {
         try {
-            const response = await fetch(`http://planit-alb-1132579378.us-east-1.elb.amazonaws.com:80/api/client/UpdateDepartment`, {
+            const response = await fetch(`http://planit-alb-1128307560.us-east-1.elb.amazonaws.com:80/api/client/UpdateDepartment`, {
                 method: 'PUT',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
